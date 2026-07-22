@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>切らない 巻き爪専門店フットラボ｜AI診断・初回体験｜亀戸</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F4EF;
+    --bg-2:#FCFAF6;
+    --surface:#FFFFFF;
+    --hair:rgba(35,32,28,.16);
+    --hair-2:rgba(35,32,28,.09);
+    --ink:#23201C;
+    --ink-soft:#6E685F;
+    --ink-dim:#A6A093;
+    --orange:#E0700F;
+    --orange-2:#F5842B;
+    --orange-soft:rgba(224,112,15,.14);
+    --orange-tint:rgba(224,112,15,.06);
+    --line:#06C755;
+    --line-d:#05A847;
+    --r:3px;
+    --r-lg:4px;
+    --serif:"Shippori Mincho", serif;
+    --sans:"Noto Sans JP", sans-serif;
+    --funnel:500px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);
+    background:
+      radial-gradient(900px 420px at 50% -8%, rgba(224,112,15,.10) 0%, transparent 62%),
+      var(--bg);
+    background-attachment:fixed;
+    line-height:1.85;
+    font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden;padding-bottom:80px;letter-spacing:.01em}
+  .funnel{max-width:var(--funnel);margin:0 auto;padding:0 20px}
+  .serif{font-family:var(--serif)}
+  b,strong{font-weight:700}
+  .accent{color:var(--orange)}
+
+  /* labels */
+  .label{font-family:var(--sans);font-weight:500;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--orange);display:inline-block}
+  .label.dim{color:var(--ink-dim)}
+  .divider{width:34px;height:1px;background:var(--orange);margin:0 auto}
+
+  /* CTA */
+  .cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+    background:var(--line);color:#fff;font-weight:700;font-size:1.02rem;letter-spacing:.04em;
+    padding:17px 18px;border-radius:var(--r);text-decoration:none;border:none;cursor:pointer;position:relative;overflow:hidden;
+    transition:background .2s,transform .1s}
+  .cta:hover{background:var(--line-d)}
+  .cta:active{transform:translateY(1px)}
+  .cta .ico{width:22px;height:22px;flex:none}
+  .cta-note{text-align:center;font-size:.76rem;color:var(--ink-soft);margin-top:11px;letter-spacing:.02em}
+
+  section{padding:44px 0}
+  .sec-head{text-align:center;margin-bottom:26px}
+  .sec-head .label{margin-bottom:12px}
+  .sec-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.35rem,5.4vw,1.7rem);line-height:1.55;letter-spacing:.03em}
+  .sec-head p{font-size:.86rem;color:var(--ink-soft);margin-top:10px}
+
+  /* media slot (video plug-and-play, falls back to label) */
+  .media{position:relative;overflow:hidden;background:var(--bg-2);border:1px solid var(--hair-2)}
+  .media.wide{aspect-ratio:16/10}
+  .media video,.media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .media video{z-index:3}
+  .media img{z-index:2}
+  .media .ph{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--ink-dim);text-align:center;padding:16px}
+  .media .ph svg{width:32px;height:32px;opacity:.6}
+  .media .ph b{font-size:.8rem;font-weight:500;letter-spacing:.06em;color:var(--ink-soft)}
+  .media .ph span{font-size:.7rem;letter-spacing:.03em}
+  .media .mute{position:absolute;z-index:3;right:12px;bottom:12px;width:36px;height:36px;border-radius:50%;
+    background:rgba(0,0,0,.5);border:1px solid var(--hair);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(4px)}
+  .media .mute svg{width:17px;height:17px}
+
+  /* HERO */
+  .hero{padding-top:0}
+  .hero .media{aspect-ratio:4/5;max-height:74vh}
+  .hero-copy{text-align:center;padding:30px 0 8px}
+  .kicker{font-family:var(--sans);font-weight:500;font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--orange);margin-bottom:16px;display:block}
+  .hero-copy h1{font-family:var(--serif);font-weight:700;font-size:clamp(1.9rem,7.2vw,2.5rem);line-height:1.55;letter-spacing:.04em;margin-bottom:16px}
+  .hero-copy h1 .en{display:inline-block;color:var(--orange);border-bottom:2px solid var(--orange);padding-bottom:2px}
+  .hero-copy p{font-size:.92rem;color:var(--ink-soft);letter-spacing:.03em;line-height:1.9}
+  .hero-copy p b{color:var(--ink);font-weight:500}
+
+  /* QUIZ */
+  .quiz{border:1px solid var(--hair);background:var(--bg-2);padding:26px 20px 28px;margin-top:22px}
+  .quiz-head{text-align:center;margin-bottom:20px}
+  .quiz-head .qt{font-family:var(--serif);font-weight:600;font-size:1.15rem;letter-spacing:.08em;margin-bottom:8px}
+  .quiz-head .qt .s{color:var(--orange)}
+  .quiz-head .qsub{font-size:.8rem;color:var(--ink-soft);letter-spacing:.02em}
+  .progress{display:flex;gap:6px;justify-content:center;margin:16px 0 22px}
+  .progress .dot{width:44px;height:2px;background:var(--hair)}
+  .progress .dot.on{background:var(--orange)}
+  .qstep{display:none}
+  .qstep.on{display:block;animation:fade .35s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .qnum{text-align:center;font-family:var(--sans);font-size:.7rem;letter-spacing:.22em;color:var(--orange);margin-bottom:10px}
+  .qtitle{text-align:center;font-family:var(--serif);font-weight:600;font-size:1.08rem;letter-spacing:.03em;line-height:1.7;margin-bottom:20px}
+  .opts{display:grid;gap:9px}
+  .opt-btn{width:100%;background:transparent;border:1px solid var(--hair);border-radius:var(--r);padding:15px 16px;
+    font-family:var(--sans);font-size:.96rem;font-weight:500;color:var(--ink);cursor:pointer;text-align:left;letter-spacing:.02em;
+    display:flex;align-items:center;gap:13px;transition:border-color .18s,background .18s,color .18s}
+  .opt-btn:hover{border-color:var(--orange);background:var(--orange-soft)}
+  .opt-btn:active{transform:scale(.995)}
+  .opt-btn .mk{flex:none;width:24px;height:24px;border:1px solid var(--hair);color:var(--orange);display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:700}
+  .opt-btn:hover .mk{border-color:var(--orange)}
+  .opt-btn.yn{justify-content:center}
+
+  .qresult{display:none;text-align:center;padding:24px 16px 8px}
+  .qresult.on{display:block;animation:fade .4s ease}
+  .qresult .ok{width:50px;height:50px;border:1px solid var(--orange);border-radius:50%;color:var(--orange);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+  .qresult .ok svg{width:26px;height:26px}
+  .qresult h3{font-family:var(--serif);font-weight:600;font-size:1.16rem;letter-spacing:.04em;line-height:1.6;margin-bottom:12px}
+  .qresult p{font-size:.9rem;color:var(--ink-soft);letter-spacing:.02em}
+  .qresult .down{margin-top:16px;color:var(--orange);font-size:1.1rem;letter-spacing:.3em;animation:bob 1.5s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+  /* OFFER */
+  .offer-box{border:1px solid var(--hair);border-top:3px solid var(--orange);background:var(--orange-tint);padding:30px 22px 26px;text-align:center;position:relative}
+  .offer-box .tagline{font-family:var(--serif);font-weight:600;font-size:1.12rem;letter-spacing:.05em;line-height:1.6;margin:14px 0 6px}
+  .offer-box .tagline .accent{color:var(--orange)}
+  .offer-box .limit{font-size:.76rem;letter-spacing:.16em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:20px}
+  .deal{display:grid;gap:0;text-align:left;border-top:1px solid var(--hair-2)}
+  .deal-row{padding:18px 2px;border-bottom:1px solid var(--hair-2);display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .deal-row .dl{min-width:0}
+  .deal-row .dn{font-family:var(--sans);font-weight:500;font-size:.92rem;letter-spacing:.03em;margin-bottom:5px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .deal-row .tag{font-family:var(--sans);font-size:.6rem;font-weight:700;letter-spacing:.14em;padding:3px 9px;text-transform:uppercase}
+  .deal-row .tag.free{background:var(--orange);color:#0F0E0D}
+  .deal-row .tag.half{border:1px solid var(--orange);color:var(--orange)}
+  .deal-row .dold{font-size:.76rem;color:var(--ink-dim);letter-spacing:.02em}
+  .deal-row .dold s{text-decoration-thickness:1px}
+  .deal-row .dr{flex:none;text-align:right}
+  .deal-row .dnow{font-family:var(--sans);font-weight:900;font-size:1.9rem;line-height:1;color:var(--orange);letter-spacing:.01em}
+  .deal-row .dnow small{font-size:.9rem;font-weight:500}
+  .offer-box .cta{margin-top:22px}
+  .fineprint{font-size:.66rem;color:var(--ink-dim);margin-top:12px;line-height:1.7;letter-spacing:.01em;text-align:left}
+
+  /* trust */
+  .trust{display:grid;gap:0;border-top:1px solid var(--hair-2)}
+  .tp{display:flex;gap:15px;align-items:flex-start;padding:20px 2px;border-bottom:1px solid var(--hair-2)}
+  .tp .no{font-family:var(--serif);font-weight:600;color:var(--orange);font-size:1.05rem;flex:none;letter-spacing:.05em;padding-top:1px}
+  .tp h4{font-family:var(--serif);font-weight:600;font-size:1rem;letter-spacing:.04em;margin-bottom:4px}
+  .tp p{font-size:.84rem;color:var(--ink-soft);line-height:1.75;letter-spacing:.01em}
+
+  /* urgency */
+  .urgency{border:1px solid var(--orange-soft);background:var(--orange-tint);border-left:3px solid var(--orange);padding:22px 20px;text-align:center}
+  .urgency .label{margin-bottom:10px}
+  .urgency p{font-family:var(--serif);font-weight:600;color:var(--ink);font-size:1.02rem;letter-spacing:.04em;line-height:1.6}
+  .urgency p small{display:block;font-family:var(--sans);font-weight:400;color:var(--ink-soft);font-size:.8rem;letter-spacing:.02em;margin-top:8px}
+
+  /* steps */
+  .steps{display:grid;gap:20px}
+  .stepc{border:1px solid var(--hair-2);background:var(--bg-2)}
+  .stepc .media{aspect-ratio:16/9;border:none;border-bottom:1px solid var(--hair-2)}
+  .stepc .body{padding:20px 20px 22px}
+  .stepc .st-no{font-family:var(--sans);font-size:.68rem;letter-spacing:.22em;color:var(--orange);margin-bottom:9px;display:block}
+  .stepc h4{font-family:var(--serif);font-weight:600;font-size:1.1rem;letter-spacing:.04em;margin-bottom:8px}
+  .stepc p{font-size:.86rem;color:var(--ink-soft);line-height:1.8;letter-spacing:.01em}
+  .steps-note{text-align:center;font-family:var(--serif);font-weight:600;color:var(--ink);margin-top:24px;font-size:1rem;letter-spacing:.05em}
+
+  /* voices */
+  .voices{display:grid;gap:0;border-top:1px solid var(--hair-2)}
+  .voice{padding:22px 2px;border-bottom:1px solid var(--hair-2)}
+  .voice .stars{color:var(--orange);letter-spacing:3px;font-size:.8rem;margin-bottom:9px}
+  .voice p{font-size:.9rem;margin-bottom:9px;letter-spacing:.02em;line-height:1.85;color:var(--ink)}
+  .voice .who{font-size:.74rem;color:var(--ink-dim);letter-spacing:.1em}
+  .disc{font-size:.68rem;color:var(--ink-dim);text-align:center;margin-top:14px;line-height:1.7;letter-spacing:.01em}
+
+  /* faq */
+  .faq{display:grid;gap:0;border-top:1px solid var(--hair-2)}
+  .faq-item{border-bottom:1px solid var(--hair-2)}
+  .faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:18px 2px;display:flex;gap:12px;align-items:center;
+    font-family:var(--serif);font-weight:600;color:var(--ink);font-size:.96rem;letter-spacing:.03em}
+  .faq-q .qi{flex:none;color:var(--orange);font-family:var(--sans);font-weight:700;font-size:.9rem}
+  .faq-q .tg{margin-left:auto;color:var(--orange);font-size:1.1rem;font-weight:400;transition:transform .25s}
+  .faq-item.open .tg{transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .faq-a p{padding:0 2px 18px 26px;font-size:.85rem;color:var(--ink-soft);line-height:1.85;letter-spacing:.01em}
+
+  /* access */
+  .access-card{border:1px solid var(--hair);padding:24px 20px}
+  .access-card h3{font-family:var(--serif);font-weight:600;color:var(--ink);font-size:1.05rem;letter-spacing:.06em;margin-bottom:16px;text-align:center}
+  .ai{display:flex;gap:13px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--hair-2)}
+  .ai:last-child{border-bottom:none}
+  .ai svg{width:17px;height:17px;color:var(--orange);flex:none;margin-top:4px}
+  .ai dt{font-family:var(--sans);font-weight:500;color:var(--ink-soft);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:3px}
+  .ai dd{font-size:.86rem;color:var(--ink);line-height:1.7;letter-spacing:.01em}
+  .map-ph{margin-top:14px;aspect-ratio:16/9;border:1px solid var(--hair-2);background:var(--bg-2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--ink-dim)}
+  .map-ph svg{width:30px;height:30px;opacity:.6}
+  .map-ph span{font-size:.72rem;letter-spacing:.04em}
+
+  /* final */
+  .final{text-align:center;padding:46px 0 26px}
+  .final h2{font-family:var(--serif);font-weight:600;font-size:1.5rem;letter-spacing:.05em;margin-bottom:14px;line-height:1.55}
+  .final p{font-size:.88rem;color:var(--ink-soft);margin-bottom:22px;letter-spacing:.02em;line-height:1.85}
+
+  footer{border-top:1px solid var(--hair-2);text-align:center;padding:34px 20px;margin-top:20px}
+  footer .fb{font-family:var(--serif);font-weight:600;color:var(--ink);font-size:1.05rem;letter-spacing:.1em;margin-bottom:8px}
+  footer .fsub{font-size:.74rem;color:var(--ink-soft);letter-spacing:.06em}
+  footer .fnote{font-size:.66rem;color:var(--ink-dim);line-height:1.8;max-width:440px;margin:14px auto 0;letter-spacing:.01em}
+  footer .cp{font-size:.66rem;color:var(--ink-dim);margin-top:12px;letter-spacing:.1em}
+
+  /* sticky CTA */
+  .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:80;padding:10px 14px;
+    background:rgba(246,244,239,.92);backdrop-filter:blur(10px);border-top:1px solid var(--hair);
+    transform:translateY(120%);transition:transform .35s ease}
+  .sticky-cta.show{transform:translateY(0)}
+  .sticky-cta .inner{max-width:var(--funnel);margin:0 auto}
+  .sticky-cta .cta{font-size:1rem;padding:15px 16px}
+
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}.sticky-cta{transition:none}}
+  .cta:focus-visible,.opt-btn:focus-visible,.faq-q:focus-visible,.mute:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="funnel">
+    <div class="hero-copy" style="padding:28px 0 20px">
+      <span class="kicker">KAMEIDO — 巻き爪専門店フットラボ</span>
+      <h1>その巻き爪、<br><span class="en">切らずに</span>整える。</h1>
+    </div>
+    <div class="media">
+      <video class="plug-video" autoplay muted loop playsinline>
+        <source src="videos/hero.mp4" type="video/mp4">
+      </video>
+      <img src="images/hero.jpg" alt="" onerror="this.style.display='none'">
+      <div class="ph">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <b>動画 videos/hero.mp4 ／ 画像 images/hero.jpg</b><span>どちらかを置くと自動で表示（動画は無音再生）</span>
+      </div>
+    </div>
+    <div class="hero-copy" style="padding:22px 0 6px">
+      <p>「病院に行くほどじゃない」——そんな方へ。<br><b>切らない・痛みの少ないケア</b>という選択を。</p>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="quiz">
+      <div class="quiz-head">
+        <div class="qt">フットラボ <span class="s">AI診断</span></div>
+        <div class="qsub">通常3,300円の診断が、今だけ無料。3つの質問に答えるだけ。</div>
+      </div>
+      <div class="progress"><span class="dot on" id="d1"></span><span class="dot" id="d2"></span><span class="dot" id="d3"></span></div>
+
+      <div class="qstep on" data-step="1">
+        <div class="qnum">Q1 / 3</div>
+        <div class="qtitle">巻き爪、気になっているけれど<br>「病院に行くほどでは…」と感じていますか</div>
+        <div class="opts">
+          <button class="opt-btn yn" onclick="next(1)">はい</button>
+          <button class="opt-btn yn" onclick="next(1)">いいえ</button>
+        </div>
+      </div>
+      <div class="qstep" data-step="2">
+        <div class="qnum">Q2 / 3</div>
+        <div class="qtitle">いちばん気になるのは、どこですか</div>
+        <div class="opts">
+          <button class="opt-btn" onclick="next(2)"><span class="mk">A</span>足の親指</button>
+          <button class="opt-btn" onclick="next(2)"><span class="mk">B</span>親指以外の指</button>
+          <button class="opt-btn" onclick="next(2)"><span class="mk">C</span>両方・複数の指</button>
+          <button class="opt-btn" onclick="next(2)"><span class="mk">D</span>見た目（素足・サンダル）</button>
+        </div>
+      </div>
+      <div class="qstep" data-step="3">
+        <div class="qnum">Q3 / 3</div>
+        <div class="qtitle">こんなケアがあったら、試したいですか</div>
+        <div class="opts">
+          <button class="opt-btn" onclick="finish()"><span class="mk">✓</span>切らない・痛みが少ない</button>
+          <button class="opt-btn" onclick="finish()"><span class="mk">✓</span>駅近で、仕事帰りに通える</button>
+          <button class="opt-btn" onclick="finish()"><span class="mk">✓</span>軽いうちに、少ない回数で</button>
+          <button class="opt-btn" onclick="finish()"><span class="mk">✓</span>まずは相談だけでもOK</button>
+        </div>
+      </div>
+
+      <div class="qresult" id="qresult">
+        <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg></div>
+        <h3>診断が完了しました<br>あなたには「切らない矯正ケア」を</h3>
+        <p>まずは初回体験で、今の状態をチェック。</p>
+        <div class="down">▼</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section>
+  <div class="funnel">
+    <div class="offer-box">
+      <span class="label">First Visit Campaign</span>
+      <div class="tagline">まずは <span class="accent">フットラボAI診断</span> で<br>今の状態をチェック</div>
+      <div class="limit">はじめての方 限定</div>
+      <div class="deal">
+        <div class="deal-row">
+          <div class="dl">
+            <div class="dn">フットラボAI診断 <span class="tag free">Free</span></div>
+            <div class="dold"><s>通常 税込3,300円／税抜3,000円</s></div>
+          </div>
+          <div class="dr"><span class="dnow">無料</span></div>
+        </div>
+        <div class="deal-row">
+          <div class="dl">
+            <div class="dn">巻き爪補正 <span class="tag half">50% OFF</span></div>
+            <div class="dold"><s>通常 税込11,000円／税抜10,000円</s></div>
+          </div>
+          <div class="dr"><span class="dnow">¥5,500<small>（税抜5,000円）</small></span></div>
+        </div>
+      </div>
+      <a href="https://lin.ee/your-line-id" target="_blank" rel="noopener" class="cta">
+        <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg>
+        LINEで予約する
+      </a>
+      <div class="cta-note">写真を送るだけでもOK。ご相談だけでも歓迎です。</div>
+      <p class="fineprint">※価格は税込表示です（かっこ内は税抜）。取り消し線の価格は当店の通常価格です。ケアの内容・料金・回数は状態により異なる場合があります。</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section>
+  <div class="funnel">
+    <div class="sec-head"><span class="label">Why Foot Labo</span><h2>フットラボの3つの安心</h2></div>
+    <div class="trust">
+      <div class="tp"><div class="no">01</div><div><h4>切らない・痛みが少ないケア</h4><p>爪を切る処置はせず、施術中の痛みも少なめ。「切るのは不安」という方も、はじめやすい方法です。</p></div></div>
+      <div class="tp"><div class="no">02</div><div><h4>AI診断は無料・明朗料金</h4><p>料金は事前にご提示します。追加で高額なご提案をすることはありません。</p></div></div>
+      <div class="tp"><div class="no">03</div><div><h4>無理な勧誘はしません</h4><p>相談だけ・体験だけでも歓迎。ご予約もご相談も、LINEで気軽にどうぞ。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- URGENCY -->
+<section>
+  <div class="funnel">
+    <div class="urgency">
+      <span class="label">Reservation</span>
+      <p>土日祝は特に混み合います<small>「気になった今」がいちばん通いやすいタイミング。空きがあるうちにご予約ください。</small></p>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section>
+  <div class="funnel">
+    <div class="sec-head"><span class="label">Flow</span><h2>通うだけ。切らずに、少しずつ整える。</h2><p>初回体験でやること、すべてお見せします。</p></div>
+    <div class="steps">
+      <div class="stepc">
+        <div class="media"><video class="plug-video" autoplay muted loop playsinline><source src="videos/step1.mp4" type="video/mp4"></video><img src="images/step1.jpg" alt="" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg><b>動画/画像 step1</b><span>videos/step1.mp4 または images/step1.jpg</span></div></div>
+        <div class="body"><span class="st-no">STEP 01</span><h4>カウンセリング＆足のチェック</h4><p>まずは状態を確認。不安なことも相談できます。LINEで写真を送っての事前相談もOKです。</p></div>
+      </div>
+      <div class="stepc">
+        <div class="media"><video class="plug-video" autoplay muted loop playsinline><source src="videos/step2.mp4" type="video/mp4"></video><img src="images/step2.jpg" alt="" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg><b>動画/画像 step2</b><span>videos/step2.mp4 または images/step2.jpg</span></div></div>
+        <div class="body"><span class="st-no">STEP 02</span><h4>爪まわりをやさしく整える</h4><p>角質や甘皮などをていねいにケアして、清潔な状態に。装着の準備を整えます。</p></div>
+      </div>
+      <div class="stepc">
+        <div class="media">
+          <video class="plug-video" autoplay muted loop playsinline><source src="videos/step3.mp4" type="video/mp4"></video>
+          <img src="images/step3.jpg" alt="" onerror="this.style.display='none'">
+          <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg><b>動画/画像 step3</b><span>videos/step3.mp4 または images/step3.jpg（施術風景・無音再生）</span></div>
+        </div>
+        <div class="body"><span class="st-no">STEP 03</span><h4>専用器具で、切らずに装着</h4><p>切らない方法なので、施術中の痛みもほとんどありません。その日のうちに始められます。※感じ方には個人差があります。</p></div>
+      </div>
+      <div class="stepc">
+        <div class="media"><video class="plug-video" autoplay muted loop playsinline><source src="videos/step4.mp4" type="video/mp4"></video><img src="images/step4.jpg" alt="" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg><b>動画/画像 step4</b><span>videos/step4.mp4 または images/step4.jpg</span></div></div>
+        <div class="body"><span class="st-no">STEP 04</span><h4>仕上げ＆セルフケアのアドバイス</h4><p>きれいな形を目指して。ご自宅での爪の切り方やケア方法もお伝えします。</p></div>
+      </div>
+    </div>
+    <p class="steps-note">気になる巻き爪を、切らずに・少しずつ。まずは体験から。</p>
+  </div>
+</section>
+
+<!-- VOICES -->
+<section>
+  <div class="funnel">
+    <div class="sec-head"><span class="label">Voice</span><h2>「切るのは不安」という方も、通われています。</h2></div>
+    <div class="voices">
+      <div class="voice"><div class="stars">★★★★★</div><p>手術はどうしても不安で、そのままにしていました。切らないと聞いて来店。来てよかったです。</p><div class="who">30代・女性</div></div>
+      <div class="voice"><div class="stars">★★★★★</div><p>駅から近くて、仕事帰りにも寄りやすいので続けられました。対応も丁寧で安心でした。</p><div class="who">40代・男性</div></div>
+      <div class="voice"><div class="stars">★★★★★</div><p>「まだ軽いけれど見てもらえますか」という相談にも、ていねいに対応してもらえました。</p><div class="who">20代・女性</div></div>
+    </div>
+    <p class="disc">※お客様個人の感想です。効果・変化には個人差があり、内容を保証するものではありません。</p>
+  </div>
+</section>
+
+<!-- CAMPAIGN -->
+<section>
+  <div class="funnel">
+    <div class="sec-head"><span class="label">Campaign</span><h2>お得な初回キャンペーン</h2></div>
+    <div class="offer-box">
+      <div class="tagline"><span class="accent">はじめての方 限定</span></div>
+      <div class="limit">AI診断が無料 ＋ 巻き爪補正が半額</div>
+      <div class="deal">
+        <div class="deal-row">
+          <div class="dl"><div class="dn">フットラボAI診断 <span class="tag free">Free</span></div><div class="dold"><s>通常 税込3,300円／税抜3,000円</s></div></div>
+          <div class="dr"><span class="dnow">無料</span></div>
+        </div>
+        <div class="deal-row">
+          <div class="dl"><div class="dn">巻き爪補正 <span class="tag half">50% OFF</span></div><div class="dold"><s>通常 税込11,000円／税抜10,000円</s></div></div>
+          <div class="dr"><span class="dnow">¥5,500<small>（税抜5,000円）</small></span></div>
+        </div>
+      </div>
+      <a href="https://lin.ee/your-line-id" target="_blank" rel="noopener" class="cta">
+        <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg>
+        LINEで予約する
+      </a>
+      <div class="cta-note">友だち追加だけでもOK。しつこい連絡はいたしません。</div>
+      <p class="fineprint">※価格は税込表示です（かっこ内は税抜）。取り消し線の価格は当店の通常価格です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="funnel">
+    <div class="sec-head"><span class="label">Q &amp; A</span><h2>よくある質問</h2></div>
+    <div class="faq">
+      <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>ケア中は痛いですか<span class="tg">+</span></button><div class="faq-a"><p>切らない方法のため、施術中の痛みはほとんどありません。感じ方には個人差がありますので、不安な方はまずご相談ください。</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>何回くらい通えばいい<span class="tg">+</span></button><div class="faq-a"><p>状態によって異なります。軽い方ほど少ない回数ですみやすい傾向です。カウンセリングで目安をお伝えします。※個人差があります。</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>軽い状態でも見てもらえる<span class="tg">+</span></button><div class="faq-a"><p>はい。むしろ軽いうちのほうが、少ない回数・負担で整えやすい傾向です。「これくらいで行っていいのかな」という段階こそご相談ください。</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>炎症や強い痛みがある場合は<span class="tg">+</span></button><div class="faq-a"><p>そうした場合は、まず医療機関（皮膚科・形成外科など）の受診をおすすめします。当店は切らないケアを行う場所で、医療行為は行いません。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section>
+  <div class="funnel">
+    <div class="access-card">
+      <h3>ACCESS</h3>
+      <dl>
+        <div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-5-7-10a7 7 0 1114 0c0 5-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg><div><dt>Address</dt><dd>〒136-0071 東京都江東区亀戸5-29-21 Real WithⅡ 1階</dd></div></div>
+        <div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6v12M9 6L3 9v12l6-3 6 3 6-3V6"/></svg><div><dt>Access</dt><dd>JR中央・総武線（各駅停車）／東武亀戸線「亀戸」駅より徒歩5分</dd></div></div>
+        <div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><dt>Open</dt><dd>11:00〜20:00（平日・土日祝とも）</dd></div></div>
+        <div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="1"/><path d="M2 10h20"/></svg><div><dt>Payment</dt><dd>現金／クレジットカード／タッチ決済（交通系IC・楽天Edy・WAON）／QRコード決済（楽天ペイ・PayPay・メルペイ・auPAY・d払い）</dd></div></div>
+      </dl>
+      <div class="map-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 3L3 6v15l6-3 6 3 6-3V3l-6 3-6-3z"/><path d="M9 3v15M15 6v15"/></svg><span>地図をここに設置（Googleマップ埋め込み）</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final">
+  <div class="funnel">
+    <div class="divider" style="margin-bottom:20px"></div>
+    <h2>まずは、写真を送るだけ。</h2>
+    <p>「これってケアできる?」「何回くらい必要?」<br>気になることを、LINEで気軽にご相談ください。</p>
+    <a href="https://lin.ee/your-line-id" target="_blank" rel="noopener" class="cta">
+      <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg>
+      LINEで相談・予約する
+    </a>
+    <div class="cta-note">友だち追加だけでもOK。</div>
+  </div>
+</section>
+
+<footer>
+  <div class="fb">巻き爪専門店フットラボ</div>
+  <div class="fsub">切らない 巻き爪ケア ／ 亀戸駅 徒歩5分</div>
+  <p class="fnote">※当店のケアは医療行為ではありません。記載内容・写真は結果を保証するものではなく、効果には個人差があります。炎症・化膿・強い痛みなどがある場合は医療機関の受診をおすすめします。</p>
+  <p class="cp">© 巻き爪専門店フットラボ</p>
+</footer>
+
+<div class="sticky-cta" id="stickyCta">
+  <div class="inner">
+    <a href="https://lin.ee/your-line-id" target="_blank" rel="noopener" class="cta">
+      <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg>
+      LINEで無料相談・予約
+    </a>
+  </div>
+</div>
+
+<script>
+  // quiz
+  function setStep(n){
+    document.querySelectorAll('.qstep').forEach(function(s){ s.classList.toggle('on', +s.dataset.step === n); });
+    for(var i=1;i<=3;i++){ document.getElementById('d'+i).classList.toggle('on', i<=n); }
+  }
+  function next(from){ setStep(from+1); }
+  function finish(){
+    document.querySelectorAll('.qstep').forEach(function(s){ s.classList.remove('on'); });
+    for(var i=1;i<=3;i++){ document.getElementById('d'+i).classList.add('on'); }
+    document.getElementById('qresult').classList.add('on');
+    var off = document.querySelector('.offer-box');
+    setTimeout(function(){ if(off) off.scrollIntoView({behavior:'smooth', block:'center'}); }, 650);
+  }
+
+  // hide broken/absent videos so the image or placeholder shows (all videos are muted)
+  document.querySelectorAll('.plug-video').forEach(function(v){
+    v.muted = true;
+    v.addEventListener('error', function(){ v.style.display='none'; }, true);
+    setTimeout(function(){ if(v.networkState === 3){ v.style.display='none'; } }, 500);
+  });
+
+  // sticky CTA
+  var sc = document.getElementById('stickyCta');
+  function onScroll(){
+    var y = window.scrollY;
+    var nearBottom = (window.innerHeight + y) > (document.body.offsetHeight - 140);
+    if(y > 400 && !nearBottom){ sc.classList.add('show'); } else { sc.classList.remove('show'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll, {passive:true});
+  onScroll();
+
+  // faq
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.parentElement, ans = item.querySelector('.faq-a');
+      var open = item.classList.toggle('open');
+      ans.style.maxHeight = open ? ans.scrollHeight + 'px' : '0px';
+    });
+  });
+</script>
+</body>
+</html>

@@ -3,7 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>切らない 巻き爪専門店フットラボ｜AI診断・初回体験｜亀戸</title>
+<title>切らない 巻き爪専門店フットラボ｜初回50%OFF・AI診断無料｜亀戸駅 徒歩5分</title>
+<meta name="description" content="「病院に行くほどじゃない」その巻き爪、切らずに整える。亀戸駅徒歩5分の巻き爪専門店フットラボ。AI診断無料・初回補正50%OFF。LINEで写真を送るだけの無料相談も。土日祝も20時まで営業。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="切らない 巻き爪専門店フットラボ｜初回50%OFF｜亀戸駅 徒歩5分">
+<meta property="og:description" content="切らない・痛みの少ない巻き爪ケア。AI診断無料、初回補正50%OFF。LINEで写真を送るだけの無料相談も。">
+<meta property="og:image" content="images/ogp.jpg"><!-- images/ogp.jpg を置くとシェア時に表示されます -->
+<meta name="theme-color" content="#F6F4EF">
+<!-- ▼ LINEの予約URL: 「https://lin.ee/your-line-id」を実際のURLに一括置換してください -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -52,17 +59,26 @@
   .cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
     background:var(--line);color:#fff;font-weight:700;font-size:1.02rem;letter-spacing:.04em;
     padding:17px 18px;border-radius:var(--r);text-decoration:none;border:none;cursor:pointer;position:relative;overflow:hidden;
-    transition:background .2s,transform .1s}
+    transition:background .2s,transform .1s;box-shadow:0 6px 18px rgba(6,199,85,.22)}
   .cta:hover{background:var(--line-d)}
   .cta:active{transform:translateY(1px)}
   .cta .ico{width:22px;height:22px;flex:none}
+  .cta::after{content:"";position:absolute;top:0;left:-70%;width:44%;height:100%;
+    background:linear-gradient(105deg,transparent,rgba(255,255,255,.34),transparent);
+    animation:shine 3.2s ease-in-out infinite}
+  @keyframes shine{0%{left:-70%}42%{left:130%}100%{left:130%}}
   .cta-note{text-align:center;font-size:.76rem;color:var(--ink-soft);margin-top:11px;letter-spacing:.02em}
+  .cta-fast{display:block;text-align:center;font-family:var(--sans);font-weight:700;font-size:.8rem;color:var(--orange);letter-spacing:.14em;margin-bottom:9px}
 
   section{padding:44px 0}
   .sec-head{text-align:center;margin-bottom:26px}
   .sec-head .label{margin-bottom:12px}
   .sec-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.35rem,5.4vw,1.7rem);line-height:1.55;letter-spacing:.03em}
   .sec-head p{font-size:.86rem;color:var(--ink-soft);margin-top:10px}
+
+  /* scroll reveal */
+  .rv{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s ease}
+  .rv.in{opacity:1;transform:none}
 
   /* media slot (video plug-and-play, falls back to label) */
   .media{position:relative;overflow:hidden;background:var(--bg-2);border:1px solid var(--hair-2)}
@@ -74,19 +90,39 @@
   .media .ph svg{width:32px;height:32px;opacity:.6}
   .media .ph b{font-size:.8rem;font-weight:500;letter-spacing:.06em;color:var(--ink-soft)}
   .media .ph span{font-size:.7rem;letter-spacing:.03em}
-  .media .mute{position:absolute;z-index:3;right:12px;bottom:12px;width:36px;height:36px;border-radius:50%;
-    background:rgba(0,0,0,.5);border:1px solid var(--hair);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(4px)}
-  .media .mute svg{width:17px;height:17px}
 
   /* HERO */
   .hero{padding-top:0}
   .hero .media{aspect-ratio:4/5;max-height:74vh}
   .hero-copy{text-align:center;padding:30px 0 8px}
-  .kicker{font-family:var(--sans);font-weight:500;font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--orange);margin-bottom:16px;display:block}
-  .hero-copy h1{font-family:var(--serif);font-weight:700;font-size:clamp(1.9rem,7.2vw,2.5rem);line-height:1.55;letter-spacing:.04em;margin-bottom:16px}
+  .kicker{font-family:var(--sans);font-weight:500;font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--orange);margin-bottom:14px;display:block}
+  .hero-copy h1{font-family:var(--serif);font-weight:700;font-size:clamp(1.9rem,7.2vw,2.5rem);line-height:1.55;letter-spacing:.04em;margin-bottom:14px}
   .hero-copy h1 .en{display:inline-block;color:var(--orange);border-bottom:2px solid var(--orange);padding-bottom:2px}
   .hero-copy p{font-size:.92rem;color:var(--ink-soft);letter-spacing:.03em;line-height:1.9}
   .hero-copy p b{color:var(--ink);font-weight:500}
+  .hero-badges{display:flex;justify-content:center;gap:7px;flex-wrap:wrap;margin:0 0 18px}
+  .hero-badges span{font-size:.7rem;font-weight:500;letter-spacing:.08em;color:var(--ink);border:1px solid var(--hair);background:var(--bg-2);padding:5px 12px;border-radius:99px}
+  .hero-badges span b{color:var(--orange);font-weight:700}
+  .hero-offer{display:flex;align-items:center;justify-content:center;gap:14px;margin:20px 0 14px;padding:14px 16px;border:1px solid var(--hair);border-left:3px solid var(--orange);background:var(--bg-2);text-align:left}
+  .hero-offer .ho-l{font-family:var(--serif);font-weight:600;font-size:.86rem;line-height:1.6;letter-spacing:.03em}
+  .hero-offer .ho-l small{display:block;font-family:var(--sans);font-weight:400;font-size:.68rem;color:var(--ink-soft);letter-spacing:.04em;margin-top:2px}
+  .hero-offer .ho-r{flex:none;font-family:var(--sans);font-weight:900;font-size:1.7rem;line-height:1;color:var(--orange)}
+  .hero-offer .ho-r small{font-size:.78rem;font-weight:500}
+  .hero-offer .ho-r .off{display:block;font-size:.62rem;font-weight:700;letter-spacing:.16em;color:#fff;background:var(--orange);text-align:center;padding:2px 6px;margin-bottom:5px}
+
+  /* stats band */
+  .stats{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);background:var(--bg-2)}
+  .stats .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+  .stats .st{padding:15px 4px;text-align:center;border-left:1px solid var(--hair-2)}
+  .stats .st:first-child{border-left:none}
+  .stats .st .sv{font-family:var(--serif);font-weight:600;font-size:.86rem;letter-spacing:.02em;line-height:1.45;color:var(--ink)}
+  .stats .st .sv b{color:var(--orange);font-weight:700}
+  .stats .st .sk{font-size:.58rem;letter-spacing:.08em;color:var(--ink-dim);margin-top:4px;text-transform:uppercase}
+  @media(max-width:460px){
+    .stats .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .stats .st:nth-child(3){border-left:none}
+    .stats .st:nth-child(n+3){border-top:1px solid var(--hair-2)}
+  }
 
   /* QUIZ */
   .quiz{border:1px solid var(--hair);background:var(--bg-2);padding:26px 20px 28px;margin-top:22px}
@@ -135,11 +171,40 @@
   .deal-row .tag.half{border:1px solid var(--orange);color:var(--orange)}
   .deal-row .dold{font-size:.76rem;color:var(--ink-dim);letter-spacing:.02em}
   .deal-row .dold s{text-decoration-thickness:1px}
-  .deal-row .dr{flex:none;text-align:right}
+  .deal-row .dr{flex:none;text-align:right;max-width:55%}
   .deal-row .dnow{font-family:var(--sans);font-weight:900;font-size:1.9rem;line-height:1;color:var(--orange);letter-spacing:.01em}
-  .deal-row .dnow small{font-size:.9rem;font-weight:500}
+  .deal-row .dnow small{display:block;font-size:.72rem;font-weight:500;color:var(--ink-soft);margin-top:5px;letter-spacing:.02em}
   .offer-box .cta{margin-top:22px}
   .fineprint{font-size:.66rem;color:var(--ink-dim);margin-top:12px;line-height:1.7;letter-spacing:.01em;text-align:left}
+  .gifts{display:grid;gap:8px;margin-top:18px;text-align:left}
+  .gift{display:flex;gap:11px;align-items:flex-start;border:1px solid var(--hair-2);background:var(--surface);padding:12px 14px}
+  .gift .gn{flex:none;font-family:var(--sans);font-size:.58rem;font-weight:700;letter-spacing:.12em;color:#fff;background:var(--orange);padding:3px 7px;margin-top:3px}
+  .gift .gt{font-size:.84rem;font-weight:500;letter-spacing:.02em;line-height:1.6}
+  .gift .gt small{display:block;font-weight:400;font-size:.72rem;color:var(--ink-soft)}
+
+  /* checklist */
+  .checks{display:grid;gap:9px}
+  .check{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--hair-2);background:var(--bg-2);padding:14px 16px}
+  .check svg{flex:none;width:19px;height:19px;color:var(--orange);margin-top:3px}
+  .check p{font-size:.9rem;letter-spacing:.02em;line-height:1.7}
+  .check-close{text-align:center;margin-top:22px;font-family:var(--serif);font-weight:600;font-size:1.05rem;letter-spacing:.05em;line-height:1.7}
+  .check-close .accent{border-bottom:2px solid var(--orange);padding-bottom:1px}
+
+  /* risk cards */
+  .risks{display:grid;gap:14px}
+  .risk{border:1px solid var(--hair-2);background:var(--bg-2);padding:18px 18px 16px;position:relative}
+  .risk .rn{font-family:var(--serif);font-weight:600;color:var(--orange);font-size:.85rem;letter-spacing:.18em;margin-bottom:8px}
+  .risk h4{font-family:var(--serif);font-weight:600;font-size:1.02rem;letter-spacing:.03em;line-height:1.6;margin-bottom:7px}
+  .risk p{font-size:.84rem;color:var(--ink-soft);line-height:1.8;letter-spacing:.01em}
+  .risk-note{font-size:.68rem;color:var(--ink-dim);margin-top:14px;line-height:1.7;letter-spacing:.01em}
+
+  /* cause */
+  .cause{border:1px solid var(--hair);background:var(--bg-2);padding:24px 20px}
+  .cause p{font-size:.88rem;color:var(--ink);line-height:1.95;letter-spacing:.02em}
+  .cause p+p{margin-top:12px}
+  .cause .soft{color:var(--ink-soft);font-size:.84rem}
+  .cause-tags{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 4px}
+  .cause-tags span{font-size:.72rem;letter-spacing:.06em;color:var(--ink-soft);border:1px solid var(--hair);background:var(--surface);padding:4px 11px;border-radius:99px}
 
   /* trust */
   .trust{display:grid;gap:0;border-top:1px solid var(--hair-2)}
@@ -148,11 +213,32 @@
   .tp h4{font-family:var(--serif);font-weight:600;font-size:1rem;letter-spacing:.04em;margin-bottom:4px}
   .tp p{font-size:.84rem;color:var(--ink-soft);line-height:1.75;letter-spacing:.01em}
 
-  /* urgency */
-  .urgency{border:1px solid var(--orange-soft);background:var(--orange-tint);border-left:3px solid var(--orange);padding:22px 20px;text-align:center}
-  .urgency .label{margin-bottom:10px}
-  .urgency p{font-family:var(--serif);font-weight:600;color:var(--ink);font-size:1.02rem;letter-spacing:.04em;line-height:1.6}
-  .urgency p small{display:block;font-family:var(--sans);font-weight:400;color:var(--ink-soft);font-size:.8rem;letter-spacing:.02em;margin-top:8px}
+  /* compare table */
+  .cmp-wrap{overflow-x:auto;border:1px solid var(--hair)}
+  table.cmp{width:100%;border-collapse:collapse;background:var(--bg-2);font-size:.74rem;table-layout:fixed}
+  .cmp col.c-label{width:23%}
+  .cmp th,.cmp td{border:1px solid var(--hair-2);padding:9px 4px;text-align:center;vertical-align:middle;line-height:1.5;overflow-wrap:break-word}
+  .cmp thead th{font-family:var(--serif);font-weight:600;font-size:.74rem;letter-spacing:.02em;padding:11px 3px}
+  .cmp thead th.me{background:var(--orange);color:#fff;letter-spacing:.04em}
+  .cmp tbody th{font-weight:500;font-size:.68rem;color:var(--ink-soft);background:var(--surface);text-align:left;padding-left:8px}
+  .cmp td.me{background:var(--orange-tint);font-weight:700}
+  .cmp .mk-a{color:var(--orange);font-weight:900;font-size:1.05rem;display:block;line-height:1.2}
+  .cmp .mk-b{color:var(--ink-soft);font-weight:700;font-size:.95rem;display:block;line-height:1.2}
+  .cmp small{font-size:.64rem;color:var(--ink-soft);font-weight:400;display:block;margin-top:2px}
+  .cmp-note{font-size:.66rem;color:var(--ink-dim);margin-top:10px;line-height:1.7;letter-spacing:.01em}
+
+  /* before / after cases */
+  .case{border:1px solid var(--hair-2);background:var(--bg-2);padding:16px 16px 18px}
+  .case+.case{margin-top:18px}
+  .case .c-head{display:flex;align-items:baseline;gap:10px;margin-bottom:12px}
+  .case .c-no{font-family:var(--sans);font-size:.66rem;font-weight:700;letter-spacing:.22em;color:var(--orange)}
+  .case .c-t{font-family:var(--serif);font-weight:600;font-size:.95rem;letter-spacing:.04em}
+  .ba{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center}
+  .ba .media{aspect-ratio:1/1}
+  .ba .arrow{color:var(--orange);font-size:1.1rem;font-weight:700}
+  .ba-lb{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;margin-top:8px}
+  .ba-lb span{text-align:center;font-size:.68rem;letter-spacing:.16em;color:var(--ink-soft)}
+  .ba-lb i{width:1.1rem}
 
   /* steps */
   .steps{display:grid;gap:20px}
@@ -165,12 +251,36 @@
   .steps-note{text-align:center;font-family:var(--serif);font-weight:600;color:var(--ink);margin-top:24px;font-size:1rem;letter-spacing:.05em}
 
   /* voices */
-  .voices{display:grid;gap:0;border-top:1px solid var(--hair-2)}
-  .voice{padding:22px 2px;border-bottom:1px solid var(--hair-2)}
+  .voices{display:grid;gap:14px}
+  .voice{border:1px solid var(--hair-2);background:var(--bg-2);padding:20px 18px 18px;position:relative}
+  .voice::before{content:"“";position:absolute;top:6px;right:14px;font-family:var(--serif);font-size:2.6rem;line-height:1;color:var(--orange-soft)}
   .voice .stars{color:var(--orange);letter-spacing:3px;font-size:.8rem;margin-bottom:9px}
   .voice p{font-size:.9rem;margin-bottom:9px;letter-spacing:.02em;line-height:1.85;color:var(--ink)}
   .voice .who{font-size:.74rem;color:var(--ink-dim);letter-spacing:.1em}
   .disc{font-size:.68rem;color:var(--ink-dim);text-align:center;margin-top:14px;line-height:1.7;letter-spacing:.01em}
+
+  /* staff */
+  .staff{border:1px solid var(--hair);background:var(--bg-2);padding:22px 20px}
+  .staff .media{aspect-ratio:4/3;margin-bottom:18px}
+  .staff h3{font-family:var(--serif);font-weight:600;font-size:1.08rem;letter-spacing:.05em;line-height:1.6;margin-bottom:12px;text-align:center}
+  .staff p{font-size:.88rem;color:var(--ink);line-height:2;letter-spacing:.02em}
+  .staff p+p{margin-top:12px}
+  .staff .sig{margin-top:16px;text-align:right;font-family:var(--serif);font-weight:600;font-size:.86rem;letter-spacing:.08em;color:var(--ink-soft)}
+
+  /* urgency */
+  .urgency{border:1px solid var(--orange-soft);background:var(--orange-tint);border-left:3px solid var(--orange);padding:22px 20px;text-align:center}
+  .urgency .label{margin-bottom:10px}
+  .urgency p{font-family:var(--serif);font-weight:600;color:var(--ink);font-size:1.02rem;letter-spacing:.04em;line-height:1.6}
+  .urgency p small{display:block;font-family:var(--sans);font-weight:400;color:var(--ink-soft);font-size:.8rem;letter-spacing:.02em;margin-top:8px}
+
+  /* reserve steps */
+  .rsv{display:grid;gap:0;counter-reset:rs;border-top:1px solid var(--hair-2)}
+  .rs{display:flex;gap:16px;align-items:flex-start;padding:20px 2px;border-bottom:1px solid var(--hair-2);counter-increment:rs}
+  .rs .ri{flex:none;width:40px;height:40px;border:1px solid var(--orange);color:var(--orange);display:flex;align-items:center;justify-content:center;position:relative}
+  .rs .ri::after{content:counter(rs,decimal-leading-zero);font-family:var(--serif);font-weight:600;font-size:.9rem;letter-spacing:.05em}
+  .rs h4{font-family:var(--serif);font-weight:600;font-size:1rem;letter-spacing:.04em;margin-bottom:4px}
+  .rs h4 small{font-family:var(--sans);font-weight:700;font-size:.66rem;letter-spacing:.1em;color:var(--orange);margin-left:8px}
+  .rs p{font-size:.84rem;color:var(--ink-soft);line-height:1.8;letter-spacing:.01em}
 
   /* faq */
   .faq{display:grid;gap:0;border-top:1px solid var(--hair-2)}
@@ -178,7 +288,7 @@
   .faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:18px 2px;display:flex;gap:12px;align-items:center;
     font-family:var(--serif);font-weight:600;color:var(--ink);font-size:.96rem;letter-spacing:.03em}
   .faq-q .qi{flex:none;color:var(--orange);font-family:var(--sans);font-weight:700;font-size:.9rem}
-  .faq-q .tg{margin-left:auto;color:var(--orange);font-size:1.1rem;font-weight:400;transition:transform .25s}
+  .faq-q .tg{margin-left:auto;color:var(--orange);font-size:1.1rem;font-weight:400;transition:transform .25s;flex:none}
   .faq-item.open .tg{transform:rotate(45deg)}
   .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
   .faq-a p{padding:0 2px 18px 26px;font-size:.85rem;color:var(--ink-soft);line-height:1.85;letter-spacing:.01em}
@@ -198,6 +308,10 @@
   .final{text-align:center;padding:46px 0 26px}
   .final h2{font-family:var(--serif);font-weight:600;font-size:1.5rem;letter-spacing:.05em;margin-bottom:14px;line-height:1.55}
   .final p{font-size:.88rem;color:var(--ink-soft);margin-bottom:22px;letter-spacing:.02em;line-height:1.85}
+  .ps{border:1px solid var(--hair);background:var(--bg-2);text-align:left;padding:22px 20px;margin-top:34px}
+  .ps .ps-t{font-family:var(--serif);font-weight:600;font-size:.8rem;letter-spacing:.24em;color:var(--orange);margin-bottom:10px}
+  .ps p{font-size:.86rem;color:var(--ink);line-height:2;letter-spacing:.02em;margin-bottom:0}
+  .ps p+p{margin-top:10px}
 
   footer{border-top:1px solid var(--hair-2);text-align:center;padding:34px 20px;margin-top:20px}
   footer .fb{font-family:var(--serif);font-weight:600;color:var(--ink);font-size:1.05rem;letter-spacing:.1em;margin-bottom:8px}
@@ -210,11 +324,19 @@
     background:rgba(246,244,239,.92);backdrop-filter:blur(10px);border-top:1px solid var(--hair);
     transform:translateY(120%);transition:transform .35s ease}
   .sticky-cta.show{transform:translateY(0)}
-  .sticky-cta .inner{max-width:var(--funnel);margin:0 auto}
-  .sticky-cta .cta{font-size:1rem;padding:15px 16px}
+  .sticky-cta .inner{max-width:var(--funnel);margin:0 auto;display:flex;align-items:center;gap:12px}
+  .sticky-cta .sc-off{flex:none;text-align:center;line-height:1.3}
+  .sticky-cta .sc-off .o1{display:block;font-size:.6rem;font-weight:700;letter-spacing:.1em;color:var(--orange)}
+  .sticky-cta .sc-off .o2{display:block;font-family:var(--sans);font-weight:900;font-size:1.05rem;color:var(--ink)}
+  .sticky-cta .cta{font-size:.96rem;padding:14px 12px;flex:1}
 
-  @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}.sticky-cta{transition:none}}
-  .cta:focus-visible,.opt-btn:focus-visible,.faq-q:focus-visible,.mute:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;scroll-behavior:auto!important}
+    .sticky-cta{transition:none}
+    .rv{opacity:1;transform:none;transition:none}
+    .cta::after{display:none}
+  }
+  .cta:focus-visible,.opt-btn:focus-visible,.faq-q:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -222,9 +344,14 @@
 <!-- HERO -->
 <section class="hero">
   <div class="funnel">
-    <div class="hero-copy" style="padding:28px 0 20px">
+    <div class="hero-copy" style="padding:26px 0 18px">
       <span class="kicker">KAMEIDO — 巻き爪専門店フットラボ</span>
       <h1>その巻き爪、<br><span class="en">切らずに</span>整える。</h1>
+      <div class="hero-badges">
+        <span><b>切らない</b>ケア</span>
+        <span>痛みが<b>少ない</b></span>
+        <span>亀戸駅 <b>徒歩5分</b></span>
+      </div>
     </div>
     <div class="media">
       <video class="plug-video" autoplay muted loop playsinline>
@@ -239,8 +366,33 @@
     <div class="hero-copy" style="padding:22px 0 6px">
       <p>「病院に行くほどじゃない」——そんな方へ。<br><b>切らない・痛みの少ないケア</b>という選択を。</p>
     </div>
+    <div class="hero-offer">
+      <div class="ho-l">はじめての方限定<br>巻き爪補正 初回体験<small>AI診断（通常3,300円）も無料</small></div>
+      <div class="ho-r"><span class="off">50% OFF</span>¥5,500<small>税込</small></div>
+    </div>
+    <a href="https://lin.ee/your-line-id" target="_blank" rel="noopener" class="cta">
+      <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg>
+      LINEで予約する
+    </a>
+    <div class="cta-note">予約は30秒で完了。写真を送るだけの無料相談もOK。</div>
+  </div>
+</section>
 
-    <!-- QUIZ -->
+<!-- STATS -->
+<div class="stats">
+  <div class="funnel" style="padding:0 12px">
+    <div class="grid">
+      <div class="st"><div class="sv"><b>切らない</b><br>施術</div><div class="sk">Method</div></div>
+      <div class="st"><div class="sv">駅から<br><b>徒歩5分</b></div><div class="sk">Kameido</div></div>
+      <div class="st"><div class="sv">土日祝も<br><b>20時</b>まで</div><div class="sk">Open</div></div>
+      <div class="st"><div class="sv">LINE相談<br><b>無料</b></div><div class="sk">Support</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- QUIZ -->
+<section style="padding-top:34px">
+  <div class="funnel">
     <div class="quiz">
       <div class="quiz-head">
         <div class="qt">フットラボ <span class="s">AI診断</span></div>
@@ -288,13 +440,18 @@
 </section>
 
 <!-- OFFER -->
-<section>
+<section id="offer">
   <div class="funnel">
-    <div class="offer-box">
+    <div class="offer-box rv">
       <span class="label">First Visit Campaign</span>
-      <div class="tagline">まずは <span class="accent">フットラボAI診断</span> で<br>今の状態をチェック</div>
-      <div class="limit">はじめての方 限定</div>
-      <div class="deal">
+      <div class="tagline">はじめての方限定<br><span class="accent">3つの特典</span>をご用意しました</div>
+      <div class="limit">Web予約限定 特典</div>
+      <div class="gifts">
+        <div class="gift"><span class="gn">特典 1</span><div class="gt">フットラボAI診断が無料<small>通常 税込3,300円 → 0円。今の状態と回数の目安がわかります。</small></div></div>
+        <div class="gift"><span class="gn">特典 2</span><div class="gt">巻き爪補正が半額の¥5,500<small>通常 税込11,000円 → 50%OFF。初回からしっかり施術します。</small></div></div>
+        <div class="gift"><span class="gn">特典 3</span><div class="gt">LINEでの写真相談が無料<small>来店前に「ケアできる状態か」お答えします。相談だけでもOK。</small></div></div>
+      </div>
+      <div class="deal" style="margin-top:18px">
         <div class="deal-row">
           <div class="dl">
             <div class="dn">フットラボAI診断 <span class="tag free">Free</span></div>
@@ -310,52 +467,144 @@
           <div class="dr"><span class="dnow">¥5,500<small>（税抜5,000円）</small></span></div>
         </div>
       </div>
-      <a href="https://lin.ee/your-line-id" target="_blank" rel="noopener" class="cta">
+      <span class="cta-fast">＼ 予約は30秒で完了 ／</span>
+      <a href="https://lin.ee/your-line-id" target="_blank" rel="noopener" class="cta" style="margin-top:0">
         <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg>
         LINEで予約する
       </a>
       <div class="cta-note">写真を送るだけでもOK。ご相談だけでも歓迎です。</div>
-      <p class="fineprint">※価格は税込表示です（かっこ内は税抜）。取り消し線の価格は当店の通常価格です。ケアの内容・料金・回数は状態により異なる場合があります。</p>
+      <p class="fineprint">※価格は税込表示です（かっこ内は税抜）。取り消し線の価格は当店の通常価格です。ケアの内容・料金・回数は状態により異なる場合があります。キャンペーンは予告なく終了する場合があります。</p>
     </div>
   </div>
 </section>
 
-<!-- TRUST -->
+<!-- CHECKLIST -->
 <section>
   <div class="funnel">
-    <div class="sec-head"><span class="label">Why Foot Labo</span><h2>フットラボの3つの安心</h2></div>
-    <div class="trust">
-      <div class="tp"><div class="no">01</div><div><h4>切らない・痛みが少ないケア</h4><p>爪を切る処置はせず、施術中の痛みも少なめ。「切るのは不安」という方も、はじめやすい方法です。</p></div></div>
-      <div class="tp"><div class="no">02</div><div><h4>AI診断は無料・明朗料金</h4><p>料金は事前にご提示します。追加で高額なご提案をすることはありません。</p></div></div>
-      <div class="tp"><div class="no">03</div><div><h4>無理な勧誘はしません</h4><p>相談だけ・体験だけでも歓迎。ご予約もご相談も、LINEで気軽にどうぞ。</p></div></div>
+    <div class="sec-head rv"><span class="label">Check</span><h2>こんなお悩み、<br>ありませんか？</h2></div>
+    <div class="checks rv">
+      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><p>爪の端が食い込んで、<b>ズキッと痛む</b>ときがある</p></div>
+      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><p>つい<b>深爪</b>してしまい、同じことを繰り返している</p></div>
+      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><p><b>素足やサンダル</b>になるのが恥ずかしい</p></div>
+      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><p>靴を履くと<b>親指が当たって</b>気になる・歩き方が変わる</p></div>
+      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><p>病院で「<b>切りましょう</b>」と言われたが、手術は避けたい</p></div>
+      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><p>まだ軽いけれど、<b>ひどくなる前に</b>なんとかしたい</p></div>
+    </div>
+    <p class="check-close rv">ひとつでも当てはまったら——<br><span class="accent">軽いうちのケア</span>が、いちばんの近道です。</p>
+  </div>
+</section>
+
+<!-- RISK -->
+<section style="padding-top:10px">
+  <div class="funnel">
+    <div class="sec-head rv"><span class="label">Why Now</span><h2>巻き爪は「そのうち治る」が<br>起こりにくいお悩みです</h2><p>我慢しているあいだに、こんな悪循環につながることも。</p></div>
+    <div class="risks rv">
+      <div class="risk"><div class="rn">RISK 01</div><h4>食い込みが深くなり、痛みが強くなりやすい</h4><p>爪は伸びるたびに同じカーブを描きます。食い込みが進むほど、ふとした瞬間の痛みが増えていきます。</p></div>
+      <div class="risk"><div class="rn">RISK 02</div><h4>痛みをかばう歩き方が、足腰の負担に</h4><p>親指で踏ん張れない歩き方は、足裏・ひざ・腰への負担につながるといわれています。外出がおっくうになる方も。</p></div>
+      <div class="risk"><div class="rn">RISK 03</div><h4>進むほど、時間も費用もかかりやすい</h4><p>変形が強くなってからのケアは、回数がかさみがち。軽いうちに始めるほうが、結果的に負担は小さくすみます。</p></div>
+    </div>
+    <p class="risk-note rv">※進行や症状には個人差があります。強い痛み・炎症・化膿がある場合は、医療機関（皮膚科・形成外科など）の受診をおすすめします。</p>
+  </div>
+</section>
+
+<!-- CAUSE -->
+<section style="padding-top:10px">
+  <div class="funnel">
+    <div class="sec-head rv"><span class="label">Cause</span><h2>爪切りだけでは、<br>もとに戻りにくい理由</h2></div>
+    <div class="cause rv">
+      <p>巻き爪の背景には、<b>深爪のくせ・足に合わない靴・歩き方・加齢・遺伝的な爪の形</b>など、複数の要因が重なっています。</p>
+      <div class="cause-tags">
+        <span>深爪のくせ</span><span>先の細い靴</span><span>歩き方・姿勢</span><span>加齢</span><span>遺伝的な爪質</span><span>スポーツでの負担</span>
+      </div>
+      <p class="soft">切り方を工夫しても、爪が描くカーブそのものは変わりにくいもの。だからフットラボでは、専用の器具で<b>爪のカーブをゆっくり整えていく「切らない補正ケア」</b>を行っています。</p>
     </div>
   </div>
 </section>
 
-<!-- URGENCY -->
+<!-- REASONS -->
 <section>
   <div class="funnel">
-    <div class="urgency">
-      <span class="label">Reservation</span>
-      <p>土日祝は特に混み合います<small>「気になった今」がいちばん通いやすいタイミング。空きがあるうちにご予約ください。</small></p>
+    <div class="sec-head rv"><span class="label">Why Foot Labo</span><h2>フットラボが選ばれる<br>5つの理由</h2></div>
+    <div class="trust rv">
+      <div class="tp"><div class="no">01</div><div><h4>巻き爪専門のケア技術</h4><p>巻き爪に特化した専門店です。状態に合わせて器具と力加減を選び、一人ひとりに合わせて施術します。</p></div></div>
+      <div class="tp"><div class="no">02</div><div><h4>切らない・痛みが少ないケア</h4><p>爪を切る処置はせず、施術中の痛みも少なめ。施術後はそのまま歩いてお帰りいただけます。</p></div></div>
+      <div class="tp"><div class="no">03</div><div><h4>AI診断は無料・明朗料金</h4><p>料金は施術前にご提示します。あとから高額なコースを勧めることはありません。</p></div></div>
+      <div class="tp"><div class="no">04</div><div><h4>亀戸駅5分×20時まで、通いやすい</h4><p>お仕事帰りや買い物ついでに寄れる立地と営業時間。土日祝も営業しています。</p></div></div>
+      <div class="tp"><div class="no">05</div><div><h4>再発予防のセルフケアまで</h4><p>整えて終わりではなく、爪の切り方・靴選びなど、繰り返さないためのコツまでお伝えします。</p></div></div>
     </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section style="padding-top:10px">
+  <div class="funnel">
+    <div class="sec-head rv"><span class="label">Compare</span><h2>「切る」前に、<br>知ってほしい選択肢</h2></div>
+    <div class="cmp-wrap rv">
+      <table class="cmp">
+        <colgroup><col class="c-label"><col><col><col></colgroup>
+        <thead>
+          <tr>
+            <th style="background:var(--surface)"></th>
+            <th class="me">フットラボ<small style="color:rgba(255,255,255,.85)">切らない補正</small></th>
+            <th>病院での手術<small>切除・抜爪など</small></th>
+            <th>放置・セルフケア</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th>施術中の痛み</th><td class="me"><span class="mk-a">◎</span><small>少なめ※</small></td><td><span class="mk-b">△</span><small>麻酔を伴うことも</small></td><td><span class="mk-b">—</span><small>痛みは続きがち</small></td></tr>
+          <tr><th>爪を切る・抜く</th><td class="me"><span class="mk-a">なし</span><small>切らずに整える</small></td><td><span class="mk-b">あり</span><small>方法による</small></td><td><span class="mk-b">—</span></td></tr>
+          <tr><th>当日の歩行</th><td class="me"><span class="mk-a">◎</span><small>そのまま帰れる</small></td><td><span class="mk-b">△</span><small>安静が必要なことも</small></td><td><span class="mk-b">○</span></td></tr>
+          <tr><th>見た目の自然さ</th><td class="me"><span class="mk-a">◎</span><small>爪を残して整える</small></td><td><span class="mk-b">△</span><small>爪幅が変わることも</small></td><td><span class="mk-b">△</span><small>変形が進みやすい</small></td></tr>
+          <tr><th>始めやすさ</th><td class="me"><span class="mk-a">◎</span><small>予約30秒・当日OK</small></td><td><span class="mk-b">△</span><small>受診・通院が必要</small></td><td><span class="mk-b">○</span><small>ただし根本は変わらず</small></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="cmp-note rv">※一般的な傾向の比較であり、優劣を示すものではありません。感じ方・経過には個人差があります。炎症・化膿・強い痛みがある場合は、医療機関での治療が適しています（当店でも受診をご案内します）。</p>
+  </div>
+</section>
+
+<!-- CASES (Before / After) -->
+<section>
+  <div class="funnel">
+    <div class="sec-head rv"><span class="label">Case</span><h2>ケアの変化を、目で見て。</h2><p>初回の施術直後から、カーブの変化を実感される方が多いです。</p></div>
+    <div class="rv">
+      <div class="case">
+        <div class="c-head"><span class="c-no">CASE 01</span><span class="c-t">足の親指の巻き爪</span></div>
+        <div class="ba">
+          <div class="media"><img src="images/case1_before.jpg" alt="ケア前の状態" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><b>画像 case1_before</b><span>images/case1_before.jpg</span></div></div>
+          <div class="arrow">→</div>
+          <div class="media"><img src="images/case1_after.jpg" alt="ケア後の状態" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><b>画像 case1_after</b><span>images/case1_after.jpg</span></div></div>
+        </div>
+        <div class="ba-lb"><span>BEFORE</span><i></i><span>AFTER</span></div>
+      </div>
+      <div class="case">
+        <div class="c-head"><span class="c-no">CASE 02</span><span class="c-t">深爪を繰り返していた爪</span></div>
+        <div class="ba">
+          <div class="media"><img src="images/case2_before.jpg" alt="ケア前の状態" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><b>画像 case2_before</b><span>images/case2_before.jpg</span></div></div>
+          <div class="arrow">→</div>
+          <div class="media"><img src="images/case2_after.jpg" alt="ケア後の状態" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><b>画像 case2_after</b><span>images/case2_after.jpg</span></div></div>
+        </div>
+        <div class="ba-lb"><span>BEFORE</span><i></i><span>AFTER</span></div>
+      </div>
+    </div>
+    <p class="disc rv">※症例写真は当店での一例です。経過・変化には個人差があり、結果を保証するものではありません。</p>
   </div>
 </section>
 
 <!-- STEPS -->
-<section>
+<section style="padding-top:10px">
   <div class="funnel">
-    <div class="sec-head"><span class="label">Flow</span><h2>通うだけ。切らずに、少しずつ整える。</h2><p>初回体験でやること、すべてお見せします。</p></div>
+    <div class="sec-head rv"><span class="label">Flow</span><h2>通うだけ。切らずに、少しずつ整える。</h2><p>初回体験でやること、すべてお見せします。</p></div>
     <div class="steps">
-      <div class="stepc">
+      <div class="stepc rv">
         <div class="media"><video class="plug-video" autoplay muted loop playsinline><source src="STEP1.MP4" type="video/mp4"></video><img src="images/step1.jpg" alt="" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg><b>動画/画像 step1</b><span>STEP1.MP4 または images/step1.jpg</span></div></div>
         <div class="body"><span class="st-no">STEP 01</span><h4>カウンセリング＆足のチェック</h4><p>まずは状態を確認。不安なことも相談できます。LINEで写真を送っての事前相談もOKです。</p></div>
       </div>
-      <div class="stepc">
+      <div class="stepc rv">
         <div class="media"><video class="plug-video" autoplay muted loop playsinline><source src="STEP2.MP4" type="video/mp4"></video><img src="images/step2.jpg" alt="" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg><b>動画/画像 step2</b><span>STEP2.MP4 または images/step2.jpg</span></div></div>
         <div class="body"><span class="st-no">STEP 02</span><h4>爪まわりをやさしく整える</h4><p>角質や甘皮などをていねいにケアして、清潔な状態に。装着の準備を整えます。</p></div>
       </div>
-      <div class="stepc">
+      <div class="stepc rv">
         <div class="media">
           <video class="plug-video" autoplay muted loop playsinline><source src="STEP3.MP4" type="video/mp4"></video>
           <img src="images/step3.jpg" alt="" onerror="this.style.display='none'">
@@ -363,33 +612,50 @@
         </div>
         <div class="body"><span class="st-no">STEP 03</span><h4>専用器具で、切らずに装着</h4><p>切らない方法なので、施術中の痛みもほとんどありません。その日のうちに始められます。※感じ方には個人差があります。</p></div>
       </div>
-      <div class="stepc">
+      <div class="stepc rv">
         <div class="media"><video class="plug-video" autoplay muted loop playsinline><source src="STEP4.MP4" type="video/mp4"></video><img src="images/step4.jpg" alt="" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg><b>動画/画像 step4</b><span>STEP4.MP4 または images/step4.jpg</span></div></div>
         <div class="body"><span class="st-no">STEP 04</span><h4>仕上げ＆セルフケアのアドバイス</h4><p>きれいな形を目指して。ご自宅での爪の切り方やケア方法もお伝えします。</p></div>
       </div>
     </div>
-    <p class="steps-note">気になる巻き爪を、切らずに・少しずつ。まずは体験から。</p>
+    <p class="steps-note rv">気になる巻き爪を、切らずに・少しずつ。まずは体験から。</p>
   </div>
 </section>
 
 <!-- VOICES -->
 <section>
   <div class="funnel">
-    <div class="sec-head"><span class="label">Voice</span><h2>「切るのは不安」という方も、通われています。</h2></div>
-    <div class="voices">
+    <div class="sec-head rv"><span class="label">Voice</span><h2>「切るのは不安」という方も、<br>通われています。</h2></div>
+    <div class="voices rv">
       <div class="voice"><div class="stars">★★★★★</div><p>手術はどうしても不安で、そのままにしていました。切らないと聞いて来店。来てよかったです。</p><div class="who">30代・女性</div></div>
       <div class="voice"><div class="stars">★★★★★</div><p>駅から近くて、仕事帰りにも寄りやすいので続けられました。対応も丁寧で安心でした。</p><div class="who">40代・男性</div></div>
       <div class="voice"><div class="stars">★★★★★</div><p>「まだ軽いけれど見てもらえますか」という相談にも、ていねいに対応してもらえました。</p><div class="who">20代・女性</div></div>
     </div>
-    <p class="disc">※お客様個人の感想です。効果・変化には個人差があり、内容を保証するものではありません。</p>
+    <p class="disc rv">※お客様個人の感想です。効果・変化には個人差があり、内容を保証するものではありません。</p>
   </div>
 </section>
 
-<!-- CAMPAIGN -->
+<!-- STAFF -->
+<section style="padding-top:10px">
+  <div class="funnel">
+    <div class="sec-head rv"><span class="label">Greeting</span><h2>担当者からのごあいさつ</h2></div>
+    <div class="staff rv">
+      <div class="media"><img src="images/staff.jpg" alt="施術担当者" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg><b>画像 staff</b><span>images/staff.jpg（施術者・店内の写真）</span></div></div>
+      <h3>「切るのは怖い」で我慢している方にこそ、<br>来ていただきたいお店です。</h3>
+      <p>巻き爪は、我慢できてしまうから後回しになりがちです。でも、軽いうちに整えるほど、少ない回数と負担ですみます。</p>
+      <p>フットラボは、痛みに配慮した切らないケアで、「もっと早く来ればよかった」と言っていただけることを目指しています。相談だけでも、写真を送るだけでも構いません。あなたのペースで、いらしてください。</p>
+      <div class="sig">巻き爪専門店フットラボ 亀戸店</div>
+    </div>
+  </div>
+</section>
+
+<!-- URGENCY + CAMPAIGN (再掲) -->
 <section>
   <div class="funnel">
-    <div class="sec-head"><span class="label">Campaign</span><h2>お得な初回キャンペーン</h2></div>
-    <div class="offer-box">
+    <div class="urgency rv" style="margin-bottom:26px">
+      <span class="label">Reservation</span>
+      <p>土日祝は特に混み合います<small>1日にご案内できる人数に限りがあります。「気になった今」がいちばん通いやすいタイミングです。</small></p>
+    </div>
+    <div class="offer-box rv">
       <div class="tagline"><span class="accent">はじめての方 限定</span></div>
       <div class="limit">AI診断が無料 ＋ 巻き爪補正が半額</div>
       <div class="deal">
@@ -402,12 +668,25 @@
           <div class="dr"><span class="dnow">¥5,500<small>（税抜5,000円）</small></span></div>
         </div>
       </div>
-      <a href="https://lin.ee/your-line-id" target="_blank" rel="noopener" class="cta">
+      <span class="cta-fast" style="margin-top:20px">＼ 友だち追加だけでもOK ／</span>
+      <a href="https://lin.ee/your-line-id" target="_blank" rel="noopener" class="cta" style="margin-top:0">
         <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg>
         LINEで予約する
       </a>
-      <div class="cta-note">友だち追加だけでもOK。しつこい連絡はいたしません。</div>
-      <p class="fineprint">※価格は税込表示です（かっこ内は税抜）。取り消し線の価格は当店の通常価格です。</p>
+      <div class="cta-note">しつこい連絡はいたしません。</div>
+      <p class="fineprint">※価格は税込表示です（かっこ内は税抜）。取り消し線の価格は当店の通常価格です。キャンペーンは予告なく終了する場合があります。</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVE FLOW -->
+<section style="padding-top:10px">
+  <div class="funnel">
+    <div class="sec-head rv"><span class="label">Reservation</span><h2>ご予約は、LINEで3ステップ</h2><p>お電話は不要。すべてLINEで完結します。</p></div>
+    <div class="rsv rv">
+      <div class="rs"><div class="ri"></div><div><h4>友だち追加<small>約30秒</small></h4><p>下のボタンから友だち追加。この時点では通知も勧誘もありません。</p></div></div>
+      <div class="rs"><div class="ri"></div><div><h4>写真を送る or 日時を選ぶ</h4><p>気になる爪の写真を送って相談するか、ご希望の日時をメッセージするだけ。</p></div></div>
+      <div class="rs"><div class="ri"></div><div><h4>当日、手ぶらでご来店</h4><p>持ち物は不要です。足先を出しやすい服装だとスムーズです。</p></div></div>
     </div>
   </div>
 </section>
@@ -415,20 +694,25 @@
 <!-- FAQ -->
 <section>
   <div class="funnel">
-    <div class="sec-head"><span class="label">Q &amp; A</span><h2>よくある質問</h2></div>
-    <div class="faq">
-      <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>ケア中は痛いですか<span class="tg">+</span></button><div class="faq-a"><p>切らない方法のため、施術中の痛みはほとんどありません。感じ方には個人差がありますので、不安な方はまずご相談ください。</p></div></div>
-      <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>何回くらい通えばいい<span class="tg">+</span></button><div class="faq-a"><p>状態によって異なります。軽い方ほど少ない回数ですみやすい傾向です。カウンセリングで目安をお伝えします。※個人差があります。</p></div></div>
-      <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>軽い状態でも見てもらえる<span class="tg">+</span></button><div class="faq-a"><p>はい。むしろ軽いうちのほうが、少ない回数・負担で整えやすい傾向です。「これくらいで行っていいのかな」という段階こそご相談ください。</p></div></div>
-      <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>炎症や強い痛みがある場合は<span class="tg">+</span></button><div class="faq-a"><p>そうした場合は、まず医療機関（皮膚科・形成外科など）の受診をおすすめします。当店は切らないケアを行う場所で、医療行為は行いません。</p></div></div>
+    <div class="sec-head rv"><span class="label">Q &amp; A</span><h2>よくある質問</h2></div>
+    <div class="faq rv">
+      <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>ケア中は痛いですか？<span class="tg">+</span></button><div class="faq-a"><p>切らない方法のため、施術中の痛みはほとんどありません。感じ方には個人差がありますので、不安な方はまずご相談ください。</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>何回くらい通えばいいですか？<span class="tg">+</span></button><div class="faq-a"><p>状態によって異なります。軽い方ほど少ない回数ですみやすい傾向です。無料のAI診断とカウンセリングで、回数と費用の目安を先にお伝えします。※個人差があります。</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>1回でも変化はありますか？<span class="tg">+</span></button><div class="faq-a"><p>装着直後にカーブの変化を実感される方が多いです。ただし整った状態を安定させるには継続的なケアが大切です。※効果・感じ方には個人差があります。</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>軽い状態でも見てもらえますか？<span class="tg">+</span></button><div class="faq-a"><p>はい。むしろ軽いうちのほうが、少ない回数・負担で整えやすい傾向です。「これくらいで行っていいのかな」という段階こそご相談ください。</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>所要時間はどのくらいですか？<span class="tg">+</span></button><div class="faq-a"><p>初回はカウンセリング・AI診断を含めて1時間前後が目安です（状態により前後します）。お仕事帰りにもお立ち寄りいただけます。</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>男性や年配でも大丈夫ですか？<span class="tg">+</span></button><div class="faq-a"><p>もちろんです。性別・年齢を問わずご利用いただいています。ご家族の付き添いでのご相談も歓迎です。</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>予約なしでも行けますか？<span class="tg">+</span></button><div class="faq-a"><p>ご案内できる人数に限りがあるため、LINEでの事前予約をおすすめします。空きがあれば当日のご案内も可能ですので、まずはメッセージでお問い合わせください。</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>支払い方法は何が使えますか？<span class="tg">+</span></button><div class="faq-a"><p>現金のほか、クレジットカード、タッチ決済（交通系IC・楽天Edy・WAON）、QRコード決済（楽天ペイ・PayPay・メルペイ・auPAY・d払い）がご利用いただけます。</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>炎症や強い痛みがある場合は？<span class="tg">+</span></button><div class="faq-a"><p>そうした場合は、まず医療機関（皮膚科・形成外科など）の受診をおすすめします。当店は切らないケアを行う場所で、医療行為は行いません。受診の目安についてもLINEでご相談いただけます。</p></div></div>
     </div>
   </div>
 </section>
 
 <!-- ACCESS -->
-<section>
+<section style="padding-top:10px">
   <div class="funnel">
-    <div class="access-card">
+    <div class="access-card rv">
       <h3>ACCESS</h3>
       <dl>
         <div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-5-7-10a7 7 0 1114 0c0 5-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg><div><dt>Address</dt><dd>〒136-0071 東京都江東区亀戸5-29-21 Real WithⅡ 1階</dd></div></div>
@@ -446,12 +730,17 @@
   <div class="funnel">
     <div class="divider" style="margin-bottom:20px"></div>
     <h2>まずは、写真を送るだけ。</h2>
-    <p>「これってケアできる?」「何回くらい必要?」<br>気になることを、LINEで気軽にご相談ください。</p>
+    <p>「これってケアできる？」「何回くらい必要？」<br>気になることを、LINEで気軽にご相談ください。</p>
     <a href="https://lin.ee/your-line-id" target="_blank" rel="noopener" class="cta">
       <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg>
       LINEで相談・予約する
     </a>
-    <div class="cta-note">友だち追加だけでもOK。</div>
+    <div class="cta-note">友だち追加だけでもOK。しつこい連絡はいたしません。</div>
+    <div class="ps rv">
+      <div class="ps-t">P.S.</div>
+      <p>巻き爪の一番の分かれ道は、「痛くなってから動くか、気になったときに動くか」だと感じています。</p>
+      <p>このページを閉じたあと、また明日から同じ痛みを我慢するのは、少しもったいない。<b>写真を1枚送るだけ</b>で、あなたの爪がケアできる状態か、すぐにお答えします。</p>
+    </div>
   </div>
 </section>
 
@@ -464,9 +753,10 @@
 
 <div class="sticky-cta" id="stickyCta">
   <div class="inner">
+    <div class="sc-off"><span class="o1">初回限定 50%OFF</span><span class="o2">¥5,500</span></div>
     <a href="https://lin.ee/your-line-id" target="_blank" rel="noopener" class="cta">
       <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg>
-      LINEで無料相談・予約
+      LINEで予約
     </a>
   </div>
 </div>
@@ -482,7 +772,7 @@
     document.querySelectorAll('.qstep').forEach(function(s){ s.classList.remove('on'); });
     for(var i=1;i<=3;i++){ document.getElementById('d'+i).classList.add('on'); }
     document.getElementById('qresult').classList.add('on');
-    var off = document.querySelector('.offer-box');
+    var off = document.getElementById('offer');
     setTimeout(function(){ if(off) off.scrollIntoView({behavior:'smooth', block:'center'}); }, 650);
   }
 
@@ -492,6 +782,31 @@
     v.addEventListener('error', function(){ v.style.display='none'; }, true);
     setTimeout(function(){ if(v.networkState === 3){ v.style.display='none'; } }, 500);
   });
+
+  // pause videos while offscreen (data & battery friendly)
+  if('IntersectionObserver' in window){
+    var vio = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        var v = e.target;
+        if(v.style.display === 'none') return;
+        if(e.isIntersecting){ var p = v.play(); if(p && p.catch){ p.catch(function(){}); } }
+        else{ v.pause(); }
+      });
+    }, {rootMargin:'120px 0px'});
+    document.querySelectorAll('.plug-video').forEach(function(v){ vio.observe(v); });
+  }
+
+  // scroll reveal
+  if('IntersectionObserver' in window){
+    var rio = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); }
+      });
+    }, {rootMargin:'0px 0px -40px 0px', threshold:.06});
+    document.querySelectorAll('.rv').forEach(function(el){ rio.observe(el); });
+  }else{
+    document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); });
+  }
 
   // sticky CTA
   var sc = document.getElementById('stickyCta');

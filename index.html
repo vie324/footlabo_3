@@ -3,14 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>切らない 巻き爪専門店フットラボ｜初回50%OFF・AI診断無料｜亀戸駅 徒歩5分</title>
-<meta name="description" content="「病院に行くほどじゃない」その巻き爪、切らずに整える。亀戸駅徒歩5分の巻き爪専門店フットラボ。AI診断無料・初回補正50%OFF。LINEで写真を送るだけの無料相談も。土日祝も20時まで営業。">
+<title>切らない 巻き爪専門店フットラボ｜初回50%OFF・AI診断無料｜東京・東神田（馬喰町駅 徒歩5分）</title>
+<meta name="description" content="「病院に行くほどじゃない」その巻き爪、切らずに整える。東京・東神田の巻き爪専門店フットラボ（JR馬喰町駅 徒歩約5分／馬喰横山駅・東日本橋駅も利用可）。AI診断無料・初回補正50%OFF。LINEで写真を送るだけの無料相談も。土日祝も20時まで営業。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="切らない 巻き爪専門店フットラボ｜初回50%OFF｜亀戸駅 徒歩5分">
-<meta property="og:description" content="切らない・痛みの少ない巻き爪ケア。AI診断無料、初回補正50%OFF。LINEで写真を送るだけの無料相談も。">
+<meta property="og:title" content="切らない 巻き爪専門店フットラボ｜初回50%OFF｜馬喰町駅 徒歩5分">
+<meta property="og:description" content="切らない・痛みの少ない巻き爪ケア。AI診断無料、初回補正50%OFF。東京・東神田（馬喰町駅 徒歩5分）。LINEで写真を送るだけの無料相談も。">
 <meta property="og:image" content="images/ogp.jpg"><!-- images/ogp.jpg を置くとシェア時に表示されます -->
 <meta name="theme-color" content="#F6F4EF">
 <!-- ▼ LINEの予約URL: 「https://lin.ee/your-line-id」を実際のURLに一括置換してください -->
+<!-- ▼ 公式画像: images/logo.png（ロゴ）・images/character.png（公式キャラクター ツメピカにゃん）・images/daihyo.jpg（代表写真）。差し替えは同名で上書きしてください -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -330,10 +331,119 @@
   .sticky-cta .sc-off .o2{display:block;font-family:var(--sans);font-weight:900;font-size:1.05rem;color:var(--ink)}
   .sticky-cta .cta{font-size:.96rem;padding:14px 12px;flex:1}
 
+  /* ===== fixed header / brand ===== */
+  body{padding-top:58px}
+  section{scroll-margin-top:70px}
+  .site-head{position:fixed;top:0;left:0;right:0;z-index:90;background:rgba(252,250,246,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--hair-2)}
+  .hd-in{max-width:var(--funnel);margin:0 auto;height:58px;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 16px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);min-width:0}
+  .brand-mk{flex:none;width:40px;height:40px;overflow:hidden;position:relative}
+  .brand-mk img{position:absolute;width:223%;height:auto;left:-59%;top:-9%}
+  .brand-tx{display:flex;flex-direction:column;line-height:1.3;min-width:0}
+  .brand-tx small{font-size:.5rem;font-weight:700;letter-spacing:.24em;color:var(--orange);white-space:nowrap}
+  .brand-tx b{font-family:var(--serif);font-weight:700;font-size:1rem;letter-spacing:.1em;white-space:nowrap}
+  .hd-cta{flex:none;display:flex;align-items:center;gap:6px;background:var(--line);color:#fff;text-decoration:none;font-weight:700;font-size:.76rem;letter-spacing:.05em;padding:9px 15px;border-radius:99px;box-shadow:0 4px 12px rgba(6,199,85,.3);transition:background .2s}
+  .hd-cta:hover{background:var(--line-d)}
+  .hd-cta svg{width:15px;height:15px;flex:none}
+  .hd-bar{position:absolute;left:0;bottom:-1px;height:2px;width:0%;background:linear-gradient(90deg,var(--orange-2),var(--orange))}
+
+  /* ===== ticker ===== */
+  .ticker{overflow:hidden;background:linear-gradient(92deg,var(--orange) 0%,var(--orange-2) 55%,var(--orange) 100%);color:#fff;padding:11px 0}
+  .ticker .tk{display:flex;width:max-content;animation:tick 26s linear infinite}
+  .ticker span{flex:none;display:flex;align-items:center;font-weight:700;font-size:.76rem;letter-spacing:.12em;padding-right:34px;white-space:nowrap}
+  .ticker span::before{content:"✦";font-size:.62em;margin-right:34px;opacity:.75}
+  @keyframes tick{to{transform:translateX(-50%)}}
+
+  /* ===== 公式キャラクター（ツメピカにゃん） ===== */
+  .chr{display:block;filter:drop-shadow(0 8px 14px rgba(35,32,28,.16))}
+  .bob{animation:bobY 3.4s ease-in-out infinite}
+  @keyframes bobY{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+  .bub{position:relative;display:inline-block;background:var(--surface);border:1.5px solid var(--ink);border-radius:13px;padding:7px 12px;font-size:.72rem;font-weight:700;letter-spacing:.04em;line-height:1.5;color:var(--ink);box-shadow:0 3px 8px rgba(35,32,28,.08)}
+  .bub::after{content:"";position:absolute;bottom:-6.5px;left:50%;width:10px;height:10px;background:var(--surface);border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);transform:translateX(-50%) rotate(45deg)}
+
+  /* ===== hero visual ===== */
+  .hero-visual{position:relative}
+  .hero-visual .media{box-shadow:0 20px 44px -20px rgba(35,32,28,.4)}
+  .hero .media video{animation:kb 16s ease-in-out infinite alternate}
+  @keyframes kb{from{transform:scale(1)}to{transform:scale(1.06)}}
+  .hero-sticker{position:absolute;top:12px;left:12px;z-index:7;width:78px;height:78px;border-radius:50%;background:linear-gradient(135deg,var(--orange-2),var(--orange));color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-align:center;box-shadow:0 10px 22px rgba(224,112,15,.42);animation:swing 3.8s ease-in-out infinite}
+  .hero-sticker small{font-size:.55rem;font-weight:700;letter-spacing:.05em}
+  .hero-sticker b{font-size:1.06rem;font-weight:900;line-height:1;letter-spacing:.01em}
+  @keyframes swing{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(-1deg)}}
+  .hero-chara{position:absolute;right:6px;bottom:-14px;z-index:7;width:142px;text-align:center;animation:bobY 3.6s ease-in-out infinite}
+  .hero-chara .bub{margin-bottom:7px;white-space:nowrap;font-size:.68rem}
+  .hero-chara .chr{width:94px;margin:0 auto}
+  .chr-tag{display:inline-block;margin-top:5px;background:var(--ink);color:#fff;font-size:.56rem;font-weight:700;letter-spacing:.12em;padding:3px 10px;border-radius:99px}
+  .hero-logo{display:block;width:132px;margin:0 auto 12px}
+
+  /* ===== entrance ===== */
+  @keyframes fUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  .fx{animation:fUp .8s cubic-bezier(.22,.68,.3,1) both}
+  .fx.d1{animation-delay:.06s}.fx.d2{animation-delay:.16s}.fx.d3{animation-delay:.28s}.fx.d4{animation-delay:.42s}
+
+  /* ===== deco orbs ===== */
+  .hero-copy{position:relative}
+  .orb{position:absolute;border-radius:50%;background:radial-gradient(circle at 32% 32%,rgba(245,132,43,.3),rgba(245,132,43,0) 70%);pointer-events:none;animation:drift 9s ease-in-out infinite alternate}
+  .orb.a{width:150px;height:150px;top:-14px;left:-52px}
+  .orb.b{width:96px;height:96px;right:-30px;top:76px;animation-delay:1.6s}
+  @keyframes drift{from{transform:translate(0,0)}to{transform:translate(12px,-14px)}}
+
+  /* ===== stagger reveal ===== */
+  .stag>*{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .stag.in>*{opacity:1;transform:none}
+  .stag.in>*:nth-child(2){transition-delay:.07s}
+  .stag.in>*:nth-child(3){transition-delay:.14s}
+  .stag.in>*:nth-child(4){transition-delay:.21s}
+  .stag.in>*:nth-child(5){transition-delay:.28s}
+  .stag.in>*:nth-child(6){transition-delay:.35s}
+  .stag.in>*:nth-child(7){transition-delay:.42s}
+  .stag.in>*:nth-child(8){transition-delay:.49s}
+  .stag.in>*:nth-child(9){transition-delay:.56s}
+
+  /* ===== section ornament ===== */
+  .sec-head h2::after{content:"";display:block;width:38px;height:2px;margin:14px auto 0;background:linear-gradient(90deg,var(--orange-2),var(--orange));border-radius:2px}
+
+  /* ===== character placements ===== */
+  .quiz-chara{display:flex;align-items:flex-end;justify-content:center;gap:10px;margin-bottom:14px}
+  .quiz-chara .chr{width:62px;flex:none}
+  .quiz-chara .bub{margin-bottom:14px}
+  .quiz-chara .bub::after{left:24px}
+  .qres-chara{width:92px;margin:0 auto 12px}
+  .steps-note{display:flex;align-items:center;justify-content:center;gap:12px;text-align:left}
+  .steps-note .chr{width:54px;flex:none;transform:scaleX(-1)}
+  .final-chara{margin-bottom:16px}
+  .final-chara .chr{width:92px;margin:0 auto}
+  .final-chara .bub{margin-bottom:8px}
+
+  /* ===== 代表メッセージ ===== */
+  .staff .media{aspect-ratio:1/1;box-shadow:0 16px 34px -16px rgba(35,32,28,.35)}
+  .photo::after{content:"";position:absolute;inset:9px;border:1px solid rgba(255,255,255,.65);z-index:4;pointer-events:none}
+
+  /* ===== キャラクター紹介カード ===== */
+  .chara-card{border:1px solid var(--hair);border-top:3px solid var(--orange);background:var(--bg-2);padding:26px 20px 24px;text-align:center}
+  .chara-card .bub{margin-bottom:10px}
+  .chara-card .chr{width:150px;margin:0 auto}
+  .chara-name{margin:12px 0 16px}
+  .chara-name small{display:block;font-size:.66rem;letter-spacing:.14em;color:var(--ink-soft);margin-bottom:4px}
+  .chara-name b{font-family:var(--serif);font-weight:700;font-size:1.3rem;letter-spacing:.1em;color:var(--orange)}
+  .chara-facts{display:grid;gap:8px;text-align:left}
+  .chara-facts>div{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--hair-2);background:var(--surface);padding:10px 12px}
+  .chara-facts dt{flex:none;font-size:.62rem;font-weight:700;letter-spacing:.1em;color:#fff;background:var(--orange);padding:3px 8px;margin-top:3px;border-radius:3px}
+  .chara-facts dd{font-size:.8rem;line-height:1.7;letter-spacing:.01em}
+
+  /* ===== micro animation ===== */
+  .sticky-cta .cta{animation:softPulse 3s ease-in-out infinite}
+  @keyframes softPulse{0%,100%{box-shadow:0 6px 18px rgba(6,199,85,.22)}50%{box-shadow:0 8px 26px rgba(6,199,85,.5)}}
+
+  /* ===== footer ===== */
+  .f-logo{display:block;width:108px;margin:0 auto 14px}
+  footer .faddr{font-size:.72rem;color:var(--ink-soft);margin-top:10px;letter-spacing:.03em}
+
   @media(prefers-reduced-motion:reduce){
     *{animation:none!important;scroll-behavior:auto!important}
     .sticky-cta{transition:none}
     .rv{opacity:1;transform:none;transition:none}
+    .stag>*{opacity:1;transform:none;transition:none}
     .cta::after{display:none}
   }
   .cta:focus-visible,.opt-btn:focus-visible,.faq-q:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
@@ -341,19 +451,38 @@
 </head>
 <body>
 
+<!-- HEADER -->
+<header class="site-head">
+  <div class="hd-in">
+    <a class="brand" href="#top" aria-label="巻き爪専門店フットラボ トップへ">
+      <span class="brand-mk"><img src="images/logo.png" alt=""></span>
+      <span class="brand-tx"><small>切らない巻き爪ケア</small><b>巻き爪フットラボ</b></span>
+    </a>
+    <a class="hd-cta" href="https://lin.ee/your-line-id" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg>
+      LINE予約
+    </a>
+  </div>
+  <div class="hd-bar" id="hdBar"></div>
+</header>
+
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="top">
   <div class="funnel">
-    <div class="hero-copy" style="padding:26px 0 18px">
-      <span class="kicker">KAMEIDO — 巻き爪専門店フットラボ</span>
-      <h1>その巻き爪、<br><span class="en">切らずに</span>整える。</h1>
-      <div class="hero-badges">
+    <div class="hero-copy" style="padding:24px 0 18px">
+      <i class="orb a" aria-hidden="true"></i><i class="orb b" aria-hidden="true"></i>
+      <img class="hero-logo fx d1" src="images/logo.png" alt="巻き爪 Foot Lab（巻き爪専門店フットラボ）">
+      <span class="kicker fx d2">TOKYO HIGASHI-KANDA — 巻き爪専門店</span>
+      <h1 class="fx d2">その巻き爪、<br><span class="en">切らずに</span>整える。</h1>
+      <div class="hero-badges fx d3">
         <span><b>切らない</b>ケア</span>
         <span>痛みが<b>少ない</b></span>
-        <span>亀戸駅 <b>徒歩5分</b></span>
+        <span>馬喰町駅 <b>徒歩5分</b></span>
       </div>
     </div>
-    <div class="media">
+    <div class="hero-visual fx d4">
+      <div class="hero-sticker" aria-hidden="true"><small>はじめて限定</small><b>50%OFF</b></div>
+      <div class="media">
       <video class="plug-video" autoplay muted loop playsinline>
         <source src="トップ1.MP4" type="video/mp4">
       </video>
@@ -362,8 +491,14 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg>
         <b>動画 トップ1.MP4 ／ 画像 images/hero.jpg</b><span>どちらかを置くと自動で表示（動画は無音再生）</span>
       </div>
+      </div>
+      <div class="hero-chara">
+        <span class="bub">おいらに任せるにゃ！</span>
+        <img class="chr" src="images/character.png" alt="フットラボ公式キャラクター ツメピカにゃん">
+        <span class="chr-tag">ツメピカにゃん</span>
+      </div>
     </div>
-    <div class="hero-copy" style="padding:22px 0 6px">
+    <div class="hero-copy" style="padding:30px 0 6px">
       <p>「病院に行くほどじゃない」——そんな方へ。<br><b>切らない・痛みの少ないケア</b>という選択を。</p>
     </div>
     <div class="hero-offer">
@@ -378,12 +513,20 @@
   </div>
 </section>
 
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="tk">
+    <span>はじめての方限定 巻き爪補正 50%OFF</span><span>AI診断 無料</span><span>LINE予約は30秒</span><span>切らない・痛みの少ないケア</span><span>土日祝も20時まで営業</span>
+    <span>はじめての方限定 巻き爪補正 50%OFF</span><span>AI診断 無料</span><span>LINE予約は30秒</span><span>切らない・痛みの少ないケア</span><span>土日祝も20時まで営業</span>
+  </div>
+</div>
+
 <!-- STATS -->
 <div class="stats">
   <div class="funnel" style="padding:0 12px">
     <div class="grid">
       <div class="st"><div class="sv"><b>切らない</b><br>施術</div><div class="sk">Method</div></div>
-      <div class="st"><div class="sv">駅から<br><b>徒歩5分</b></div><div class="sk">Kameido</div></div>
+      <div class="st"><div class="sv">駅から<br><b>徒歩5分</b></div><div class="sk">Bakurocho</div></div>
       <div class="st"><div class="sv">土日祝も<br><b>20時</b>まで</div><div class="sk">Open</div></div>
       <div class="st"><div class="sv">LINE相談<br><b>無料</b></div><div class="sk">Support</div></div>
     </div>
@@ -395,6 +538,10 @@
   <div class="funnel">
     <div class="quiz">
       <div class="quiz-head">
+        <div class="quiz-chara" aria-hidden="true">
+          <img class="chr bob" src="images/character.png" alt="">
+          <span class="bub">いっしょにチェックするにゃ！</span>
+        </div>
         <div class="qt">フットラボ <span class="s">AI診断</span></div>
         <div class="qsub">通常3,300円の診断が、今だけ無料。3つの質問に答えるだけ。</div>
       </div>
@@ -430,9 +577,9 @@
       </div>
 
       <div class="qresult" id="qresult">
-        <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg></div>
+        <img class="chr qres-chara bob" src="images/character.png" alt="ツメピカにゃん">
         <h3>診断が完了しました<br>あなたには「切らない矯正ケア」を</h3>
-        <p>まずは初回体験で、今の状態をチェック。</p>
+        <p>まずは初回体験で、今の状態をチェック。<br><b class="accent">「ピッカピカにしてあげるにゃー！」</b></p>
         <div class="down">▼</div>
       </div>
     </div>
@@ -446,7 +593,7 @@
       <span class="label">First Visit Campaign</span>
       <div class="tagline">はじめての方限定<br><span class="accent">3つの特典</span>をご用意しました</div>
       <div class="limit">Web予約限定 特典</div>
-      <div class="gifts">
+      <div class="gifts stag">
         <div class="gift"><span class="gn">特典 1</span><div class="gt">フットラボAI診断が無料<small>通常 税込3,300円 → 0円。今の状態と回数の目安がわかります。</small></div></div>
         <div class="gift"><span class="gn">特典 2</span><div class="gt">巻き爪補正が半額の¥5,500<small>通常 税込11,000円 → 50%OFF。初回からしっかり施術します。</small></div></div>
         <div class="gift"><span class="gn">特典 3</span><div class="gt">LINEでの写真相談が無料<small>来店前に「ケアできる状態か」お答えします。相談だけでもOK。</small></div></div>
@@ -482,7 +629,7 @@
 <section>
   <div class="funnel">
     <div class="sec-head rv"><span class="label">Check</span><h2>こんなお悩み、<br>ありませんか？</h2></div>
-    <div class="checks rv">
+    <div class="checks stag">
       <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><p>爪の端が食い込んで、<b>ズキッと痛む</b>ときがある</p></div>
       <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><p>つい<b>深爪</b>してしまい、同じことを繰り返している</p></div>
       <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><p><b>素足やサンダル</b>になるのが恥ずかしい</p></div>
@@ -498,7 +645,7 @@
 <section style="padding-top:10px">
   <div class="funnel">
     <div class="sec-head rv"><span class="label">Why Now</span><h2>巻き爪は「そのうち治る」が<br>起こりにくいお悩みです</h2><p>我慢しているあいだに、こんな悪循環につながることも。</p></div>
-    <div class="risks rv">
+    <div class="risks stag">
       <div class="risk"><div class="rn">RISK 01</div><h4>食い込みが深くなり、痛みが強くなりやすい</h4><p>爪は伸びるたびに同じカーブを描きます。食い込みが進むほど、ふとした瞬間の痛みが増えていきます。</p></div>
       <div class="risk"><div class="rn">RISK 02</div><h4>痛みをかばう歩き方が、足腰の負担に</h4><p>親指で踏ん張れない歩き方は、足裏・ひざ・腰への負担につながるといわれています。外出がおっくうになる方も。</p></div>
       <div class="risk"><div class="rn">RISK 03</div><h4>進むほど、時間も費用もかかりやすい</h4><p>変形が強くなってからのケアは、回数がかさみがち。軽いうちに始めるほうが、結果的に負担は小さくすみます。</p></div>
@@ -525,11 +672,11 @@
 <section>
   <div class="funnel">
     <div class="sec-head rv"><span class="label">Why Foot Labo</span><h2>フットラボが選ばれる<br>5つの理由</h2></div>
-    <div class="trust rv">
+    <div class="trust stag">
       <div class="tp"><div class="no">01</div><div><h4>巻き爪専門のケア技術</h4><p>巻き爪に特化した専門店です。状態に合わせて器具と力加減を選び、一人ひとりに合わせて施術します。</p></div></div>
       <div class="tp"><div class="no">02</div><div><h4>切らない・痛みが少ないケア</h4><p>爪を切る処置はせず、施術中の痛みも少なめ。施術後はそのまま歩いてお帰りいただけます。</p></div></div>
       <div class="tp"><div class="no">03</div><div><h4>AI診断は無料・明朗料金</h4><p>料金は施術前にご提示します。あとから高額なコースを勧めることはありません。</p></div></div>
-      <div class="tp"><div class="no">04</div><div><h4>亀戸駅5分×20時まで、通いやすい</h4><p>お仕事帰りや買い物ついでに寄れる立地と営業時間。土日祝も営業しています。</p></div></div>
+      <div class="tp"><div class="no">04</div><div><h4>馬喰町駅5分×20時まで、通いやすい</h4><p>JR馬喰町駅から徒歩約5分。馬喰横山駅・東日本橋駅・浅草橋駅も徒歩圏内で、お仕事帰りや買い物ついでに寄れます。土日祝も営業しています。</p></div></div>
       <div class="tp"><div class="no">05</div><div><h4>再発予防のセルフケアまで</h4><p>整えて終わりではなく、爪の切り方・靴選びなど、繰り返さないためのコツまでお伝えします。</p></div></div>
     </div>
   </div>
@@ -617,7 +764,7 @@
         <div class="body"><span class="st-no">STEP 04</span><h4>仕上げ＆セルフケアのアドバイス</h4><p>きれいな形を目指して。ご自宅での爪の切り方やケア方法もお伝えします。</p></div>
       </div>
     </div>
-    <p class="steps-note rv">気になる巻き爪を、切らずに・少しずつ。まずは体験から。</p>
+    <div class="steps-note rv"><img class="chr" src="images/character.png" alt="" aria-hidden="true"><span>気になる巻き爪を、切らずに・少しずつ。<br>まずは体験から。</span></div>
   </div>
 </section>
 
@@ -625,7 +772,7 @@
 <section>
   <div class="funnel">
     <div class="sec-head rv"><span class="label">Voice</span><h2>「切るのは不安」という方も、<br>通われています。</h2></div>
-    <div class="voices rv">
+    <div class="voices stag">
       <div class="voice"><div class="stars">★★★★★</div><p>手術はどうしても不安で、そのままにしていました。切らないと聞いて来店。来てよかったです。</p><div class="who">30代・女性</div></div>
       <div class="voice"><div class="stars">★★★★★</div><p>駅から近くて、仕事帰りにも寄りやすいので続けられました。対応も丁寧で安心でした。</p><div class="who">40代・男性</div></div>
       <div class="voice"><div class="stars">★★★★★</div><p>「まだ軽いけれど見てもらえますか」という相談にも、ていねいに対応してもらえました。</p><div class="who">20代・女性</div></div>
@@ -634,16 +781,40 @@
   </div>
 </section>
 
-<!-- STAFF -->
+<!-- MESSAGE -->
 <section style="padding-top:10px">
   <div class="funnel">
-    <div class="sec-head rv"><span class="label">Greeting</span><h2>担当者からのごあいさつ</h2></div>
+    <div class="sec-head rv"><span class="label">Message</span><h2>代表からのメッセージ</h2></div>
     <div class="staff rv">
-      <div class="media"><img src="images/staff.jpg" alt="施術担当者" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg><b>画像 staff</b><span>images/staff.jpg（施術者・店内の写真）</span></div></div>
-      <h3>「切るのは怖い」で我慢している方にこそ、<br>来ていただきたいお店です。</h3>
-      <p>巻き爪は、我慢できてしまうから後回しになりがちです。でも、軽いうちに整えるほど、少ない回数と負担ですみます。</p>
-      <p>フットラボは、痛みに配慮した切らないケアで、「もっと早く来ればよかった」と言っていただけることを目指しています。相談だけでも、写真を送るだけでも構いません。あなたのペースで、いらしてください。</p>
-      <div class="sig">巻き爪専門店フットラボ 亀戸店</div>
+      <div class="media photo"><img src="images/daihyo.jpg" alt="巻き爪専門店フットラボ 代表" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg><b>代表の写真</b><span>images/daihyo.jpg</span></div></div>
+      <h3>巻き爪は、<span class="accent">我慢するもの</span>ではありません。</h3>
+      <p>私自身、巻き爪で悩んでいた時期がありました。</p>
+      <p>痛みがあっても、どこに行けばいいのか分からない。落ち着いたと思っても、また繰り返してしまう。そんな不安を抱えながら、我慢して過ごしていたこともあります。</p>
+      <p>だからこそ今、同じように悩んでいる方に伝えたいのです。<b>巻き爪は、我慢するものではありません。</b></p>
+      <p>これまで美容・健康の現場で多くの方と向き合ってきた経験も活かしながら、痛みや不安を抱える方が安心して相談できる場所をつくりたい。そんな想いで、巻き爪フットラボを立ち上げました。</p>
+      <p>巻き爪は、スポーツをするお子さま、ハイヒールやブーツを履く女性、更年期による変化で症状が強くなった方、革靴や立ち仕事の男性、ご高齢の方まで、老若男女を問わず多くの方が悩む症状です。</p>
+      <p>特に高齢の方にとっては、爪の痛みが「歩けない」「外出が億劫になる」といった深刻な悩みにつながり、結果として足腰の衰えを招くこともあります。</p>
+      <p>それなのに、これまで巻き爪を気軽に相談し、改善を目指せる場所は多くありませんでした。だから私たちは、巻き爪ケアをもっと身近なものにしたいと考えています。巻き爪フットラボを全国に広げ、痛みを我慢しない毎日を支えていきます。</p>
+      <div class="sig">巻き爪専門店フットラボ 代表</div><!-- ▲ お名前を掲載する場合はこの行に追記してください -->
+    </div>
+  </div>
+</section>
+
+<!-- CHARACTER -->
+<section>
+  <div class="funnel">
+    <div class="sec-head rv"><span class="label">Character</span><h2>お店であなたをお出迎え、<br>公式キャラクター</h2></div>
+    <div class="chara-card rv">
+      <span class="bub">爪をピカピカにするにゃー！</span>
+      <img class="chr bob" src="images/character.png" alt="フットラボ公式キャラクター ツメピカにゃん">
+      <div class="chara-name"><small>巻き爪フットラボの妖精ねこ</small><b>ツメピカにゃん</b></div>
+      <dl class="chara-facts">
+        <div><dt>誕生日</dt><dd>2月22日（にゃんにゃんにゃんの日）</dd></div>
+        <div><dt>出身</dt><dd>爪ピカ星（Foot Lab Galaxy）。爪研ぎ歴はじつは300年</dd></div>
+        <div><dt>とくぎ</dt><dd>爪をピカピカにすること／お客様の爪のお悩みを聞き出すこと</dd></div>
+        <div><dt>チャーム</dt><dd>爪研ぎで磨きすぎてオレンジに染まった頭の毛束</dd></div>
+        <div><dt>くちぐせ</dt><dd>「だいじょうぶにゃ、おいらに任せるにゃ」「ピッカピカが世界平和にゃ」</dd></div>
+      </dl>
     </div>
   </div>
 </section>
@@ -683,7 +854,7 @@
 <section style="padding-top:10px">
   <div class="funnel">
     <div class="sec-head rv"><span class="label">Reservation</span><h2>ご予約は、LINEで3ステップ</h2><p>お電話は不要。すべてLINEで完結します。</p></div>
-    <div class="rsv rv">
+    <div class="rsv stag">
       <div class="rs"><div class="ri"></div><div><h4>友だち追加<small>約30秒</small></h4><p>下のボタンから友だち追加。この時点では通知も勧誘もありません。</p></div></div>
       <div class="rs"><div class="ri"></div><div><h4>写真を送る or 日時を選ぶ</h4><p>気になる爪の写真を送って相談するか、ご希望の日時をメッセージするだけ。</p></div></div>
       <div class="rs"><div class="ri"></div><div><h4>当日、手ぶらでご来店</h4><p>持ち物は不要です。足先を出しやすい服装だとスムーズです。</p></div></div>
@@ -715,12 +886,12 @@
     <div class="access-card rv">
       <h3>ACCESS</h3>
       <dl>
-        <div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-5-7-10a7 7 0 1114 0c0 5-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg><div><dt>Address</dt><dd>〒136-0071 東京都江東区亀戸5-29-21 Real WithⅡ 1階</dd></div></div>
-        <div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6v12M9 6L3 9v12l6-3 6 3 6-3V6"/></svg><div><dt>Access</dt><dd>JR中央・総武線（各駅停車）／東武亀戸線「亀戸」駅より徒歩5分</dd></div></div>
+        <div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-5-7-10a7 7 0 1114 0c0 5-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg><div><dt>Address</dt><dd>〒101-0031 東京都千代田区東神田1丁目14-13</dd></div></div>
+        <div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6v12M9 6L3 9v12l6-3 6 3 6-3V6"/></svg><div><dt>Access</dt><dd>JR総武快速線「馬喰町」駅より徒歩約5分<br>都営新宿線「馬喰横山」駅・都営浅草線「東日本橋」駅・JR総武線「浅草橋」駅も徒歩圏内</dd></div></div>
         <div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><dt>Open</dt><dd>11:00〜20:00（平日・土日祝とも）</dd></div></div>
         <div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="1"/><path d="M2 10h20"/></svg><div><dt>Payment</dt><dd>現金／クレジットカード／タッチ決済（交通系IC・楽天Edy・WAON）／QRコード決済（楽天ペイ・PayPay・メルペイ・auPAY・d払い）</dd></div></div>
       </dl>
-      <div class="map-embed"><iframe src="https://www.google.com/maps/embed?origin=mfe&amp;pb=!1m3!2m1!1z5p2x5Lqs6YO95rGf5p2x5Yy65LqA5oi4NS0yOS0yMQ!6i17!3m1!1sja!5m1!1sja" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="巻き爪専門店フットラボ（〒136-0071 東京都江東区亀戸5-29-21 Real WithⅡ 1階）の地図"></iframe></div>
+      <div class="map-embed"><iframe src="https://www.google.com/maps/embed?origin=mfe&amp;pb=!1m3!2m1!1z5p2x5Lqs6YO95Y2D5Luj55Sw5Yy65p2x56We55SwMS0xNC0xMw!6i17!3m1!1sja!5m1!1sja" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="巻き爪専門店フットラボ（〒101-0031 東京都千代田区東神田1丁目14-13）の地図"></iframe></div>
     </div>
   </div>
 </section>
@@ -728,7 +899,10 @@
 <!-- FINAL -->
 <section class="final">
   <div class="funnel">
-    <div class="divider" style="margin-bottom:20px"></div>
+    <div class="final-chara rv">
+      <span class="bub">写真1枚送るだけでOKにゃ！</span>
+      <img class="chr bob" src="images/character.png" alt="ツメピカにゃん">
+    </div>
     <h2>まずは、写真を送るだけ。</h2>
     <p>「これってケアできる？」「何回くらい必要？」<br>気になることを、LINEで気軽にご相談ください。</p>
     <a href="https://lin.ee/your-line-id" target="_blank" rel="noopener" class="cta">
@@ -745,8 +919,10 @@
 </section>
 
 <footer>
+  <img class="f-logo" src="images/logo.png" alt="巻き爪 Foot Lab">
   <div class="fb">巻き爪専門店フットラボ</div>
-  <div class="fsub">切らない 巻き爪ケア ／ 亀戸駅 徒歩5分</div>
+  <div class="fsub">切らない 巻き爪ケア ／ 東京・東神田｜馬喰町駅 徒歩5分</div>
+  <p class="faddr">〒101-0031 東京都千代田区東神田1丁目14-13</p>
   <p class="fnote">※当店のケアは医療行為ではありません。記載内容・写真は結果を保証するものではなく、効果には個人差があります。炎症・化膿・強い痛みなどがある場合は医療機関の受診をおすすめします。</p>
   <p class="cp">© 巻き爪専門店フットラボ</p>
 </footer>
@@ -803,17 +979,22 @@
         if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); }
       });
     }, {rootMargin:'0px 0px -40px 0px', threshold:.06});
-    document.querySelectorAll('.rv').forEach(function(el){ rio.observe(el); });
+    document.querySelectorAll('.rv,.stag').forEach(function(el){ rio.observe(el); });
   }else{
-    document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); });
+    document.querySelectorAll('.rv,.stag').forEach(function(el){ el.classList.add('in'); });
   }
 
-  // sticky CTA
+  // sticky CTA + header progress bar
   var sc = document.getElementById('stickyCta');
+  var hdBar = document.getElementById('hdBar');
   function onScroll(){
     var y = window.scrollY;
     var nearBottom = (window.innerHeight + y) > (document.body.offsetHeight - 140);
     if(y > 400 && !nearBottom){ sc.classList.add('show'); } else { sc.classList.remove('show'); }
+    if(hdBar){
+      var max = document.body.offsetHeight - window.innerHeight;
+      hdBar.style.width = (max > 0 ? Math.min(100, y / max * 100) : 0) + '%';
+    }
   }
   window.addEventListener('scroll', onScroll, {passive:true});
   window.addEventListener('resize', onScroll, {passive:true});

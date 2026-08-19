@@ -8,10 +8,108 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="切らない 巻き爪専門店フットラボ｜初回50%OFF｜馬喰町駅 徒歩5分">
 <meta property="og:description" content="切らない・痛みの少ない巻き爪ケア。AI診断無料、初回補正50%OFF。東京・東神田（馬喰町駅 徒歩5分）。LINEで写真を送るだけの無料相談も。">
-<meta property="og:image" content="images/ogp.jpg"><!-- images/ogp.jpg を置くとシェア時に表示されます -->
+<meta property="og:image" content="images/ogp.jpg"><!-- 公開後は絶対URL(https://ドメイン/images/ogp.jpg)への変更を推奨 -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="images/ogp.jpg">
 <meta name="theme-color" content="#F6F4EF">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="images/icon-512.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <!-- ▼ LINEの予約URL: 「https://lin.ee/your-line-id」を実際のURLに一括置換してください -->
 <!-- ▼ 公式画像: images/logo.png（ロゴ）・images/character.png（公式キャラクター ツメピカにゃん）・images/daihyo.jpg（代表写真）。差し替えは同名で上書きしてください -->
+
+<!-- ▼▼▼ 集客設定（かんたん設定エリア）▼▼▼
+  各IDを "" の中に入れるだけで計測が始まります。空欄のままなら何も読み込まれません。
+  ・SHEET_ID   : コンテンツ管理シート（Googleスプレッドシート）。残り枠・締切・お知らせ・LINE URLをシートから変更できます
+  ・GA4_ID     : Googleアナリティクス4の測定ID（例 "G-XXXXXXXXXX"）
+  ・CLARITY_ID : Microsoft Clarity（無料ヒートマップ）のプロジェクトID
+  ・META_PIXEL_ID : Meta（Instagram/Facebook）広告のピクセルID -->
+<script>
+window.LP_CONFIG = {
+  SHEET_ID: "1e27WEgd-wq2EZjdiDswOpj4XMGL2oxVRLrHpOGXPtog",
+  GA4_ID: "",
+  CLARITY_ID: "",
+  META_PIXEL_ID: ""
+};
+(function(){
+  var c = window.LP_CONFIG;
+  if(c.GA4_ID){
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + c.GA4_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){ dataLayer.push(arguments); };
+    gtag('js', new Date()); gtag('config', c.GA4_ID);
+  }
+  if(c.CLARITY_ID){
+    (function(w,d,t,u,i){ w[t]=w[t]||function(){(w[t].q=w[t].q||[]).push(arguments)};
+      var s=d.createElement('script'); s.async=1; s.src=u+i; d.head.appendChild(s);
+    })(window,document,'clarity','https://www.clarity.ms/tag/',c.CLARITY_ID);
+  }
+  if(c.META_PIXEL_ID){
+    !function(f,b,e,v,n,t,z){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;z=b.getElementsByTagName(e)[0];z.parentNode.insertBefore(t,z)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', c.META_PIXEL_ID); fbq('track', 'PageView');
+  }
+  // LINEボタンのクリック計測（GA4/Pixel設定時のみ送信）
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest && e.target.closest('a[href*="lin.ee"],a[href*="line.me"]');
+    if(!a) return;
+    var sec = a.closest('section,header,.sticky-cta');
+    var place = (sec && (sec.id || (sec.className && String(sec.className).split(' ')[0]))) || 'page';
+    if(window.gtag) gtag('event', 'line_click', {placement: place});
+    if(window.fbq) fbq('track', 'Lead');
+  }, true);
+})();
+</script>
+<!-- ▲▲▲ 集客設定ここまで ▲▲▲ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HealthAndBeautyBusiness",
+  "name": "巻き爪専門店フットラボ",
+  "alternateName": "巻き爪 Foot Lab",
+  "description": "切らない・痛みの少ない巻き爪補正の専門店。AI診断無料、初回補正50%OFF。LINEで写真を送るだけの無料相談も。",
+  "image": "images/ogp.jpg",
+  "logo": "images/logo.png",
+  "slogan": "その巻き爪、切らずに整える。",
+  "address": {
+    "@type": "PostalAddress",
+    "postalCode": "101-0031",
+    "addressRegion": "東京都",
+    "addressLocality": "千代田区",
+    "streetAddress": "東神田1丁目14-13",
+    "addressCountry": "JP"
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "11:00",
+    "closes": "20:00"
+  }],
+  "priceRange": "¥3,300〜¥11,000",
+  "paymentAccepted": "現金, クレジットカード, 交通系IC, 楽天Edy, WAON, 楽天ペイ, PayPay, メルペイ, auPAY, d払い",
+  "currenciesAccepted": "JPY"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"ケア中は痛いですか？","acceptedAnswer":{"@type":"Answer","text":"切らない方法のため、施術中の痛みはほとんどありません。感じ方には個人差がありますので、不安な方はまずご相談ください。"}},
+    {"@type":"Question","name":"何回くらい通えばいいですか？","acceptedAnswer":{"@type":"Answer","text":"状態によって異なります。軽い方ほど少ない回数ですみやすい傾向です。無料のAI診断とカウンセリングで、回数と費用の目安を先にお伝えします。※個人差があります。"}},
+    {"@type":"Question","name":"1回でも変化はありますか？","acceptedAnswer":{"@type":"Answer","text":"装着直後にカーブの変化を実感される方が多いです。ただし整った状態を安定させるには継続的なケアが大切です。※効果・感じ方には個人差があります。"}},
+    {"@type":"Question","name":"軽い状態でも見てもらえますか？","acceptedAnswer":{"@type":"Answer","text":"はい。むしろ軽いうちのほうが、少ない回数・負担で整えやすい傾向です。「これくらいで行っていいのかな」という段階こそご相談ください。"}},
+    {"@type":"Question","name":"所要時間はどのくらいですか？","acceptedAnswer":{"@type":"Answer","text":"初回はカウンセリング・AI診断を含めて1時間前後が目安です（状態により前後します）。お仕事帰りにもお立ち寄りいただけます。"}},
+    {"@type":"Question","name":"男性や年配でも大丈夫ですか？","acceptedAnswer":{"@type":"Answer","text":"もちろんです。性別・年齢を問わずご利用いただいています。ご家族の付き添いでのご相談も歓迎です。"}},
+    {"@type":"Question","name":"予約なしでも行けますか？","acceptedAnswer":{"@type":"Answer","text":"ご案内できる人数に限りがあるため、LINEでの事前予約をおすすめします。空きがあれば当日のご案内も可能ですので、まずはメッセージでお問い合わせください。"}},
+    {"@type":"Question","name":"支払い方法は何が使えますか？","acceptedAnswer":{"@type":"Answer","text":"現金のほか、クレジットカード、タッチ決済（交通系IC・楽天Edy・WAON）、QRコード決済（楽天ペイ・PayPay・メルペイ・auPAY・d払い）がご利用いただけます。"}},
+    {"@type":"Question","name":"炎症や強い痛みがある場合は？","acceptedAnswer":{"@type":"Answer","text":"そうした場合は、まず医療機関（皮膚科・形成外科など）の受診をおすすめします。当店は切らないケアを行う場所で、医療行為は行いません。受診の目安についてもLINEでご相談いただけます。"}}
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -439,6 +537,17 @@
   .f-logo{display:block;width:108px;margin:0 auto 14px}
   footer .faddr{font-size:.72rem;color:var(--ink-soft);margin-top:10px;letter-spacing:.03em}
 
+  /* ===== 管理シート(CMS)連動UI ===== */
+  [hidden]{display:none!important}
+  .notice-bar{background:linear-gradient(92deg,rgba(224,112,15,.12),rgba(245,132,43,.14));border-bottom:1px solid var(--hair-2);padding:9px 0;text-align:center}
+  .notice-bar span{font-size:.78rem;font-weight:500;letter-spacing:.03em;color:var(--ink)}
+  .slots-badge{display:flex;align-items:center;justify-content:center;gap:8px;margin:14px 0 0;padding:11px 14px;border:1px dashed var(--orange);background:var(--orange-tint);color:var(--ink);font-size:.84rem;font-weight:700;letter-spacing:.04em}
+  .slots-badge b{color:var(--orange);font-size:1.25rem;font-weight:900;margin:0 2px;line-height:1}
+  .sl-dot{width:8px;height:8px;border-radius:50%;background:var(--orange);animation:blink 1.6s ease-in-out infinite;flex:none}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+  .deadline{text-align:center;font-size:.8rem;font-weight:500;letter-spacing:.06em;color:var(--ink-soft);margin-top:12px}
+  .deadline b{color:var(--orange);font-weight:700}
+
   @media(prefers-reduced-motion:reduce){
     *{animation:none!important;scroll-behavior:auto!important}
     .sticky-cta{transition:none}
@@ -466,6 +575,9 @@
   <div class="hd-bar" id="hdBar"></div>
 </header>
 
+<!-- お知らせ帯（管理シートの notice_text から。空欄なら非表示） -->
+<div class="notice-bar" id="noticeBar" hidden><div class="funnel"><span id="noticeText"></span></div></div>
+
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="funnel">
@@ -483,13 +595,13 @@
     <div class="hero-visual fx d4">
       <div class="hero-sticker" aria-hidden="true"><small>はじめて限定</small><b>50%OFF</b></div>
       <div class="media">
-      <video class="plug-video" autoplay muted loop playsinline>
-        <source src="トップ1.MP4" type="video/mp4">
+      <video class="plug-video" poster="images/poster_hero.jpg" preload="auto" autoplay muted loop playsinline>
+        <source src="hero.mp4" type="video/mp4">
       </video>
       <img src="images/hero.jpg" alt="" onerror="this.style.display='none'">
       <div class="ph">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-        <b>動画 トップ1.MP4 ／ 画像 images/hero.jpg</b><span>どちらかを置くと自動で表示（動画は無音再生）</span>
+        <b>動画 hero.mp4 ／ 画像 images/hero.jpg</b><span>どちらかを置くと自動で表示（動画は無音再生）</span>
       </div>
       </div>
       <div class="hero-chara">
@@ -505,7 +617,8 @@
       <div class="ho-l">はじめての方限定<br>巻き爪補正 初回体験<small>AI診断（通常3,300円）も無料</small></div>
       <div class="ho-r"><span class="off">50% OFF</span>¥5,500<small>税込</small></div>
     </div>
-    <a href="https://lin.ee/your-line-id" target="_blank" rel="noopener" class="cta">
+    <div class="slots-badge" data-slots hidden><span class="sl-dot" aria-hidden="true"></span><span data-slots-month>今月</span>の初回体験枠　残り<b data-slots-n>–</b>名</div>
+    <a href="https://lin.ee/your-line-id" target="_blank" rel="noopener" class="cta" style="margin-top:14px">
       <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg>
       LINEで予約する
     </a>
@@ -539,7 +652,7 @@
     <div class="quiz">
       <div class="quiz-head">
         <div class="quiz-chara" aria-hidden="true">
-          <img class="chr bob" src="images/character.png" alt="">
+          <img class="chr bob" loading="lazy" decoding="async" src="images/character.png" alt="">
           <span class="bub">いっしょにチェックするにゃ！</span>
         </div>
         <div class="qt">フットラボ <span class="s">AI診断</span></div>
@@ -593,6 +706,8 @@
       <span class="label">First Visit Campaign</span>
       <div class="tagline">はじめての方限定<br><span class="accent">3つの特典</span>をご用意しました</div>
       <div class="limit">Web予約限定 特典</div>
+      <div class="deadline" data-deadline hidden>特典期限：<b data-deadline-text></b></div>
+      <div class="slots-badge" data-slots hidden><span class="sl-dot" aria-hidden="true"></span><span data-slots-month>今月</span>の初回体験枠　残り<b data-slots-n>–</b>名</div>
       <div class="gifts stag">
         <div class="gift"><span class="gn">特典 1</span><div class="gt">フットラボAI診断が無料<small>通常 税込3,300円 → 0円。今の状態と回数の目安がわかります。</small></div></div>
         <div class="gift"><span class="gn">特典 2</span><div class="gt">巻き爪補正が半額の¥5,500<small>通常 税込11,000円 → 50%OFF。初回からしっかり施術します。</small></div></div>
@@ -744,27 +859,27 @@
     <div class="sec-head rv"><span class="label">Flow</span><h2>通うだけ。切らずに、少しずつ整える。</h2><p>初回体験でやること、すべてお見せします。</p></div>
     <div class="steps">
       <div class="stepc rv">
-        <div class="media"><video class="plug-video" autoplay muted loop playsinline><source src="STEP1.MP4" type="video/mp4"></video><img src="images/step1.jpg" alt="" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg><b>動画/画像 step1</b><span>STEP1.MP4 または images/step1.jpg</span></div></div>
+        <div class="media"><video class="plug-video" poster="images/poster_step1.jpg" preload="none" autoplay muted loop playsinline><source src="step1.mp4" type="video/mp4"></video><img src="images/step1.jpg" alt="" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg><b>動画/画像 step1</b><span>step1.mp4 または images/step1.jpg</span></div></div>
         <div class="body"><span class="st-no">STEP 01</span><h4>カウンセリング＆足のチェック</h4><p>まずは状態を確認。不安なことも相談できます。LINEで写真を送っての事前相談もOKです。</p></div>
       </div>
       <div class="stepc rv">
-        <div class="media"><video class="plug-video" autoplay muted loop playsinline><source src="STEP2.MP4" type="video/mp4"></video><img src="images/step2.jpg" alt="" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg><b>動画/画像 step2</b><span>STEP2.MP4 または images/step2.jpg</span></div></div>
+        <div class="media"><video class="plug-video" poster="images/poster_step2.jpg" preload="none" autoplay muted loop playsinline><source src="step2.mp4" type="video/mp4"></video><img src="images/step2.jpg" alt="" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg><b>動画/画像 step2</b><span>step2.mp4 または images/step2.jpg</span></div></div>
         <div class="body"><span class="st-no">STEP 02</span><h4>爪まわりをやさしく整える</h4><p>角質や甘皮などをていねいにケアして、清潔な状態に。装着の準備を整えます。</p></div>
       </div>
       <div class="stepc rv">
         <div class="media">
-          <video class="plug-video" autoplay muted loop playsinline><source src="STEP3.MP4" type="video/mp4"></video>
+          <video class="plug-video" poster="images/poster_step3.jpg" preload="none" autoplay muted loop playsinline><source src="step3.mp4" type="video/mp4"></video>
           <img src="images/step3.jpg" alt="" onerror="this.style.display='none'">
-          <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg><b>動画/画像 step3</b><span>STEP3.MP4 または images/step3.jpg（施術風景・無音再生）</span></div>
+          <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg><b>動画/画像 step3</b><span>step3.mp4 または images/step3.jpg（施術風景・無音再生）</span></div>
         </div>
         <div class="body"><span class="st-no">STEP 03</span><h4>専用器具で、切らずに装着</h4><p>切らない方法なので、施術中の痛みもほとんどありません。その日のうちに始められます。※感じ方には個人差があります。</p></div>
       </div>
       <div class="stepc rv">
-        <div class="media"><video class="plug-video" autoplay muted loop playsinline><source src="STEP4.MP4" type="video/mp4"></video><img src="images/step4.jpg" alt="" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg><b>動画/画像 step4</b><span>STEP4.MP4 または images/step4.jpg</span></div></div>
+        <div class="media"><video class="plug-video" poster="images/poster_step4.jpg" preload="none" autoplay muted loop playsinline><source src="step4.mp4" type="video/mp4"></video><img src="images/step4.jpg" alt="" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg><b>動画/画像 step4</b><span>step4.mp4 または images/step4.jpg</span></div></div>
         <div class="body"><span class="st-no">STEP 04</span><h4>仕上げ＆セルフケアのアドバイス</h4><p>きれいな形を目指して。ご自宅での爪の切り方やケア方法もお伝えします。</p></div>
       </div>
     </div>
-    <div class="steps-note rv"><img class="chr" src="images/character.png" alt="" aria-hidden="true"><span>気になる巻き爪を、切らずに・少しずつ。<br>まずは体験から。</span></div>
+    <div class="steps-note rv"><img class="chr" loading="lazy" decoding="async" src="images/character.png" alt="" aria-hidden="true"><span>気になる巻き爪を、切らずに・少しずつ。<br>まずは体験から。</span></div>
   </div>
 </section>
 
@@ -786,7 +901,7 @@
   <div class="funnel">
     <div class="sec-head rv"><span class="label">Message</span><h2>代表からのメッセージ</h2></div>
     <div class="staff rv">
-      <div class="media photo"><img src="images/daihyo.jpg" alt="巻き爪専門店フットラボ 代表" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg><b>代表の写真</b><span>images/daihyo.jpg</span></div></div>
+      <div class="media photo"><img loading="lazy" decoding="async" src="images/daihyo.jpg" alt="巻き爪専門店フットラボ 代表" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg><b>代表の写真</b><span>images/daihyo.jpg</span></div></div>
       <h3>巻き爪は、<span class="accent">我慢するもの</span>ではありません。</h3>
       <p>私自身、巻き爪で悩んでいた時期がありました。</p>
       <p>痛みがあっても、どこに行けばいいのか分からない。落ち着いたと思っても、また繰り返してしまう。そんな不安を抱えながら、我慢して過ごしていたこともあります。</p>
@@ -806,7 +921,7 @@
     <div class="sec-head rv"><span class="label">Character</span><h2>お店であなたをお出迎え、<br>公式キャラクター</h2></div>
     <div class="chara-card rv">
       <span class="bub">爪をピカピカにするにゃー！</span>
-      <img class="chr bob" src="images/character.png" alt="フットラボ公式キャラクター ツメピカにゃん">
+      <img class="chr bob" loading="lazy" decoding="async" src="images/character.png" alt="フットラボ公式キャラクター ツメピカにゃん">
       <div class="chara-name"><small>巻き爪フットラボの妖精ねこ</small><b>ツメピカにゃん</b></div>
       <dl class="chara-facts">
         <div><dt>誕生日</dt><dd>2月22日（にゃんにゃんにゃんの日）</dd></div>
@@ -825,10 +940,12 @@
     <div class="urgency rv" style="margin-bottom:26px">
       <span class="label">Reservation</span>
       <p>土日祝は特に混み合います<small>1日にご案内できる人数に限りがあります。「気になった今」がいちばん通いやすいタイミングです。</small></p>
+      <div class="slots-badge" data-slots hidden style="background:var(--surface)"><span class="sl-dot" aria-hidden="true"></span><span data-slots-month>今月</span>の初回体験枠　残り<b data-slots-n>–</b>名</div>
     </div>
     <div class="offer-box rv">
       <div class="tagline"><span class="accent">はじめての方 限定</span></div>
       <div class="limit">AI診断が無料 ＋ 巻き爪補正が半額</div>
+      <div class="deadline" data-deadline hidden style="margin-top:0;margin-bottom:14px">特典期限：<b data-deadline-text></b></div>
       <div class="deal">
         <div class="deal-row">
           <div class="dl"><div class="dn">フットラボAI診断 <span class="tag free">Free</span></div><div class="dold"><s>通常 税込3,300円／税抜3,000円</s></div></div>
@@ -901,7 +1018,7 @@
   <div class="funnel">
     <div class="final-chara rv">
       <span class="bub">写真1枚送るだけでOKにゃ！</span>
-      <img class="chr bob" src="images/character.png" alt="ツメピカにゃん">
+      <img class="chr bob" loading="lazy" decoding="async" src="images/character.png" alt="ツメピカにゃん">
     </div>
     <h2>まずは、写真を送るだけ。</h2>
     <p>「これってケアできる？」「何回くらい必要？」<br>気になることを、LINEで気軽にご相談ください。</p>
@@ -919,7 +1036,7 @@
 </section>
 
 <footer>
-  <img class="f-logo" src="images/logo.png" alt="巻き爪 Foot Lab">
+  <img class="f-logo" loading="lazy" decoding="async" src="images/logo.png" alt="巻き爪 Foot Lab">
   <div class="fb">巻き爪専門店フットラボ</div>
   <div class="fsub">切らない 巻き爪ケア ／ 東京・東神田｜馬喰町駅 徒歩5分</div>
   <p class="faddr">〒101-0031 東京都千代田区東神田1丁目14-13</p>
@@ -929,7 +1046,7 @@
 
 <div class="sticky-cta" id="stickyCta">
   <div class="inner">
-    <div class="sc-off"><span class="o1">初回限定 50%OFF</span><span class="o2">¥5,500</span></div>
+    <div class="sc-off"><span class="o1" id="scOff1">初回限定 50%OFF</span><span class="o2">¥5,500</span></div>
     <a href="https://lin.ee/your-line-id" target="_blank" rel="noopener" class="cta">
       <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg>
       LINEで予約
@@ -1008,6 +1125,66 @@
       ans.style.maxHeight = open ? ans.scrollHeight + 'px' : '0px';
     });
   });
+
+  // ===== 管理シート(Googleスプレッドシート)からコンテンツを反映 =====
+  // シートで編集できる項目: line_url / slots_show / slots_month / slots_left /
+  //                        deadline_show / deadline_text / notice_text
+  // シート未設定・読込失敗時は何も表示しない(現状のままの)安全設計です。
+  (function(){
+    var id = (window.LP_CONFIG || {}).SHEET_ID;
+    if(!id) return;
+    var KEY = 'lpcms:' + id, TTL = 5 * 60 * 1000; // 5分キャッシュ
+    function truthy(v){ return v === true || /^(true|1|on|yes)$/i.test(String(v == null ? '' : v).trim()); }
+    function apply(m){
+      try{
+        if(m.line_url && /^https:\/\/(lin\.ee|line\.me|liff\.line\.me)\//.test(String(m.line_url).trim())){
+          document.querySelectorAll('a[href*="lin.ee/your-line-id"]').forEach(function(a){ a.href = String(m.line_url).trim(); });
+        }
+        var n = parseInt(m.slots_left, 10);
+        if(truthy(m.slots_show) && !isNaN(n) && n >= 0){
+          document.querySelectorAll('[data-slots]').forEach(function(el){ el.hidden = false; });
+          document.querySelectorAll('[data-slots-n]').forEach(function(el){ el.textContent = n; });
+          if(m.slots_month){ document.querySelectorAll('[data-slots-month]').forEach(function(el){ el.textContent = String(m.slots_month); }); }
+          var s1 = document.getElementById('scOff1');
+          if(s1){ s1.textContent = '初回50%OFF｜残り' + n + '名'; }
+        }
+        if(truthy(m.deadline_show) && m.deadline_text){
+          document.querySelectorAll('[data-deadline]').forEach(function(el){ el.hidden = false; });
+          document.querySelectorAll('[data-deadline-text]').forEach(function(el){ el.textContent = String(m.deadline_text); });
+        }
+        if(m.notice_text && String(m.notice_text).trim()){
+          var nb = document.getElementById('noticeBar');
+          if(nb){ document.getElementById('noticeText').textContent = String(m.notice_text); nb.hidden = false; }
+        }
+      }catch(e){}
+    }
+    function parse(txt){
+      var j = JSON.parse(txt.replace(/^[\s\S]*?setResponse\(/, '').replace(/\);?\s*$/, ''));
+      var m = {};
+      ((j.table && j.table.rows) || []).forEach(function(r){
+        var c = r.c || [];
+        var k = c[0] && c[0].v;
+        var v = c[1] ? c[1].v : null;
+        if(k && String(k) !== 'key'){ m[String(k).trim()] = (v == null ? '' : v); }
+      });
+      return m;
+    }
+    try{
+      var cached = sessionStorage.getItem(KEY);
+      if(cached){
+        var o = JSON.parse(cached);
+        if(Date.now() - o.t < TTL){ apply(o.m); return; }
+      }
+    }catch(e){}
+    fetch('https://docs.google.com/spreadsheets/d/' + id + '/gviz/tq?tqx=out:json&headers=1', {mode:'cors'})
+      .then(function(r){ return r.text(); })
+      .then(function(t){
+        var m = parse(t);
+        try{ sessionStorage.setItem(KEY, JSON.stringify({t: Date.now(), m: m})); }catch(e){}
+        apply(m);
+      })
+      .catch(function(){});
+  })();
 </script>
 </body>
 </html>

@@ -548,6 +548,29 @@ window.LP_CONFIG = {
   .deadline{text-align:center;font-size:.8rem;font-weight:500;letter-spacing:.06em;color:var(--ink-soft);margin-top:12px}
   .deadline b{color:var(--orange);font-weight:700}
 
+  /* ===== 価格お得感の強調 ===== */
+  .hero-offer.v2{display:block;text-align:center;padding:18px 16px 16px}
+  .hero-offer.v2 .ho-cap{font-family:var(--serif);font-weight:600;font-size:.94rem;letter-spacing:.04em;line-height:1.5}
+  .hero-offer.v2 .ho-cap small{display:block;font-family:var(--sans);font-weight:400;font-size:.68rem;color:var(--ink-soft);letter-spacing:.02em;margin-top:4px}
+  .hero-offer.v2 .ho-price{display:flex;align-items:baseline;justify-content:center;gap:10px;margin-top:13px;flex-wrap:wrap}
+  .hero-offer.v2 .was{color:var(--ink-dim);display:inline-flex;align-items:baseline;gap:5px}
+  .hero-offer.v2 .was small{font-size:.66rem;letter-spacing:.06em}
+  .hero-offer.v2 .was s{font-size:1.08rem;font-weight:500;text-decoration-thickness:2px;text-decoration-color:rgba(224,112,15,.75)}
+  .hero-offer.v2 .arw{color:var(--orange);font-weight:700}
+  .hero-offer.v2 .now{display:inline-flex;align-items:baseline;gap:7px}
+  .hero-offer.v2 .now .off{font-style:normal;font-size:.6rem;font-weight:700;letter-spacing:.14em;color:#fff;background:var(--orange);padding:3px 7px;align-self:center}
+  .hero-offer.v2 .now b{font-family:var(--sans);font-weight:900;font-size:2.35rem;line-height:1;color:var(--orange);letter-spacing:.01em}
+  .hero-offer.v2 .now small{font-size:.72rem;font-weight:500;color:var(--ink-soft)}
+  .hero-offer.v2 .ho-save{margin-top:11px;font-weight:700;font-size:.9rem;letter-spacing:.08em;color:var(--ink)}
+  .hero-offer.v2 .ho-save b{color:var(--orange);font-size:1.08rem}
+  .deal-row.total{background:var(--orange-tint);border-top:2px solid var(--orange);border-bottom:none;padding-left:10px;padding-right:10px}
+  .deal-row.total .dn{font-family:var(--serif);font-weight:700}
+  .tag.save{background:var(--orange);color:#fff}
+  .deal-row.total .dnow{font-size:2.05rem}
+  .deal-row.total .dnow small{color:var(--orange);font-weight:700}
+  .all-in{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:10px;letter-spacing:.02em}
+  .sticky-cta .o2 s{font-size:.68rem;color:var(--ink-dim);font-weight:500;margin-right:4px}
+
   @media(prefers-reduced-motion:reduce){
     *{animation:none!important;scroll-behavior:auto!important}
     .sticky-cta{transition:none}
@@ -613,9 +636,14 @@ window.LP_CONFIG = {
     <div class="hero-copy" style="padding:30px 0 6px">
       <p>「病院に行くほどじゃない」——そんな方へ。<br><b>切らない・痛みの少ないケア</b>という選択を。</p>
     </div>
-    <div class="hero-offer">
-      <div class="ho-l">はじめての方限定<br>巻き爪補正 初回体験<small>AI診断（通常3,300円）も無料</small></div>
-      <div class="ho-r"><span class="off">50% OFF</span>¥5,500<small>税込</small></div>
+    <div class="hero-offer v2">
+      <div class="ho-cap">はじめての方限定｜初回体験セット<small>カウンセリング＋AI診断＋巻き爪補正＋セルフケア指導</small></div>
+      <div class="ho-price">
+        <span class="was"><small>通常合計</small><s>¥14,300</s></span>
+        <span class="arw" aria-hidden="true">→</span>
+        <span class="now"><i class="off">50%OFF</i><b>¥5,500</b><small>税込</small></span>
+      </div>
+      <div class="ho-save">＼ 合計 <b>8,800円分</b> おトク ／</div>
     </div>
     <div class="slots-badge" data-slots hidden><span class="sl-dot" aria-hidden="true"></span><span data-slots-month>今月</span>の初回体験枠　残り<b data-slots-n>–</b>名</div>
     <a href="https://lin.ee/your-line-id" target="_blank" rel="noopener" class="cta" style="margin-top:14px">
@@ -728,14 +756,22 @@ window.LP_CONFIG = {
           </div>
           <div class="dr"><span class="dnow">¥5,500<small>（税抜5,000円）</small></span></div>
         </div>
+        <div class="deal-row total">
+          <div class="dl">
+            <div class="dn">初回合計 <span class="tag save">−¥8,800</span></div>
+            <div class="dold"><s>通常 税込14,300円</s></div>
+          </div>
+          <div class="dr"><span class="dnow">¥5,500<small>合計8,800円おトク</small></span></div>
+        </div>
       </div>
+      <p class="all-in">カウンセリングからセルフケア指導まで、追加料金なしの全部込みです。</p>
       <span class="cta-fast">＼ 予約は30秒で完了 ／</span>
       <a href="https://lin.ee/your-line-id" target="_blank" rel="noopener" class="cta" style="margin-top:0">
         <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg>
         LINEで予約する
       </a>
       <div class="cta-note">写真を送るだけでもOK。ご相談だけでも歓迎です。</div>
-      <p class="fineprint">※価格は税込表示です（かっこ内は税抜）。取り消し線の価格は当店の通常価格です。ケアの内容・料金・回数は状態により異なる場合があります。キャンペーンは予告なく終了する場合があります。</p>
+      <p class="fineprint">※価格は税込表示です（かっこ内は税抜）。取り消し線の価格は当店の通常価格です。「8,800円おトク」は通常価格合計（AI診断3,300円＋巻き爪補正11,000円＝税込14,300円）と初回体験価格（税込5,500円）の差額です。ケアの内容・料金・回数は状態により異なる場合があります。キャンペーンは予告なく終了する場合があります。</p>
     </div>
   </div>
 </section>
@@ -955,6 +991,10 @@ window.LP_CONFIG = {
           <div class="dl"><div class="dn">巻き爪補正 <span class="tag half">50% OFF</span></div><div class="dold"><s>通常 税込11,000円／税抜10,000円</s></div></div>
           <div class="dr"><span class="dnow">¥5,500<small>（税抜5,000円）</small></span></div>
         </div>
+        <div class="deal-row total">
+          <div class="dl"><div class="dn">初回合計 <span class="tag save">−¥8,800</span></div><div class="dold"><s>通常 税込14,300円</s></div></div>
+          <div class="dr"><span class="dnow">¥5,500<small>合計8,800円おトク</small></span></div>
+        </div>
       </div>
       <span class="cta-fast" style="margin-top:20px">＼ 友だち追加だけでもOK ／</span>
       <a href="https://lin.ee/your-line-id" target="_blank" rel="noopener" class="cta" style="margin-top:0">
@@ -962,7 +1002,7 @@ window.LP_CONFIG = {
         LINEで予約する
       </a>
       <div class="cta-note">しつこい連絡はいたしません。</div>
-      <p class="fineprint">※価格は税込表示です（かっこ内は税抜）。取り消し線の価格は当店の通常価格です。キャンペーンは予告なく終了する場合があります。</p>
+      <p class="fineprint">※価格は税込表示です（かっこ内は税抜）。取り消し線の価格は当店の通常価格です。「8,800円おトク」は通常価格合計（税込14,300円）と初回体験価格（税込5,500円）の差額です。キャンペーンは予告なく終了する場合があります。</p>
     </div>
   </div>
 </section>
@@ -1046,7 +1086,7 @@ window.LP_CONFIG = {
 
 <div class="sticky-cta" id="stickyCta">
   <div class="inner">
-    <div class="sc-off"><span class="o1" id="scOff1">初回限定 50%OFF</span><span class="o2">¥5,500</span></div>
+    <div class="sc-off"><span class="o1" id="scOff1">初回限定 50%OFF</span><span class="o2"><s>¥11,000</s>¥5,500</span></div>
     <a href="https://lin.ee/your-line-id" target="_blank" rel="noopener" class="cta">
       <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg>
       LINEで予約

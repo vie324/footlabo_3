@@ -571,6 +571,23 @@ window.LP_CONFIG = {
   .all-in{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:10px;letter-spacing:.02em}
   .sticky-cta .o2 s{font-size:.68rem;color:var(--ink-dim);font-weight:500;margin-right:4px}
 
+  /* ===== 症例写真の拡大表示 ===== */
+  .ba .media.zoomable{cursor:zoom-in}
+  .ba .media.zoomable::after{content:"＋";position:absolute;right:6px;bottom:6px;z-index:5;width:22px;height:22px;
+    display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;
+    color:#fff;background:rgba(35,32,28,.55);border-radius:50%;pointer-events:none}
+  .case-hint{text-align:center;font-size:.72rem;color:var(--ink-dim);letter-spacing:.04em;margin-top:10px}
+  .lb{position:fixed;inset:0;z-index:200;background:rgba(20,18,16,.94);display:none;
+    flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:56px 18px 28px}
+  .lb.on{display:flex}
+  .lb img{max-width:100%;max-height:76vh;object-fit:contain;display:block}
+  .lb .lb-cap{max-width:520px;text-align:center;color:rgba(255,255,255,.9);font-size:.78rem;line-height:1.7;letter-spacing:.03em}
+  .lb .lb-x{position:absolute;top:14px;right:14px;width:42px;height:42px;border:none;border-radius:50%;
+    background:rgba(255,255,255,.16);color:#fff;font-size:1.3rem;line-height:1;cursor:pointer}
+  .lb .lb-x:hover{background:rgba(255,255,255,.28)}
+  /* backdrop-filterを持つ固定要素はオーバーレイを透過するため、拡大中は隠す */
+  body.lb-open .site-head,body.lb-open .sticky-cta{visibility:hidden}
+
   @media(prefers-reduced-motion:reduce){
     *{animation:none!important;scroll-behavior:auto!important}
     .sticky-cta{transition:none}
@@ -864,27 +881,28 @@ window.LP_CONFIG = {
 <!-- CASES (Before / After) -->
 <section>
   <div class="funnel">
-    <div class="sec-head rv"><span class="label">Case</span><h2>ケアの変化を、目で見て。</h2><p>初回の施術直後から、カーブの変化を実感される方が多いです。</p></div>
+    <div class="sec-head rv"><span class="label">Case</span><h2>ケアの変化を、目で見て。</h2><p>実際にご来店いただいた方の、ケア前後のようすです。</p></div>
     <div class="rv">
       <div class="case">
-        <div class="c-head"><span class="c-no">CASE 01</span><span class="c-t">足の親指の巻き爪</span></div>
+        <div class="c-head"><span class="c-no">CASE 01</span><span class="c-t">白い濁りと厚みが出ていた爪</span></div>
         <div class="ba">
-          <div class="media"><img src="images/case1_before.jpg" alt="ケア前の状態" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><b>画像 case1_before</b><span>images/case1_before.jpg</span></div></div>
+          <div class="media zoomable"><img src="images/case1_before.jpg" alt="ケア前：爪の先が白く濁り、ふちが不揃いになった足の爪" loading="lazy" decoding="async" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><b>画像 case1_before</b><span>images/case1_before.jpg</span></div></div>
           <div class="arrow">→</div>
-          <div class="media"><img src="images/case1_after.jpg" alt="ケア後の状態" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><b>画像 case1_after</b><span>images/case1_after.jpg</span></div></div>
+          <div class="media zoomable"><img src="images/case1_after.jpg" alt="ケア後：白い濁りが減り、爪の形が整った状態" loading="lazy" decoding="async" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><b>画像 case1_after</b><span>images/case1_after.jpg</span></div></div>
         </div>
         <div class="ba-lb"><span>BEFORE</span><i></i><span>AFTER</span></div>
       </div>
       <div class="case">
-        <div class="c-head"><span class="c-no">CASE 02</span><span class="c-t">深爪を繰り返していた爪</span></div>
+        <div class="c-head"><span class="c-no">CASE 02</span><span class="c-t">厚く盛り上がっていた親指の爪</span></div>
         <div class="ba">
-          <div class="media"><img src="images/case2_before.jpg" alt="ケア前の状態" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><b>画像 case2_before</b><span>images/case2_before.jpg</span></div></div>
+          <div class="media zoomable"><img src="images/case2_before.jpg" alt="ケア前：厚く盛り上がって変形した親指の爪" loading="lazy" decoding="async" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><b>画像 case2_before</b><span>images/case2_before.jpg</span></div></div>
           <div class="arrow">→</div>
-          <div class="media"><img src="images/case2_after.jpg" alt="ケア後の状態" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><b>画像 case2_after</b><span>images/case2_after.jpg</span></div></div>
+          <div class="media zoomable"><img src="images/case2_after.jpg" alt="ケア後：厚みを取り除き、平らに整えた爪" loading="lazy" decoding="async" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><b>画像 case2_after</b><span>images/case2_after.jpg</span></div></div>
         </div>
         <div class="ba-lb"><span>BEFORE</span><i></i><span>AFTER</span></div>
       </div>
     </div>
+    <p class="case-hint rv">写真をタップすると拡大できます。</p>
     <p class="disc rv">※症例写真は当店での一例です。経過・変化には個人差があり、結果を保証するものではありません。</p>
   </div>
 </section>
@@ -1084,6 +1102,12 @@ window.LP_CONFIG = {
   <p class="cp">© 巻き爪専門店フットラボ</p>
 </footer>
 
+<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="症例写真の拡大表示">
+  <button class="lb-x" type="button" aria-label="閉じる">✕</button>
+  <img src="" alt="">
+  <div class="lb-cap"></div>
+</div>
+
 <div class="sticky-cta" id="stickyCta">
   <div class="inner">
     <div class="sc-off"><span class="o1" id="scOff1">初回限定 50%OFF</span><span class="o2"><s>¥11,000</s>¥5,500</span></div>
@@ -1165,6 +1189,34 @@ window.LP_CONFIG = {
       ans.style.maxHeight = open ? ans.scrollHeight + 'px' : '0px';
     });
   });
+
+  // 症例写真の拡大表示
+  (function(){
+    var lb = document.getElementById('lightbox');
+    if(!lb) return;
+    var big = lb.querySelector('img'), cap = lb.querySelector('.lb-cap');
+    function open(src, alt){
+      big.src = src; big.alt = alt || ''; cap.textContent = alt || '';
+      lb.classList.add('on');
+      document.body.classList.add('lb-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function close(){
+      lb.classList.remove('on');
+      document.body.classList.remove('lb-open');
+      document.body.style.overflow = '';
+      big.src = '';
+    }
+    document.querySelectorAll('.ba .media.zoomable').forEach(function(box){
+      box.addEventListener('click', function(){
+        var el = box.querySelector('img');
+        if(!el || el.style.display === 'none' || !el.complete || !el.naturalWidth) return;
+        open(el.currentSrc || el.src, el.alt);
+      });
+    });
+    lb.addEventListener('click', close);
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
+  })();
 
   // ===== 管理シート(Googleスプレッドシート)からコンテンツを反映 =====
   // シートで編集できる項目: line_url / slots_show / slots_month / slots_left /

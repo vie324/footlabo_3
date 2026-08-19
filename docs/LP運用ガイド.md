@@ -75,9 +75,16 @@ window.LP_CONFIG = {
 | `images/ogp.jpg` | シェア時のサムネイル（1200×630） |
 | `hero.mp4` / `step1〜4.mp4` | 動画（**ファイル名は半角英数のまま**。日本語名は文字コード問題の原因になります） |
 | `images/poster_*.jpg` | 動画読込前に表示される静止画 |
-| `images/case1_before.jpg` など | ビフォーアフター写真（置くと自動表示） |
+| `images/case1_before.jpg` / `case1_after.jpg` / `case2_before.jpg` / `case2_after.jpg` | 症例写真（BEFORE/AFTER。同名で上書きすれば差し替わります） |
 
 ※公開ドメインが決まったら `index.html` の `og:image` / `twitter:image` を絶対URL（`https://ドメイン/images/ogp.jpg`）に変更するとSNSシェアが確実になります。
+
+### ⚠️ 症例写真の掲載について
+
+- **掲載前に、必ずご本人の許諾**（できれば書面・LINE等の記録が残る形）を得てください。足元の写真でも、施術記録として個人に関わる情報です
+- 写真は正方形（1:1）でご用意ください。CASE見出しの文言は `index.html` 内の `class="c-t"` の行で変更できます
+- BEFORE/AFTERは実際の同一部位・同一条件で撮影したものを使い、加工（明るさの大幅補正・レタッチ）は避けてください（景品表示法上、誤認を招く恐れがあります）
+- 症例写真はタップで拡大表示されます。拡大時のキャプションは各画像の `alt` 属性の文章です
 
 ---
 

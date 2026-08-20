@@ -86,6 +86,14 @@ window.LP_CONFIG = {
 | `images/poster_*.jpg` | 動画読込前に表示される静止画 |
 | `images/case1_before.jpg` / `case1_after.jpg` / `case2_before.jpg` / `case2_after.jpg` | 症例写真（BEFORE/AFTER。同名で上書きすれば差し替わります） |
 
+### 画像を差し替えたときの注意（WebP）
+
+表示を速くするため、主要な画像は **WebP版（`.webp`）とJPEG/PNG版の2つ**を用意して、対応ブラウザにはWebPを配信しています。
+
+`images/logo.png` などを差し替えたときは、**同名の `.webp` も作り直してください**（作らないと古い画像が表示され続けます）。対象は `logo` / `character` / `daihyo` / `case1_before` / `case1_after` / `case2_before` / `case2_after` の7枚です。
+
+変換は「webp 変換」で検索して出てくる無料サイト（Squooshなど）で、品質80〜85程度に設定すればOKです。
+
 ※公開ドメインが決まったら `index.html` の `og:image` / `twitter:image` を絶対URL（`https://ドメイン/images/ogp.jpg`）に変更するとSNSシェアが確実になります。
 
 ### ⚠️ 症例写真の掲載について

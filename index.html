@@ -541,12 +541,39 @@ window.LP_CONFIG = {
   [hidden]{display:none!important}
   .notice-bar{background:linear-gradient(92deg,rgba(224,112,15,.12),rgba(245,132,43,.14));border-bottom:1px solid var(--hair-2);padding:9px 0;text-align:center}
   .notice-bar span{font-size:.78rem;font-weight:500;letter-spacing:.03em;color:var(--ink)}
-  .slots-badge{display:flex;align-items:center;justify-content:center;gap:8px;margin:14px 0 0;padding:11px 14px;border:1px dashed var(--orange);background:var(--orange-tint);color:var(--ink);font-size:.84rem;font-weight:700;letter-spacing:.04em}
-  .slots-badge b{color:var(--orange);font-size:1.25rem;font-weight:900;margin:0 2px;line-height:1}
-  .sl-dot{width:8px;height:8px;border-radius:50%;background:var(--orange);animation:blink 1.6s ease-in-out infinite;flex:none}
+  /* 残り枠バッジ（強調版） */
+  .slots-badge{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:10px;
+    margin:14px 0 0;padding:14px 18px;border:none;border-radius:4px;
+    background:linear-gradient(100deg,var(--orange) 0%,var(--orange-2) 52%,var(--orange) 100%);
+    color:#fff;font-size:.9rem;font-weight:700;letter-spacing:.05em;line-height:1.4;
+    box-shadow:0 7px 20px rgba(224,112,15,.34);animation:slotGlow 2.8s ease-in-out infinite}
+  .slots-badge b{font-size:1.75rem;font-weight:900;margin:0 4px;line-height:1;letter-spacing:.01em;
+    display:inline-block;min-width:1.1em;text-align:center}
+  .slots-badge .sl-txt{position:relative;z-index:2;display:flex;align-items:baseline;gap:1px;flex-wrap:wrap;justify-content:center}
+  .slots-badge .sl-dot{position:relative;z-index:2;width:9px;height:9px;border-radius:50%;background:#fff;flex:none;
+    align-self:center;animation:dotPing 1.9s ease-out infinite}
+  .slots-badge::after{content:"";position:absolute;top:0;left:-70%;width:42%;height:100%;z-index:1;
+    background:linear-gradient(105deg,transparent,rgba(255,255,255,.32),transparent);
+    animation:shine 4.2s ease-in-out infinite}
+  /* 残りわずかのとき（3名以下）はさらに強める */
+  .slots-badge.few{background:linear-gradient(100deg,#C9540A 0%,var(--orange) 55%,#C9540A 100%);
+    box-shadow:0 7px 22px rgba(201,84,10,.44);animation-duration:1.9s}
+  .slots-badge .sl-few{position:relative;z-index:2;font-size:.62rem;font-weight:700;letter-spacing:.12em;
+    background:rgba(255,255,255,.22);padding:3px 8px;border-radius:99px;flex:none;align-self:center}
+  @keyframes slotGlow{0%,100%{box-shadow:0 7px 20px rgba(224,112,15,.30)}50%{box-shadow:0 9px 28px rgba(224,112,15,.58)}}
+  @keyframes dotPing{0%{box-shadow:0 0 0 0 rgba(255,255,255,.75)}70%{box-shadow:0 0 0 9px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
   @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
-  .deadline{text-align:center;font-size:.8rem;font-weight:500;letter-spacing:.06em;color:var(--ink-soft);margin-top:12px}
+
+  /* 特典期限（強調版） */
+  .deadline{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:12px;padding:11px 14px;
+    background:var(--surface);border:1px solid var(--orange);border-radius:4px;
+    font-size:.84rem;font-weight:700;letter-spacing:.04em;color:var(--ink);line-height:1.5;flex-wrap:wrap}
+  .deadline svg{width:17px;height:17px;color:var(--orange);flex:none}
   .deadline b{color:var(--orange);font-weight:700}
+  .deadline .dl-left{background:var(--orange);color:#fff;font-weight:900;font-size:.76rem;letter-spacing:.06em;
+    padding:4px 10px;border-radius:99px;flex:none;animation:dlBeat 2.2s ease-in-out infinite}
+  .deadline .dl-left em{font-style:normal;font-size:1.05rem;margin:0 2px}
+  @keyframes dlBeat{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
 
   /* ===== 価格お得感の強調 ===== */
   .hero-offer.v2{display:block;text-align:center;padding:18px 16px 16px}
@@ -662,7 +689,7 @@ window.LP_CONFIG = {
       </div>
       <div class="ho-save">＼ 合計 <b>8,800円分</b> おトク ／</div>
     </div>
-    <div class="slots-badge" data-slots hidden><span class="sl-dot" aria-hidden="true"></span><span data-slots-month>今月</span>の初回体験枠　残り<b data-slots-n>–</b>名</div>
+    <div class="slots-badge" data-slots hidden><span class="sl-dot" aria-hidden="true"></span><span class="sl-txt"><span data-slots-month>今月</span>の初回体験枠　残り<b data-slots-n>–</b>名</span><span class="sl-few" data-slots-few hidden>まもなく終了</span></div>
     <a href="https://lin.ee/ug1o1Ih" target="_blank" rel="noopener" class="cta" style="margin-top:14px">
       <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg>
       LINEで予約する
@@ -751,8 +778,8 @@ window.LP_CONFIG = {
       <span class="label">First Visit Campaign</span>
       <div class="tagline">はじめての方限定<br><span class="accent">3つの特典</span>をご用意しました</div>
       <div class="limit">Web予約限定 特典</div>
-      <div class="deadline" data-deadline hidden>特典期限：<b data-deadline-text></b></div>
-      <div class="slots-badge" data-slots hidden><span class="sl-dot" aria-hidden="true"></span><span data-slots-month>今月</span>の初回体験枠　残り<b data-slots-n>–</b>名</div>
+      <div class="deadline" data-deadline hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span>特典期限　<b data-deadline-text></b></span><span class="dl-left" data-deadline-left hidden></span></div>
+      <div class="slots-badge" data-slots hidden><span class="sl-dot" aria-hidden="true"></span><span class="sl-txt"><span data-slots-month>今月</span>の初回体験枠　残り<b data-slots-n>–</b>名</span><span class="sl-few" data-slots-few hidden>まもなく終了</span></div>
       <div class="gifts stag">
         <div class="gift"><span class="gn">特典 1</span><div class="gt">フットラボAI診断が無料<small>通常 税込3,300円 → 0円。今の状態と回数の目安がわかります。</small></div></div>
         <div class="gift"><span class="gn">特典 2</span><div class="gt">巻き爪補正が半額の¥5,500<small>通常 税込11,000円 → 50%OFF。初回からしっかり施術します。</small></div></div>
@@ -994,12 +1021,12 @@ window.LP_CONFIG = {
     <div class="urgency rv" style="margin-bottom:26px">
       <span class="label">Reservation</span>
       <p>土日祝は特に混み合います<small>1日にご案内できる人数に限りがあります。「気になった今」がいちばん通いやすいタイミングです。</small></p>
-      <div class="slots-badge" data-slots hidden style="background:var(--surface)"><span class="sl-dot" aria-hidden="true"></span><span data-slots-month>今月</span>の初回体験枠　残り<b data-slots-n>–</b>名</div>
+      <div class="slots-badge" data-slots hidden style="background:var(--surface)"><span class="sl-dot" aria-hidden="true"></span><span class="sl-txt"><span data-slots-month>今月</span>の初回体験枠　残り<b data-slots-n>–</b>名</span><span class="sl-few" data-slots-few hidden>まもなく終了</span></div>
     </div>
     <div class="offer-box rv">
       <div class="tagline"><span class="accent">はじめての方 限定</span></div>
       <div class="limit">AI診断が無料 ＋ 巻き爪補正が半額</div>
-      <div class="deadline" data-deadline hidden style="margin-top:0;margin-bottom:14px">特典期限：<b data-deadline-text></b></div>
+      <div class="deadline" data-deadline hidden style="margin-top:0;margin-bottom:14px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span>特典期限　<b data-deadline-text></b></span><span class="dl-left" data-deadline-left hidden></span></div>
       <div class="deal">
         <div class="deal-row">
           <div class="dl"><div class="dn">フットラボAI診断 <span class="tag free">Free</span></div><div class="dold"><s>通常 税込3,300円／税抜3,000円</s></div></div>
@@ -1227,6 +1254,52 @@ window.LP_CONFIG = {
     if(!id) return;
     var KEY = 'lpcms:' + id, TTL = 5 * 60 * 1000; // 5分キャッシュ
     function truthy(v){ return v === true || /^(true|1|on|yes)$/i.test(String(v == null ? '' : v).trim()); }
+    // 残り枠の数字をカウントアップ（画面に入ったときに発動）
+    function countUpSlots(target){
+      var els = document.querySelectorAll('[data-slots-n]');
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      els.forEach(function(el){
+        if(reduce || !('IntersectionObserver' in window) || target > 30){ el.textContent = target; return; }
+        el.textContent = '0';
+        var started = false;
+        // セーフティネット: 何らかの理由で発動しなくても、必ず正しい残数を表示する
+        var safety = setTimeout(function(){ if(!started){ el.textContent = target; } }, 2500);
+        var io = new IntersectionObserver(function(entries){
+          entries.forEach(function(e){
+            if(!e.isIntersecting || started) return;
+            started = true;
+            clearTimeout(safety);
+            io.unobserve(el);
+            var cur = 0, step = Math.max(40, Math.round(700 / Math.max(target, 1)));
+            var timer = setInterval(function(){
+              cur++;
+              el.textContent = cur;
+              if(cur >= target){ el.textContent = target; clearInterval(timer); }
+            }, step);
+          });
+        }, {threshold: .4});
+        io.observe(el);
+      });
+    }
+    // 「2026-08-31」「2026/8/31」形式なら残り日数を計算（それ以外はnull）
+    function daysLeft(txt){
+      var mm = txt.match(/(20\d{2})[-\/.](\d{1,2})[-\/.](\d{1,2})/);
+      if(!mm) return null;
+      var end = new Date(+mm[1], +mm[2] - 1, +mm[3]);
+      if(isNaN(end.getTime())) return null;
+      var now = new Date();
+      var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      return Math.round((end - today) / 86400000);
+    }
+    // 日付形式なら「8月31日(日)まで」に整形、それ以外は入力文字列のまま
+    function labelFor(txt){
+      var mm = txt.match(/(20\d{2})[-\/.](\d{1,2})[-\/.](\d{1,2})/);
+      if(!mm) return txt;
+      var d = new Date(+mm[1], +mm[2] - 1, +mm[3]);
+      if(isNaN(d.getTime())) return txt;
+      var w = ['日','月','火','水','木','金','土'][d.getDay()];
+      return (d.getMonth() + 1) + '月' + d.getDate() + '日(' + w + ')まで';
+    }
     function apply(m){
       try{
         if(m.line_url && /^https:\/\/(lin\.ee|line\.me|liff\.line\.me)\//.test(String(m.line_url).trim())){
@@ -1234,15 +1307,27 @@ window.LP_CONFIG = {
         }
         var n = parseInt(m.slots_left, 10);
         if(truthy(m.slots_show) && !isNaN(n) && n >= 0){
-          document.querySelectorAll('[data-slots]').forEach(function(el){ el.hidden = false; });
-          document.querySelectorAll('[data-slots-n]').forEach(function(el){ el.textContent = n; });
+          document.querySelectorAll('[data-slots]').forEach(function(el){
+            el.hidden = false;
+            if(n <= 3){ el.classList.add('few'); }
+          });
+          if(n <= 3){ document.querySelectorAll('[data-slots-few]').forEach(function(el){ el.hidden = false; }); }
           if(m.slots_month){ document.querySelectorAll('[data-slots-month]').forEach(function(el){ el.textContent = String(m.slots_month); }); }
+          countUpSlots(n);
           var s1 = document.getElementById('scOff1');
           if(s1){ s1.textContent = '初回50%OFF｜残り' + n + '名'; }
         }
         if(truthy(m.deadline_show) && m.deadline_text){
+          var raw = String(m.deadline_text).trim();
+          var days = daysLeft(raw);
           document.querySelectorAll('[data-deadline]').forEach(function(el){ el.hidden = false; });
-          document.querySelectorAll('[data-deadline-text]').forEach(function(el){ el.textContent = String(m.deadline_text); });
+          document.querySelectorAll('[data-deadline-text]').forEach(function(el){ el.textContent = labelFor(raw); });
+          if(days !== null && days >= 0){
+            document.querySelectorAll('[data-deadline-left]').forEach(function(el){
+              el.hidden = false;
+              el.innerHTML = (days === 0 ? '本日まで' : 'あと<em>' + days + '</em>日');
+            });
+          }
         }
         if(m.notice_text && String(m.notice_text).trim()){
           var nb = document.getElementById('noticeBar');

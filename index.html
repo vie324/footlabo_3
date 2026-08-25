@@ -371,10 +371,22 @@ window.LP_CONFIG = {
   .cmp col.c-label{width:23%}
   .cmp th,.cmp td{border:1px solid var(--hair-2);padding:9px 4px;text-align:center;vertical-align:middle;line-height:1.5;overflow-wrap:break-word}
   .cmp thead th{font-family:var(--serif);font-weight:600;font-size:.74rem;letter-spacing:.02em;padding:11px 3px}
-  .cmp thead th.me{background:var(--orange);color:#fff;letter-spacing:.04em}
+  .cmp thead th.me{background:linear-gradient(140deg,var(--orange-2),var(--orange));color:#fff;letter-spacing:.04em;position:relative}
+  .cmp thead th.me::before{content:"★ 当店";display:block;font-family:var(--sans);font-size:.55rem;font-weight:700;
+    letter-spacing:.14em;opacity:.92;margin-bottom:3px}
+  .cmp tbody tr{opacity:0;transition:opacity .5s ease}
+  .cmp-wrap.in tbody tr{opacity:1}
+  .cmp-wrap.in tbody tr:nth-child(1){transition-delay:.10s}.cmp-wrap.in tbody tr:nth-child(2){transition-delay:.19s}
+  .cmp-wrap.in tbody tr:nth-child(3){transition-delay:.28s}.cmp-wrap.in tbody tr:nth-child(4){transition-delay:.37s}
+  .cmp-wrap.in tbody tr:nth-child(5){transition-delay:.46s}
   .cmp tbody th{font-weight:500;font-size:.68rem;color:var(--ink-soft);background:var(--surface);text-align:left;padding-left:8px}
-  .cmp td.me{background:var(--orange-tint);font-weight:700}
-  .cmp .mk-a{color:var(--orange);font-weight:900;font-size:1.05rem;display:block;line-height:1.2}
+  .cmp td.me{background:rgba(224,112,15,.1);font-weight:700;box-shadow:inset 2px 0 0 rgba(224,112,15,.35),inset -2px 0 0 rgba(224,112,15,.35)}
+  .cmp .mk-a{color:var(--orange);font-weight:900;font-size:1.15rem;display:block;line-height:1.2;
+    transform:scale(.4);opacity:0;transition:transform .45s cubic-bezier(.34,1.56,.64,1),opacity .3s ease}
+  .cmp-wrap.in .mk-a{transform:scale(1);opacity:1}
+  .cmp-wrap.in tbody tr:nth-child(1) .mk-a{transition-delay:.24s}.cmp-wrap.in tbody tr:nth-child(2) .mk-a{transition-delay:.33s}
+  .cmp-wrap.in tbody tr:nth-child(3) .mk-a{transition-delay:.42s}.cmp-wrap.in tbody tr:nth-child(4) .mk-a{transition-delay:.51s}
+  .cmp-wrap.in tbody tr:nth-child(5) .mk-a{transition-delay:.60s}
   .cmp .mk-b{color:var(--ink-soft);font-weight:700;font-size:.95rem;display:block;line-height:1.2}
   .cmp small{font-size:.64rem;color:var(--ink-soft);font-weight:400;display:block;margin-top:2px}
   .cmp-note{font-size:.66rem;color:var(--ink-dim);margin-top:10px;line-height:1.7;letter-spacing:.01em}
@@ -393,13 +405,28 @@ window.LP_CONFIG = {
   .ba-lb i{width:1.1rem}
 
   /* steps */
-  .steps{display:grid;gap:20px}
-  .stepc{border:1px solid var(--hair-2);background:var(--bg-2)}
-  .stepc .media{aspect-ratio:16/9;border:none;border-bottom:1px solid var(--hair-2)}
-  .stepc .body{padding:20px 20px 22px}
-  .stepc .st-no{font-family:var(--sans);font-size:.68rem;letter-spacing:.22em;color:var(--orange);margin-bottom:9px;display:block}
-  .stepc h4{font-family:var(--serif);font-weight:600;font-size:1.1rem;letter-spacing:.04em;margin-bottom:8px}
-  .stepc p{font-size:.86rem;color:var(--ink-soft);line-height:1.8;letter-spacing:.01em}
+  .steps-wrap{position:relative}
+  .steps{display:grid;grid-auto-flow:column;grid-auto-columns:82%;gap:12px;
+    overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;
+    padding:3px 0 6px;scrollbar-width:none;-ms-overflow-style:none}
+  .steps::-webkit-scrollbar{display:none}
+  .stepc{scroll-snap-align:start;border:1px solid var(--hair-2);background:var(--surface);
+    box-shadow:0 5px 16px -10px rgba(35,32,28,.4);display:flex;flex-direction:column}
+  .stepc .media{aspect-ratio:16/10;border:none;border-bottom:1px solid var(--hair-2)}
+  .stepc .st-badge{position:absolute;left:11px;top:11px;z-index:6;
+    font-family:var(--sans);font-weight:900;font-size:.66rem;letter-spacing:.12em;color:#fff;
+    background:linear-gradient(135deg,var(--orange-2),var(--orange));padding:6px 11px;
+    box-shadow:0 5px 14px -4px rgba(224,112,15,.7)}
+  .stepc .body{padding:15px 16px 18px;flex:1}
+  .stepc h4{font-family:var(--serif);font-weight:600;font-size:1.02rem;letter-spacing:.03em;line-height:1.55;margin-bottom:7px}
+  .stepc p{font-size:.82rem;color:var(--ink-soft);line-height:1.8;letter-spacing:.01em}
+  .steps-nav{display:flex;flex-direction:column;align-items:center;gap:9px;margin-top:12px}
+  .sw-hint{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;letter-spacing:.04em;color:var(--ink-soft)}
+  .sw-hint svg{width:15px;height:15px;color:var(--orange);animation:swipeNudge 1.9s ease-in-out infinite}
+  @keyframes swipeNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
+  .steps-dots{display:flex;gap:6px}
+  .steps-dots i{width:7px;height:7px;border-radius:50%;background:rgba(224,112,15,.26);transition:all .3s ease}
+  .steps-dots i.on{width:20px;border-radius:99px;background:var(--orange)}
   .steps-note{text-align:center;font-family:var(--serif);font-weight:600;color:var(--ink);margin-top:24px;font-size:1rem;letter-spacing:.05em}
 
   /* voices */
@@ -439,15 +466,24 @@ window.LP_CONFIG = {
   .rs p{font-size:.84rem;color:var(--ink-soft);line-height:1.8;letter-spacing:.01em}
 
   /* faq */
-  .faq{display:grid;gap:0;border-top:1px solid var(--hair-2)}
-  .faq-item{border-bottom:1px solid var(--hair-2)}
-  .faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:18px 2px;display:flex;gap:12px;align-items:center;
-    font-family:var(--serif);font-weight:600;color:var(--ink);font-size:.96rem;letter-spacing:.03em}
-  .faq-q .qi{flex:none;color:var(--orange);font-family:var(--sans);font-weight:700;font-size:.9rem}
-  .faq-q .tg{margin-left:auto;color:var(--orange);font-size:1.1rem;font-weight:400;transition:transform .25s;flex:none}
-  .faq-item.open .tg{transform:rotate(45deg)}
+  .faq{display:grid;gap:9px}
+  .faq-item{border:1px solid var(--hair-2);background:var(--surface);
+    box-shadow:0 2px 8px -6px rgba(35,32,28,.3);transition:border-color .3s ease,box-shadow .3s ease}
+  .faq-item.open{border-color:rgba(224,112,15,.45);box-shadow:0 7px 20px -12px rgba(224,112,15,.6)}
+  .faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:15px 14px;display:flex;gap:11px;align-items:center;
+    font-family:var(--serif);font-weight:600;color:var(--ink);font-size:.94rem;letter-spacing:.03em;line-height:1.55}
+  .faq-q .qi{flex:none;width:25px;height:25px;border-radius:50%;display:grid;place-items:center;
+    background:linear-gradient(135deg,var(--orange-2),var(--orange));color:#fff;
+    font-family:var(--sans);font-weight:900;font-size:.72rem;box-shadow:0 3px 8px -3px rgba(224,112,15,.6)}
+  .faq-q .tg{margin-left:auto;flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;
+    border:1px solid rgba(224,112,15,.45);color:var(--orange);font-size:.95rem;font-weight:400;line-height:1;
+    transition:transform .28s ease,background .28s ease,color .28s ease,border-color .28s ease}
+  .faq-item.open .tg{transform:rotate(45deg);background:var(--orange);color:#fff;border-color:var(--orange)}
   .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
-  .faq-a p{padding:0 2px 18px 26px;font-size:.85rem;color:var(--ink-soft);line-height:1.85;letter-spacing:.01em}
+  .faq-a p{position:relative;padding:0 14px 16px 50px;font-size:.85rem;color:var(--ink-soft);line-height:1.85;letter-spacing:.01em}
+  .faq-a p::before{content:"A";position:absolute;left:14px;top:-1px;width:25px;height:25px;border-radius:50%;
+    display:grid;place-items:center;border:1px solid rgba(224,112,15,.42);color:var(--orange);
+    font-family:var(--sans);font-weight:900;font-size:.72rem}
 
   /* access */
   .access-card{border:1px solid var(--hair);padding:24px 20px}
@@ -568,6 +604,9 @@ window.LP_CONFIG = {
     .check b{background-size:100% 100%!important}
     .cause-tags span{opacity:1!important;transform:none!important}
     .voice .stars{clip-path:none!important}
+    .cmp tbody tr{opacity:1!important}
+    .cmp .mk-a{transform:none!important;opacity:1!important}
+    .sw-hint svg{animation:none!important}
   }
 
   /* ===== section ornament ===== */
@@ -598,9 +637,7 @@ window.LP_CONFIG = {
   /* ===== 店舗写真（外観・店内） ===== */
   .shop{margin:0}
   .media.shot{aspect-ratio:10/7}
-  .shop figcaption{font-size:.78rem;line-height:1.75;color:var(--ink-soft);letter-spacing:.02em;margin-top:10px}
   .acc-shot{margin-top:16px}
-  .shop figcaption em{display:block;font-style:normal;font-size:.72rem;color:var(--ink-dim);margin-top:3px}
 
   /* ===== キャラクター紹介カード ===== */
   .chara-card{border:1px solid var(--hair);border-top:3px solid var(--orange);background:var(--bg-2);padding:26px 20px 24px;text-align:center}
@@ -1035,26 +1072,32 @@ window.LP_CONFIG = {
 <section style="padding-top:10px">
   <div class="funnel">
     <div class="sec-head rv"><span class="label">Flow</span><h2>通うだけ。痛みなく、少しずつ整える。</h2><p>初回体験でやること、すべてお見せします。</p></div>
-    <div class="steps">
-      <div class="stepc rv">
-        <div class="media"><video class="plug-video" poster="images/poster_step1.jpg" preload="none" autoplay muted loop playsinline><source src="step1.mp4" type="video/mp4"></video><img src="images/step1.jpg" alt="" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg><b>動画/画像 step1</b><span>step1.mp4 または images/step1.jpg</span></div></div>
-        <div class="body"><span class="st-no">STEP 01</span><h4>カウンセリング＆足のチェック</h4><p>まずは状態を確認。不安なことも相談できます。LINEで写真を送っての事前相談もOKです。</p></div>
+    <div class="steps-wrap rv">
+      <div class="steps" id="stepsRail">
+      <div class="stepc">
+        <div class="media"><video class="plug-video" poster="images/poster_step1.jpg" preload="none" autoplay muted loop playsinline><source src="step1.mp4" type="video/mp4"></video><span class="st-badge">STEP 01</span><img src="images/step1.jpg" alt="" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg><b>動画/画像 step1</b><span>step1.mp4 または images/step1.jpg</span></div></div>
+        <div class="body"><h4>カウンセリング＆足のチェック</h4><p>まずは状態を確認。不安なことも相談できます。LINEで写真を送っての事前相談もOKです。</p></div>
       </div>
-      <div class="stepc rv">
-        <div class="media"><video class="plug-video" poster="images/poster_step2.jpg" preload="none" autoplay muted loop playsinline><source src="step2.mp4" type="video/mp4"></video><img src="images/step2.jpg" alt="" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg><b>動画/画像 step2</b><span>step2.mp4 または images/step2.jpg</span></div></div>
-        <div class="body"><span class="st-no">STEP 02</span><h4>爪まわりをやさしく整える</h4><p>爪の長さを整え、角質や甘皮、たこ・魚の目までていねいにケアして清潔な状態に。装着の準備を整えます。</p></div>
+      <div class="stepc">
+        <div class="media"><video class="plug-video" poster="images/poster_step2.jpg" preload="none" autoplay muted loop playsinline><source src="step2.mp4" type="video/mp4"></video><span class="st-badge">STEP 02</span><img src="images/step2.jpg" alt="" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg><b>動画/画像 step2</b><span>step2.mp4 または images/step2.jpg</span></div></div>
+        <div class="body"><h4>爪まわりをやさしく整える</h4><p>爪の長さを整え、角質や甘皮、たこ・魚の目までていねいにケアして清潔な状態に。装着の準備を整えます。</p></div>
       </div>
-      <div class="stepc rv">
+      <div class="stepc">
         <div class="media">
-          <video class="plug-video" poster="images/poster_step3.jpg" preload="none" autoplay muted loop playsinline><source src="step3.mp4" type="video/mp4"></video>
+          <video class="plug-video" poster="images/poster_step3.jpg" preload="none" autoplay muted loop playsinline><source src="step3.mp4" type="video/mp4"></video><span class="st-badge">STEP 03</span>
           <img src="images/step3.jpg" alt="" onerror="this.style.display='none'">
           <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg><b>動画/画像 step3</b><span>step3.mp4 または images/step3.jpg（施術風景・無音再生）</span></div>
         </div>
-        <div class="body"><span class="st-no">STEP 03</span><h4>専用器具で、痛みなく装着</h4><p>痛みの出ない施術方法なので、力を抜いたままお受けいただけます。その日のうちに始められます。</p></div>
+        <div class="body"><h4>専用器具で、痛みなく装着</h4><p>痛みの出ない施術方法なので、力を抜いたままお受けいただけます。その日のうちに始められます。</p></div>
       </div>
-      <div class="stepc rv">
-        <div class="media"><video class="plug-video" poster="images/poster_step4.jpg" preload="none" autoplay muted loop playsinline><source src="step4.mp4" type="video/mp4"></video><img src="images/step4.jpg" alt="" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg><b>動画/画像 step4</b><span>step4.mp4 または images/step4.jpg</span></div></div>
-        <div class="body"><span class="st-no">STEP 04</span><h4>仕上げ＆セルフケアのアドバイス</h4><p>きれいな形を目指して。ご自宅での爪の切り方やケア方法もお伝えします。</p></div>
+      <div class="stepc">
+        <div class="media"><video class="plug-video" poster="images/poster_step4.jpg" preload="none" autoplay muted loop playsinline><source src="step4.mp4" type="video/mp4"></video><span class="st-badge">STEP 04</span><img src="images/step4.jpg" alt="" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg><b>動画/画像 step4</b><span>step4.mp4 または images/step4.jpg</span></div></div>
+        <div class="body"><h4>仕上げ＆セルフケアのアドバイス</h4><p>きれいな形を目指して。ご自宅での爪の切り方やケア方法もお伝えします。</p></div>
+      </div>
+      </div>
+      <div class="steps-nav">
+        <span class="sw-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg>スワイプで4ステップすべて見られます</span>
+        <div class="steps-dots" id="stepsDots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
       </div>
     </div>
     <div class="steps-note rv"><picture><source srcset="images/character.webp" type="image/webp"><img class="chr" loading="lazy" decoding="async" width="340" height="352" src="images/character.png" alt="" aria-hidden="true"></picture><span>気になる巻き爪を、痛みなく・少しずつ。<br>まずは体験から。</span></div>
@@ -1193,14 +1236,12 @@ window.LP_CONFIG = {
         <div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><dt>Open</dt><dd>11:00〜20:00（平日・土日祝とも）</dd></div></div>
         <div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="1"/><path d="M2 10h20"/></svg><div><dt>Payment</dt><dd>現金／クレジットカード／タッチ決済（交通系IC・楽天Edy・WAON）／QRコード決済（楽天ペイ・PayPay・メルペイ・auPAY・d払い）</dd></div></div>
       </dl>
-      <figure class="shop acc-shot">
-        <div class="media shot"><img loading="lazy" decoding="async" width="2000" height="1414" src="images/shop_exterior.jpg" alt="巻き爪フットラボ亀戸店の外観。オレンジの看板が目印のガラス張りの1階路面店" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><b>外観の写真</b><span>images/shop_exterior.jpg</span></div></div>
-        <figcaption>オレンジの看板が目印。ガラス張りの1階路面店です。</figcaption>
-      </figure>
-      <figure class="shop acc-shot">
-        <div class="media shot"><img loading="lazy" decoding="async" width="2000" height="1400" src="images/shop_interior.jpg" alt="巻き爪フットラボの店内の様子（イメージ）" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><b>店内の写真</b><span>images/shop_interior.jpg</span></div></div>
-        <figcaption>店内の様子<em>※内装はイメージです</em></figcaption>
-      </figure>
+      <div class="shop acc-shot">
+        <div class="media shot"><img loading="lazy" decoding="async" width="2000" height="1414" src="images/shop_exterior.jpg" alt="" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><b>外観の写真</b><span>images/shop_exterior.jpg</span></div></div>
+      </div>
+      <div class="shop acc-shot">
+        <div class="media shot"><img loading="lazy" decoding="async" width="2000" height="1400" src="images/shop_interior.jpg" alt="" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><b>店内の写真</b><span>images/shop_interior.jpg</span></div></div>
+      </div>
       <div class="map-embed"><iframe src="https://www.google.com/maps/embed?origin=mfe&amp;pb=!1m3!2m1!1z5p2x5Lqs6YO95rGf5p2x5Yy65LqA5oi4NS0yOS0yMQ!6i17!3m1!1sja!5m1!1sja" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="巻き爪専門店フットラボ（〒136-0071 東京都江東区亀戸5-29-21 Real WithⅡ1階）の地図"></iframe></div>
     </div>
   </div>
@@ -1315,6 +1356,23 @@ window.LP_CONFIG = {
   window.addEventListener('scroll', onScroll, {passive:true});
   window.addEventListener('resize', onScroll, {passive:true});
   onScroll();
+
+  // 施術の流れ: 横スクロール位置に合わせてドットを更新
+  (function(){
+    var rail = document.getElementById('stepsRail'), dots = document.getElementById('stepsDots');
+    if(!rail || !dots) return;
+    var items = dots.querySelectorAll('i');
+    if(!items.length || !rail.children.length) return;
+    function update(){
+      var w = rail.children[0].getBoundingClientRect().width + 12;
+      if(w <= 0) return;
+      var i = Math.max(0, Math.min(items.length - 1, Math.round(rail.scrollLeft / w)));
+      for(var k = 0; k < items.length; k++){ items[k].classList.toggle('on', k === i); }
+    }
+    rail.addEventListener('scroll', update, {passive:true});
+    window.addEventListener('resize', update, {passive:true});
+    update();
+  })();
 
   // faq
   document.querySelectorAll('.faq-q').forEach(function(btn){

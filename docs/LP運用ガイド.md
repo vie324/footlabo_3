@@ -80,8 +80,8 @@ window.LP_CONFIG = {
 |---|---|
 | `images/logo.png` | ロゴ（ヘッダー・ヒーロー・フッター） |
 | `images/character.png` | ツメピカにゃん（ヒーロー・診断・メッセージ・キャラ紹介・フッター前） |
-| `images/shop_interior.jpg` | **店内写真**（SALONセクション）。横長（10:7前後）でご用意ください |
-| `images/shop_exterior.jpg` | **外観写真**（ACCESSセクションの地図の上）。横長（10:7前後） |
+| `images/shop_interior.jpg` | **店内写真**（SALONセクション）。横長10:7 |
+| `images/shop_exterior.jpg` | **外観写真**（ACCESSセクションの地図の上）。横長10:7 |
 | `images/ogp.jpg` | シェア時のサムネイル（1200×630） |
 | `hero.mp4` / `step1〜4.mp4` | 動画（**ファイル名は半角英数のまま**。日本語名は文字コード問題の原因になります） |
 | `images/poster_*.jpg` | 動画読込前に表示される静止画 |
@@ -93,7 +93,9 @@ window.LP_CONFIG = {
 
 `images/logo.png` などを差し替えたときは、**同名の `.webp` も作り直してください**（作らないと古い画像が表示され続けます）。対象は `logo` / `character` / `case1_before` / `case1_after` / `case2_before` / `case2_after` の6枚です。
 
-**店舗写真（`shop_interior` / `shop_exterior`）はWebPを用意する必要はありません。** JPEGを1枚置くだけで表示されます（画面外で遅延読み込みされるため、WebP化の効果が小さいわりに「JPEGだけ置くと真っ白になる」事故のほうが起きやすいので、あえて外しています）。ファイルを置くまでは、置き場所を示すグレーの枠が表示されます。
+**店舗写真（`shop_interior` / `shop_exterior`）はWebPを用意する必要はありません。** JPEGを1枚置くだけで表示されます（画面外で遅延読み込みされるため、WebP化の効果が小さいわりに「JPEGだけ置くと真っ白になる」事故のほうが起きやすいので、あえて外しています）。
+
+差し替えるときは **横長10:7・幅1600px・JPEG品質82前後（1枚200KB程度）** を目安にしてください。元データのまま（数MB）置くと表示が重くなります。ファイルが無い場合は、置き場所を示すグレーの枠が表示されます。
 
 変換は「webp 変換」で検索して出てくる無料サイト（Squooshなど）で、品質80〜85程度に設定すればOKです。
 

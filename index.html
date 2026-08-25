@@ -285,35 +285,85 @@ window.LP_CONFIG = {
   .gift .gt small{display:block;font-weight:400;font-size:.72rem;color:var(--ink-soft)}
 
   /* checklist */
-  .checks{display:grid;gap:9px}
-  .check{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--hair-2);background:var(--bg-2);padding:14px 16px}
-  .check svg{flex:none;width:19px;height:19px;color:var(--orange);margin-top:3px}
+  .checks{display:grid;gap:10px}
+  .check{display:flex;gap:13px;align-items:center;border:1px solid var(--hair-2);background:var(--surface);
+    padding:15px 16px 15px 17px;position:relative;overflow:hidden;box-shadow:0 2px 6px -4px rgba(35,32,28,.18)}
+  .check::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+    background:linear-gradient(180deg,var(--orange-2),var(--orange));
+    transform:scaleY(0);transform-origin:top;
+    transition:transform .5s cubic-bezier(.22,.68,.3,1) calc(.12s + var(--i,0)*.07s)}
+  .checks.in .check::before{transform:scaleY(1)}
+  .check .ck{flex:none;width:27px;height:27px;border-radius:50%;display:grid;place-items:center;
+    background:linear-gradient(135deg,var(--orange-2),var(--orange));color:#fff;
+    box-shadow:0 4px 10px -3px rgba(224,112,15,.6);
+    transform:scale(0);transition:transform .45s cubic-bezier(.34,1.56,.64,1) calc(.1s + var(--i,0)*.07s)}
+  .checks.in .check .ck{transform:scale(1)}
+  .check .ck svg{width:15px;height:15px;stroke-dasharray:24;stroke-dashoffset:24;
+    transition:stroke-dashoffset .4s ease calc(.3s + var(--i,0)*.07s)}
+  .checks.in .check .ck svg{stroke-dashoffset:0}
   .check p{font-size:.9rem;letter-spacing:.02em;line-height:1.7}
-  .check-close{text-align:center;margin-top:22px;font-family:var(--serif);font-weight:600;font-size:1.05rem;letter-spacing:.05em;line-height:1.7}
+  .check b{font-weight:700;background-image:linear-gradient(transparent 60%,rgba(245,132,43,.36) 60%);
+    background-repeat:no-repeat;background-size:0 100%;
+    transition:background-size .6s cubic-bezier(.22,.68,.3,1) calc(.4s + var(--i,0)*.07s)}
+  .checks.in .check b{background-size:100% 100%}
+  .check-close{text-align:center;margin-top:24px;font-family:var(--serif);font-weight:600;font-size:1.08rem;letter-spacing:.05em;line-height:1.75}
   .check-close .accent{border-bottom:2px solid var(--orange);padding-bottom:1px}
 
   /* risk cards */
-  .risks{display:grid;gap:14px}
-  .risk{border:1px solid var(--hair-2);background:var(--bg-2);padding:18px 18px 16px;position:relative}
-  .risk .rn{font-family:var(--serif);font-weight:600;color:var(--orange);font-size:.85rem;letter-spacing:.18em;margin-bottom:8px}
-  .risk h4{font-family:var(--serif);font-weight:600;font-size:1.02rem;letter-spacing:.03em;line-height:1.6;margin-bottom:7px}
-  .risk p{font-size:.84rem;color:var(--ink-soft);line-height:1.8;letter-spacing:.01em}
+  .tone-warn{background:linear-gradient(180deg,rgba(224,112,15,0),rgba(224,112,15,.055) 22%,rgba(224,112,15,.055) 78%,rgba(224,112,15,0))}
+  .risks{display:grid;gap:14px;position:relative;padding-left:28px}
+  .risks::before{content:"";position:absolute;left:8px;top:16px;bottom:16px;width:2px;border-radius:2px;
+    background:linear-gradient(180deg,rgba(224,112,15,.22),var(--orange) 50%,#B84A06);
+    transform:scaleY(0);transform-origin:top;transition:transform 1s cubic-bezier(.4,0,.2,1) .15s}
+  .risks.in::before{transform:scaleY(1)}
+  .risk{border:1px solid var(--hair-2);background:var(--surface);padding:17px 18px 16px;position:relative;
+    box-shadow:0 3px 10px -6px rgba(35,32,28,.22)}
+  .risk::before{content:"";position:absolute;left:-25px;top:22px;width:11px;height:11px;border-radius:50%;
+    background:var(--orange);box-shadow:0 0 0 3px #F5F0E9,0 0 0 5px rgba(224,112,15,.3);
+    transform:scale(0);transition:transform .5s cubic-bezier(.34,1.56,.64,1) calc(.35s + var(--i,0)*.16s)}
+  .risks.in .risk::before{transform:scale(1)}
+  .risk::after{content:attr(data-n);position:absolute;right:13px;bottom:8px;pointer-events:none;
+    font-family:var(--sans);font-weight:900;font-size:3.2rem;line-height:1;letter-spacing:-.03em;
+    color:rgba(224,112,15,.09)}
+  .risk:nth-child(1){border-top:3px solid rgba(224,112,15,.4)}
+  .risk:nth-child(2){border-top:3px solid rgba(224,112,15,.7)}
+  .risk:nth-child(3){border-top:3px solid #B84A06}
+  .risk .rn{font-family:var(--sans);font-weight:700;color:var(--orange);font-size:.64rem;letter-spacing:.2em;margin-bottom:7px}
+  .risk h4{font-family:var(--serif);font-weight:600;font-size:1.04rem;letter-spacing:.03em;line-height:1.6;margin-bottom:8px;position:relative;z-index:1}
+  .risk p{font-size:.84rem;color:var(--ink-soft);line-height:1.8;letter-spacing:.01em;position:relative;z-index:1}
   .risk-note{font-size:.68rem;color:var(--ink-dim);margin-top:14px;line-height:1.7;letter-spacing:.01em}
 
   /* cause */
   .cause{border:1px solid var(--hair);background:var(--bg-2);padding:24px 20px}
   .cause p{font-size:.88rem;color:var(--ink);line-height:1.95;letter-spacing:.02em}
   .cause p+p{margin-top:12px}
-  .cause .soft{color:var(--ink-soft);font-size:.84rem}
-  .cause-tags{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 4px}
-  .cause-tags span{font-size:.72rem;letter-spacing:.06em;color:var(--ink-soft);border:1px solid var(--hair);background:var(--surface);padding:4px 11px;border-radius:99px}
+  .cause .soft{position:relative;margin-top:20px;padding:2px 0 2px 16px;border-left:3px solid var(--orange);
+    font-family:var(--serif);font-weight:600;font-size:.97rem;color:var(--ink);line-height:1.9;letter-spacing:.03em}
+  .cause-tags{display:flex;flex-wrap:wrap;gap:7px;margin:18px 0 4px}
+  .cause-tags span{font-size:.73rem;font-weight:500;letter-spacing:.06em;color:var(--orange);
+    border:1px solid rgba(224,112,15,.32);background:rgba(224,112,15,.07);padding:5px 12px;border-radius:99px;
+    opacity:0;transform:translateY(7px) scale(.93);
+    transition:opacity .4s ease,transform .4s cubic-bezier(.34,1.56,.64,1)}
+  .cause.in .cause-tags span{opacity:1;transform:none}
+  .cause-tags span:nth-child(1){transition-delay:.20s}.cause-tags span:nth-child(2){transition-delay:.27s}
+  .cause-tags span:nth-child(3){transition-delay:.34s}.cause-tags span:nth-child(4){transition-delay:.41s}
+  .cause-tags span:nth-child(5){transition-delay:.48s}.cause-tags span:nth-child(6){transition-delay:.55s}
 
   /* trust */
-  .trust{display:grid;gap:0;border-top:1px solid var(--hair-2)}
-  .tp{display:flex;gap:15px;align-items:flex-start;padding:20px 2px;border-bottom:1px solid var(--hair-2)}
-  .tp .no{font-family:var(--serif);font-weight:600;color:var(--orange);font-size:1.05rem;flex:none;letter-spacing:.05em;padding-top:1px}
-  .tp h4{font-family:var(--serif);font-weight:600;font-size:1rem;letter-spacing:.04em;margin-bottom:4px}
-  .tp p{font-size:.84rem;color:var(--ink-soft);line-height:1.75;letter-spacing:.01em}
+  .trust{display:grid;gap:11px}
+  .tp{display:block;position:relative;border:1px solid var(--hair-2);background:var(--surface);
+    padding:19px 18px 17px 20px;overflow:hidden;box-shadow:0 3px 10px -6px rgba(35,32,28,.2)}
+  .tp::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+    background:linear-gradient(180deg,var(--orange-2),var(--orange));
+    transform:scaleY(0);transform-origin:top;
+    transition:transform .55s cubic-bezier(.22,.68,.3,1) calc(.14s + var(--i,0)*.08s)}
+  .trust.in .tp::before{transform:scaleY(1)}
+  .tp .no{position:absolute;right:12px;top:8px;pointer-events:none;
+    font-family:var(--sans);font-weight:900;font-size:3.1rem;line-height:1;letter-spacing:-.03em;
+    color:rgba(224,112,15,.11)}
+  .tp h4{font-family:var(--serif);font-weight:600;font-size:1.04rem;letter-spacing:.04em;line-height:1.55;
+    margin-bottom:6px;padding-right:46px;position:relative;z-index:1}
+  .tp p{font-size:.84rem;color:var(--ink-soft);line-height:1.8;letter-spacing:.01em;position:relative;z-index:1}
 
   /* compare table */
   .cmp-wrap{overflow-x:auto;border:1px solid var(--hair)}
@@ -354,11 +404,16 @@ window.LP_CONFIG = {
 
   /* voices */
   .voices{display:grid;gap:14px}
-  .voice{border:1px solid var(--hair-2);background:var(--bg-2);padding:20px 18px 18px;position:relative}
-  .voice::before{content:"“";position:absolute;top:6px;right:14px;font-family:var(--serif);font-size:2.6rem;line-height:1;color:var(--orange-soft)}
-  .voice .stars{color:var(--orange);letter-spacing:3px;font-size:.8rem;margin-bottom:9px}
-  .voice p{font-size:.9rem;margin-bottom:9px;letter-spacing:.02em;line-height:1.85;color:var(--ink)}
-  .voice .who{font-size:.74rem;color:var(--ink-dim);letter-spacing:.1em}
+  .voice{border:1px solid var(--hair-2);background:var(--surface);padding:20px 18px 18px;position:relative;
+    box-shadow:0 3px 10px -6px rgba(35,32,28,.2)}
+  .voice::before{content:"“";position:absolute;top:2px;right:14px;font-family:var(--serif);font-size:3.4rem;line-height:1;
+    color:rgba(224,112,15,.16);pointer-events:none}
+  .voice .stars{display:inline-block;color:var(--orange);letter-spacing:3px;font-size:.82rem;margin-bottom:9px;
+    clip-path:inset(0 100% 0 0);transition:clip-path .8s steps(5) calc(.25s + var(--i,0)*.09s)}
+  .voices.in .voice .stars{clip-path:inset(0 0 0 0)}
+  .voice p{font-size:.9rem;margin-bottom:10px;letter-spacing:.02em;line-height:1.85;color:var(--ink);position:relative;z-index:1}
+  .voice .who{display:inline-flex;align-items:center;gap:6px;font-size:.74rem;color:var(--ink-dim);letter-spacing:.1em}
+  .voice .who::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--orange);opacity:.55}
   .disc{font-size:.68rem;color:var(--ink-dim);text-align:center;margin-top:14px;line-height:1.7;letter-spacing:.01em}
 
   /* staff */
@@ -499,6 +554,21 @@ window.LP_CONFIG = {
   .stag.in>*:nth-child(7){transition-delay:.42s}
   .stag.in>*:nth-child(8){transition-delay:.49s}
   .stag.in>*:nth-child(9){transition-delay:.56s}
+  /* 子要素のアニメーションを順番にずらすための連番 */
+  .stag>*:nth-child(1){--i:0}.stag>*:nth-child(2){--i:1}.stag>*:nth-child(3){--i:2}
+  .stag>*:nth-child(4){--i:3}.stag>*:nth-child(5){--i:4}.stag>*:nth-child(6){--i:5}
+  .stag>*:nth-child(7){--i:6}.stag>*:nth-child(8){--i:7}.stag>*:nth-child(9){--i:8}
+  /* 動きを減らす設定の端末では演出を止める */
+  @media (prefers-reduced-motion: reduce){
+    .check::before,.check .ck,.check .ck svg,.check b,.risks::before,.risk::before,
+    .cause-tags span,.tp::before,.voice .stars{transition:none!important}
+    .check::before,.risks::before,.tp::before{transform:none!important}
+    .check .ck,.risk::before{transform:scale(1)!important}
+    .check .ck svg{stroke-dashoffset:0!important}
+    .check b{background-size:100% 100%!important}
+    .cause-tags span{opacity:1!important;transform:none!important}
+    .voice .stars{clip-path:none!important}
+  }
 
   /* ===== section ornament ===== */
   .sec-head h2::after{content:"";display:block;width:38px;height:2px;margin:14px auto 0;background:linear-gradient(90deg,var(--orange-2),var(--orange));border-radius:2px}
@@ -530,11 +600,7 @@ window.LP_CONFIG = {
   .media.shot{aspect-ratio:10/7}
   .shop figcaption{font-size:.78rem;line-height:1.75;color:var(--ink-soft);letter-spacing:.02em;margin-top:10px}
   .acc-shot{margin-top:16px}
-  .shop-pts{display:grid;gap:8px;margin-top:16px}
-  .shop-pts .sh{display:flex;align-items:center;gap:11px;border:1px solid var(--hair-2);background:var(--surface);padding:12px 14px}
-  .shop-pts .sh svg{width:20px;height:20px;flex:none;color:var(--orange)}
-  .shop-pts .sh p{font-size:.84rem;line-height:1.6;letter-spacing:.02em}
-  .shop-pts .sh b{font-weight:700}
+  .shop figcaption em{display:block;font-style:normal;font-size:.72rem;color:var(--ink-dim);margin-top:3px}
 
   /* ===== キャラクター紹介カード ===== */
   .chara-card{border:1px solid var(--hair);border-top:3px solid var(--orange);background:var(--bg-2);padding:26px 20px 24px;text-align:center}
@@ -826,7 +892,7 @@ window.LP_CONFIG = {
         </div>
         <div class="deal-row">
           <div class="dl">
-            <div class="dn">ALL FOOT CARE <span class="tag half">70%OFF</span></div>
+            <div class="dn">ALL FOOT CARE <span class="tag half">約70%OFF</span></div>
             <div class="dold"><s>通常 税込13,200円</s></div>
           </div>
           <div class="dr"><span class="dnow">¥3,980<small>税込</small></span></div>
@@ -856,25 +922,25 @@ window.LP_CONFIG = {
   <div class="funnel">
     <div class="sec-head rv"><span class="label">Check</span><h2>こんなお悩み、<br>ありませんか？</h2></div>
     <div class="checks stag">
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><p>爪の端が食い込んで、<b>ズキッと痛む</b>ときがある</p></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><p>つい<b>深爪</b>してしまい、同じことを繰り返している</p></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><p><b>素足やサンダル</b>になるのが恥ずかしい</p></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><p>靴を履くと<b>親指が当たって</b>気になる・歩き方が変わる</p></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><p>病院で「<b>切りましょう</b>」と言われたが、手術は避けたい</p></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><p>まだ軽いけれど、<b>ひどくなる前に</b>なんとかしたい</p></div>
+      <div class="check"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.4 4.4L19 7"/></svg></span><p>爪の端が食い込んで、<b>ズキッと痛む</b>ときがある</p></div>
+      <div class="check"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.4 4.4L19 7"/></svg></span><p>つい<b>深爪</b>してしまい、同じことを繰り返している</p></div>
+      <div class="check"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.4 4.4L19 7"/></svg></span><p><b>素足やサンダル</b>になるのが恥ずかしい</p></div>
+      <div class="check"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.4 4.4L19 7"/></svg></span><p>靴を履くと<b>親指が当たって</b>気になる・歩き方が変わる</p></div>
+      <div class="check"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.4 4.4L19 7"/></svg></span><p>病院で「<b>切りましょう</b>」と言われたが、手術は避けたい</p></div>
+      <div class="check"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.4 4.4L19 7"/></svg></span><p>まだ軽いけれど、<b>ひどくなる前に</b>なんとかしたい</p></div>
     </div>
     <p class="check-close rv">ひとつでも当てはまったら——<br><span class="accent">軽いうちのケア</span>が、いちばんの近道です。</p>
   </div>
 </section>
 
 <!-- RISK -->
-<section style="padding-top:10px">
+<section class="tone-warn" style="padding-top:10px">
   <div class="funnel">
     <div class="sec-head rv"><span class="label">Why Now</span><h2>巻き爪は「そのうち治る」が<br>起こりにくいお悩みです</h2><p>我慢しているあいだに、こんな悪循環につながることも。</p></div>
     <div class="risks stag">
-      <div class="risk"><div class="rn">RISK 01</div><h4>食い込みが深くなり、痛みが強くなりやすい</h4><p>爪は伸びるたびに同じカーブを描きます。食い込みが進むほど、ふとした瞬間の痛みが増えていきます。</p></div>
-      <div class="risk"><div class="rn">RISK 02</div><h4>痛みをかばう歩き方が、足腰の負担に</h4><p>親指で踏ん張れない歩き方は、足裏・ひざ・腰への負担につながるといわれています。外出がおっくうになる方も。</p></div>
-      <div class="risk"><div class="rn">RISK 03</div><h4>進むほど、時間も費用もかかりやすい</h4><p>変形が強くなってからのケアは、回数がかさみがち。軽いうちに始めるほうが、結果的に負担は小さくすみます。</p></div>
+      <div class="risk" data-n="01"><div class="rn">RISK 01</div><h4>食い込みが深くなり、痛みが強くなりやすい</h4><p>爪は伸びるたびに同じカーブを描きます。食い込みが進むほど、ふとした瞬間の痛みが増えていきます。</p></div>
+      <div class="risk" data-n="02"><div class="rn">RISK 02</div><h4>痛みをかばう歩き方が、足腰の負担に</h4><p>親指で踏ん張れない歩き方は、足裏・ひざ・腰への負担につながるといわれています。外出がおっくうになる方も。</p></div>
+      <div class="risk" data-n="03"><div class="rn">RISK 03</div><h4>進むほど、時間も費用もかかりやすい</h4><p>変形が強くなってからのケアは、回数がかさみがち。軽いうちに始めるほうが、結果的に負担は小さくすみます。</p></div>
     </div>
     <p class="risk-note rv">※進行や症状には個人差があります。強い痛み・炎症・化膿がある場合は、医療機関（皮膚科・形成外科など）の受診をおすすめします。</p>
   </div>
@@ -995,22 +1061,6 @@ window.LP_CONFIG = {
   </div>
 </section>
 
-<!-- SALON（店内） -->
-<section style="padding-top:10px">
-  <div class="funnel">
-    <div class="sec-head rv"><span class="label">Salon</span><h2>通う場所を、<br>先に見ておいてください。</h2><p>はじめての方が入りやすいお店を目指しました。</p></div>
-    <figure class="shop rv">
-      <div class="media shot"><img loading="lazy" decoding="async" width="2000" height="1400" src="images/shop_interior.jpg" alt="巻き爪フットラボ亀戸店の店内。木の間仕切りとカーテンで区切られたリクライニングチェアの施術スペース" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><b>店内の写真</b><span>images/shop_interior.jpg</span></div></div>
-      <figcaption>施術スペースは、木の間仕切りとカーテンで区切られた半個室。リクライニングチェアに座ったまま受けていただけます。</figcaption>
-    </figure>
-    <div class="shop-pts stag">
-      <div class="sh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3h18M5 3v18M19 3v18M9.7 3v18M14.3 3v18"/></svg><p><b>半個室</b>だから、ほかの方と顔を合わせにくい</p></div>
-      <div class="sh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11V6a2 2 0 012-2h10a2 2 0 012 2v5M4 11h16v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5zM7 18v2M17 18v2"/></svg><p>座ったまま、<b>足先を出すだけ</b>でOK</p></div>
-      <div class="sh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M11 2.5l2.2 5.8 5.8 2.2-5.8 2.2L11 18.5l-2.2-5.8L3 10.5l5.8-2.2zM18.5 15l.9 2.3 2.3.9-2.3.9-.9 2.3-.9-2.3-2.3-.9 2.3-.9z"/></svg><p>木と白を基調にした、<b>明るく清潔な店内</b></p></div>
-    </div>
-  </div>
-</section>
-
 <!-- VOICES -->
 <section>
   <div class="funnel">
@@ -1082,7 +1132,7 @@ window.LP_CONFIG = {
           <div class="dr"><span class="dnow">無料</span></div>
         </div>
         <div class="deal-row">
-          <div class="dl"><div class="dn">ALL FOOT CARE <span class="tag half">70%OFF</span></div><div class="dold"><s>通常 税込13,200円</s></div></div>
+          <div class="dl"><div class="dn">ALL FOOT CARE <span class="tag half">約70%OFF</span></div><div class="dold"><s>通常 税込13,200円</s></div></div>
           <div class="dr"><span class="dnow">¥3,980<small>税込</small></span></div>
         </div>
         <div class="deal-row total">
@@ -1146,6 +1196,10 @@ window.LP_CONFIG = {
       <figure class="shop acc-shot">
         <div class="media shot"><img loading="lazy" decoding="async" width="2000" height="1414" src="images/shop_exterior.jpg" alt="巻き爪フットラボ亀戸店の外観。オレンジの看板が目印のガラス張りの1階路面店" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><b>外観の写真</b><span>images/shop_exterior.jpg</span></div></div>
         <figcaption>オレンジの看板が目印。ガラス張りの1階路面店です。</figcaption>
+      </figure>
+      <figure class="shop acc-shot">
+        <div class="media shot"><img loading="lazy" decoding="async" width="2000" height="1400" src="images/shop_interior.jpg" alt="巻き爪フットラボの店内の様子（イメージ）" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><b>店内の写真</b><span>images/shop_interior.jpg</span></div></div>
+        <figcaption>店内の様子<em>※内装はイメージです</em></figcaption>
       </figure>
       <div class="map-embed"><iframe src="https://www.google.com/maps/embed?origin=mfe&amp;pb=!1m3!2m1!1z5p2x5Lqs6YO95rGf5p2x5Yy65LqA5oi4NS0yOS0yMQ!6i17!3m1!1sja!5m1!1sja" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="巻き爪専門店フットラボ（〒136-0071 東京都江東区亀戸5-29-21 Real WithⅡ1階）の地図"></iframe></div>
     </div>

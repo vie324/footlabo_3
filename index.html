@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>痛くない 巻き爪専門店フットラボ｜初回 巻き爪1指¥3,980・2指¥7,960｜東京・亀戸（亀戸駅 徒歩5分）</title>
-<meta name="description" content="「病院に行くほどじゃない」その巻き爪、痛みなく整える。東京・亀戸の巻き爪専門店フットラボ（JR中央・総武線 亀戸駅 徒歩5分／東武亀戸線 亀戸水神駅 徒歩約6分）。フットラボAIカウンセリング無料・初回ALL FOOT CAREは巻き爪1指 税込3,980円、左右両方など2指 税込7,960円。LINEで写真を送るだけの無料相談も。土日祝も20時まで営業。">
+<meta name="description" content="「病院に行くほどじゃない」その巻き爪、痛みなく整える。東京・亀戸の巻き爪専門店フットラボ（JR中央・総武線 亀戸駅 徒歩5分／東武亀戸線 亀戸水神駅 徒歩約6分）。フットラボAIカウンセリング無料・初回の巻き爪専門ケアは巻き爪1指 税込3,980円、左右両方など2指 税込7,960円。土日祝も21時まで営業。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="痛くない 巻き爪専門店フットラボ｜初回 巻き爪1指¥3,980・2指¥7,960｜亀戸駅 徒歩5分">
-<meta property="og:description" content="痛みのない巻き爪ケア。フットラボAIカウンセリング無料、初回ALL FOOT CAREは巻き爪1指 税込3,980円・2指 税込7,960円。東京・亀戸（亀戸駅 徒歩5分）。LINEで写真を送るだけの無料相談も。">
+<meta property="og:description" content="痛みのない巻き爪ケア。フットラボAIカウンセリング無料、初回の巻き爪専門ケアは巻き爪1指 税込3,980円・2指 税込7,960円。東京・亀戸（亀戸駅 徒歩5分）、土日祝も21時まで営業。">
 <meta property="og:image" content="images/ogp.jpg"><!-- 公開後は絶対URL(https://ドメイン/images/ogp.jpg)への変更を推奨 -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="images/ogp.jpg">
@@ -16,17 +16,24 @@
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
 <link rel="icon" type="image/png" sizes="512x512" href="images/icon-512.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-<!-- ▼ LINEの予約URL: https://lin.ee/ug1o1Ih （変更時はこのファイル内を一括置換、または管理シートの line_url で上書き可能） -->
+<!-- ▼ 予約ボタンの行き先は、下の「集客設定」の CTA_MODE / RESERVE_URL / LINE_URL で切り替えます（直予約版⇔LINE経由版） -->
 <!-- ▼ 公式画像: images/logo.png（ロゴ）・images/character.png（公式キャラクター ツメピカにゃん）。差し替えは同名で上書きしてください -->
 
 <!-- ▼▼▼ 集客設定（かんたん設定エリア）▼▼▼
-  各IDを "" の中に入れるだけで計測が始まります。空欄のままなら何も読み込まれません。
+  ・CTA_MODE   : 予約ボタンの行き先。"direct"＝予約ページへ直接（直予約版）／"line"＝LINE公式アカウント（LINE経由版）
+                 ページURLの末尾に ?cta=line または ?cta=direct を付けると、この設定に関係なくその版で表示されます（ABテスト・確認用）
+  ・RESERVE_URL: 直予約ページのURL（https://〜）。空欄の間は、ボタンが空振りしないようLINE経由版で表示されます
+  ・LINE_URL   : LINE公式アカウントのURL（LINE経由版の予約ボタンの行き先。管理シートの line_url でも上書き可能）
+  以下は各IDを "" の中に入れるだけで計測が始まります。空欄のままなら何も読み込まれません。
   ・SHEET_ID   : コンテンツ管理シート（Googleスプレッドシート）。残り枠・締切・お知らせ・LINE URLをシートから変更できます
   ・GA4_ID     : Googleアナリティクス4の測定ID（例 "G-XXXXXXXXXX"）
   ・CLARITY_ID : Microsoft Clarity（無料ヒートマップ）のプロジェクトID
   ・META_PIXEL_ID : Meta（Instagram/Facebook）広告のピクセルID -->
 <script>
 window.LP_CONFIG = {
+  CTA_MODE: "direct",
+  RESERVE_URL: "",
+  LINE_URL: "https://lin.ee/ug1o1Ih",
   SHEET_ID: "1e27WEgd-wq2EZjdiDswOpj4XMGL2oxVRLrHpOGXPtog",
   GA4_ID: "",
   CLARITY_ID: "",
@@ -34,31 +41,42 @@ window.LP_CONFIG = {
 };
 (function(){
   var c = window.LP_CONFIG;
+  // 表示する版を決める（?cta= の指定 ＞ CTA_MODE）。<html data-cta="direct|line"> でボタンの文言・色・説明文を出し分ける
+  var q = (location.search.match(/[?&]cta=(line|direct)(?:&|#|$)/) || [])[1];
+  var mode = q || (c.CTA_MODE === 'line' ? 'line' : 'direct');
+  if(mode === 'direct' && !c.RESERVE_URL && !q) mode = 'line';
+  c.ctaMode = mode;
+  document.documentElement.setAttribute('data-cta', mode);
   if(c.GA4_ID){
     var s = document.createElement('script'); s.async = true;
     s.src = 'https://www.googletagmanager.com/gtag/js?id=' + c.GA4_ID;
     document.head.appendChild(s);
     window.dataLayer = window.dataLayer || [];
     window.gtag = function(){ dataLayer.push(arguments); };
-    gtag('js', new Date()); gtag('config', c.GA4_ID);
+    gtag('js', new Date()); gtag('config', c.GA4_ID, {cta_mode: mode});
   }
   if(c.CLARITY_ID){
     (function(w,d,t,u,i){ w[t]=w[t]||function(){(w[t].q=w[t].q||[]).push(arguments)};
       var s=d.createElement('script'); s.async=1; s.src=u+i; d.head.appendChild(s);
     })(window,document,'clarity','https://www.clarity.ms/tag/',c.CLARITY_ID);
+    clarity('set', 'cta_mode', mode);
   }
   if(c.META_PIXEL_ID){
     !function(f,b,e,v,n,t,z){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;z=b.getElementsByTagName(e)[0];z.parentNode.insertBefore(t,z)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', c.META_PIXEL_ID); fbq('track', 'PageView');
   }
-  // LINEボタンのクリック計測（GA4/Pixel設定時のみ送信）
+  // 予約ボタンのクリック計測（GA4/Pixel設定時のみ送信）。直予約版は reserve_click、LINE経由版は line_click
   document.addEventListener('click', function(e){
-    var a = e.target && e.target.closest && e.target.closest('a[href*="lin.ee"],a[href*="line.me"]');
+    var a = e.target && e.target.closest && e.target.closest('a[data-cta-link]');
     if(!a) return;
+    if(mode === 'direct' && !c.RESERVE_URL){
+      // ?cta=direct で確認しているが、予約ページのURLがまだ入っていないとき
+      e.preventDefault(); alert('予約ページのURLが未設定です（LP_CONFIG の RESERVE_URL）'); return;
+    }
     var sec = a.closest('section,header,.sticky-cta');
     var place = (sec && (sec.id || (sec.className && String(sec.className).split(' ')[0]))) || 'page';
-    if(window.gtag) gtag('event', 'line_click', {placement: place});
-    if(window.fbq) fbq('track', 'Lead');
+    if(window.gtag) gtag('event', mode === 'direct' ? 'reserve_click' : 'line_click', {placement: place, cta_mode: mode});
+    if(window.fbq) fbq('track', 'Lead', {cta_mode: mode});
   }, true);
 })();
 </script>
@@ -70,7 +88,7 @@ window.LP_CONFIG = {
   "@type": "HealthAndBeautyBusiness",
   "name": "巻き爪専門店フットラボ",
   "alternateName": "巻き爪 Foot Lab",
-  "description": "痛みのない巻き爪補正とフットケアの専門店。フットラボAIカウンセリング無料、初回ALL FOOT CAREは巻き爪1指 税込3,980円・2指 税込7,960円。LINEで写真を送るだけの無料相談も。",
+  "description": "痛みのない巻き爪補正とフットケアの専門店。フットラボAIカウンセリング無料、初回の巻き爪専門ケアは巻き爪1指 税込3,980円・2指 税込7,960円。土日祝も21時まで営業。",
   "image": "images/ogp.jpg",
   "logo": "images/logo.png",
   "slogan": "その巻き爪、痛みなく整える。",
@@ -86,7 +104,7 @@ window.LP_CONFIG = {
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
     "opens": "11:00",
-    "closes": "20:00"
+    "closes": "21:00"
   }],
   "priceRange": "¥3,980〜¥26,400",
   "paymentAccepted": "現金, クレジットカード, 交通系IC, 楽天Edy, WAON, 楽天ペイ, PayPay, メルペイ, auPAY, d払い",
@@ -99,16 +117,16 @@ window.LP_CONFIG = {
   "@type": "FAQPage",
   "mainEntity": [
     {"@type":"Question","name":"ケア中は痛いですか？","acceptedAnswer":{"@type":"Answer","text":"痛みの出ない施術方法で補正しますので、施術中に痛みはありません。麻酔も出血もなく、そのまま歩いてお帰りいただけます。"}},
-    {"@type":"Question","name":"ALL FOOT CAREには何が含まれますか？","acceptedAnswer":{"@type":"Answer","text":"巻き爪・分厚い爪・変形爪・副爪・たこケア・魚の目・角質・爪きりまで、足元のケアがすべて含まれます。料金は補正する巻き爪の本数（1指・2指）で決まり、それ以外の追加料金は一切かかりません。"}},
+    {"@type":"Question","name":"巻き爪専門ケアには何が含まれますか？","acceptedAnswer":{"@type":"Answer","text":"巻き爪・分厚い爪・変形爪・副爪・たこケア・魚の目・角質・爪きりまで、足元のケアがすべて含まれます。料金は補正する巻き爪の本数（1指・2指）で決まり、それ以外の追加料金は一切かかりません。"}},
     {"@type":"Question","name":"巻き爪が右と左の両方にある場合は？","acceptedAnswer":{"@type":"Answer","text":"巻き爪2指の料金でケアします。初回は税込7,960円（通常26,400円）で、フットラボAIカウンセリング（通常3,300円）も無料です。1本だけの場合は巻き爪1指で、初回は税込3,980円（通常13,200円）です。"}},
     {"@type":"Question","name":"何回くらい通えばいいですか？","acceptedAnswer":{"@type":"Answer","text":"状態によって異なります。軽い方ほど少ない回数ですみやすい傾向です。無料のフットラボAIカウンセリングで、回数と費用の目安を先にお伝えします。※個人差があります。"}},
     {"@type":"Question","name":"1回でも変化はありますか？","acceptedAnswer":{"@type":"Answer","text":"装着直後にカーブの変化を実感される方が多いです。ただし整った状態を安定させるには継続的なケアが大切です。※効果・感じ方には個人差があります。"}},
     {"@type":"Question","name":"軽い状態でも見てもらえますか？","acceptedAnswer":{"@type":"Answer","text":"はい。むしろ軽いうちのほうが、少ない回数・負担で整えやすい傾向です。「これくらいで行っていいのかな」という段階こそご相談ください。"}},
     {"@type":"Question","name":"所要時間はどのくらいですか？","acceptedAnswer":{"@type":"Answer","text":"初回はフットラボAIカウンセリングを含めて約30分から40分が目安です（状態により前後します）。お仕事帰りにもお立ち寄りいただけます。"}},
     {"@type":"Question","name":"男性や年配でも大丈夫ですか？","acceptedAnswer":{"@type":"Answer","text":"もちろんです。性別・年齢を問わずご利用いただいています。ご家族の付き添いでのご相談も歓迎です。"}},
-    {"@type":"Question","name":"予約なしでも行けますか？","acceptedAnswer":{"@type":"Answer","text":"ご案内できる人数に限りがあるため、LINEでの事前予約をおすすめします。空きがあれば当日のご案内も可能ですので、まずはメッセージでお問い合わせください。"}},
+    {"@type":"Question","name":"予約なしでも行けますか？","acceptedAnswer":{"@type":"Answer","text":"ご案内できる人数に限りがあるため、事前のご予約をおすすめします。空きがあれば当日のご案内も可能です。"}},
     {"@type":"Question","name":"支払い方法は何が使えますか？","acceptedAnswer":{"@type":"Answer","text":"現金のほか、クレジットカード、タッチ決済（交通系IC・楽天Edy・WAON）、QRコード決済（楽天ペイ・PayPay・メルペイ・auPAY・d払い）がご利用いただけます。"}},
-    {"@type":"Question","name":"炎症や強い痛みがある場合は？","acceptedAnswer":{"@type":"Answer","text":"そうした場合は、まず医療機関（皮膚科・形成外科など）の受診をおすすめします。当店は補正ケア・フットケアを行う場所で、医療行為は行いません。受診の目安についてもLINEでご相談いただけます。"}}
+    {"@type":"Question","name":"炎症や強い痛みがある場合は？","acceptedAnswer":{"@type":"Answer","text":"そうした場合は、まず医療機関（皮膚科・形成外科など）の受診をおすすめします。当店は補正ケア・フットケアを行う場所で、医療行為は行いません。ご来店時に炎症などが見られる場合も、医療機関の受診をご案内します。"}}
   ]
 }
 </script>
@@ -133,6 +151,10 @@ window.LP_CONFIG = {
     --orange-tint:rgba(224,112,15,.06);
     --line:#06C755;
     --line-d:#05A847;
+    /* 予約ボタンの色（LINE経由版はLINEグリーン。直予約版は html[data-cta="direct"] で上書き） */
+    --cta:var(--line);
+    --cta-d:var(--line-d);
+    --cta-rgb:6,199,85;
     --r:3px;
     --r-lg:4px;
     --serif:"Shippori Mincho", serif;
@@ -160,10 +182,10 @@ window.LP_CONFIG = {
 
   /* CTA */
   .cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
-    background:var(--line);color:#fff;font-weight:700;font-size:1.02rem;letter-spacing:.04em;
+    background:var(--cta);color:#fff;font-weight:700;font-size:1.02rem;letter-spacing:.04em;
     padding:17px 18px;border-radius:var(--r);text-decoration:none;border:none;cursor:pointer;position:relative;overflow:hidden;
-    transition:background .2s,transform .1s;box-shadow:0 6px 18px rgba(6,199,85,.22)}
-  .cta:hover{background:var(--line-d)}
+    transition:background .2s,transform .1s;box-shadow:0 6px 18px rgba(var(--cta-rgb),.22)}
+  .cta:hover{background:var(--cta-d)}
   .cta:active{transform:translateY(1px)}
   .cta .ico{width:22px;height:22px;flex:none}
   .cta::after{content:"";position:absolute;top:0;left:-70%;width:44%;height:100%;
@@ -533,9 +555,11 @@ window.LP_CONFIG = {
   .brand-tx{display:flex;flex-direction:column;line-height:1.3;min-width:0}
   .brand-tx small{font-size:.5rem;font-weight:700;letter-spacing:.24em;color:var(--orange);white-space:nowrap}
   .brand-tx b{font-family:var(--serif);font-weight:700;font-size:1rem;letter-spacing:.1em;white-space:nowrap}
-  .hd-cta{flex:none;display:flex;align-items:center;gap:6px;background:var(--line);color:#fff;text-decoration:none;font-weight:700;font-size:.76rem;letter-spacing:.05em;padding:9px 15px;border-radius:99px;box-shadow:0 4px 12px rgba(6,199,85,.3);transition:background .2s}
-  .hd-cta:hover{background:var(--line-d)}
+  .hd-cta{flex:none;display:flex;align-items:center;gap:6px;background:var(--cta);color:#fff;text-decoration:none;font-weight:700;font-size:.76rem;letter-spacing:.05em;padding:9px 15px;border-radius:99px;box-shadow:0 4px 12px rgba(var(--cta-rgb),.3);transition:background .2s}
+  .hd-cta:hover{background:var(--cta-d)}
   .hd-cta svg{width:15px;height:15px;flex:none}
+  /* 幅320px前後の端末で、店名が予約ボタンの下に潜り込まないように詰める */
+  @media(max-width:350px){.brand-tx b{font-size:.9rem;letter-spacing:.04em}.hd-cta{padding:9px 12px}}
   .hd-bar{position:absolute;left:0;bottom:-1px;height:2px;width:0%;background:linear-gradient(90deg,var(--orange-2),var(--orange))}
 
   /* ===== ticker ===== */
@@ -653,7 +677,7 @@ window.LP_CONFIG = {
 
   /* ===== micro animation ===== */
   .sticky-cta .cta{animation:softPulse 3s ease-in-out infinite}
-  @keyframes softPulse{0%,100%{box-shadow:0 6px 18px rgba(6,199,85,.22)}50%{box-shadow:0 8px 26px rgba(6,199,85,.5)}}
+  @keyframes softPulse{0%,100%{box-shadow:0 6px 18px rgba(var(--cta-rgb),.22)}50%{box-shadow:0 8px 26px rgba(var(--cta-rgb),.5)}}
 
   /* ===== footer ===== */
   .f-logo{display:block;width:108px;height:auto;margin:0 auto 14px}
@@ -701,6 +725,7 @@ window.LP_CONFIG = {
   .hero-offer.v2{display:block;text-align:center;padding:18px 16px 16px}
   .hero-offer.v2 .ho-cap{font-family:var(--serif);font-weight:600;font-size:.94rem;letter-spacing:.04em;line-height:1.5}
   .hero-offer.v2 .ho-cap small{display:block;font-family:var(--sans);font-weight:400;font-size:.68rem;color:var(--ink-soft);letter-spacing:.02em;margin-top:4px}
+  .nw{white-space:nowrap}
   .hero-offer.v2 .ho-price{display:flex;align-items:baseline;justify-content:center;gap:10px;margin-top:13px;flex-wrap:wrap}
   .hero-offer.v2 .was{color:var(--ink-dim);display:inline-flex;align-items:baseline;gap:5px}
   .hero-offer.v2 .was small{font-size:.66rem;letter-spacing:.06em}
@@ -767,6 +792,18 @@ window.LP_CONFIG = {
   .doc-q b{font-weight:700;background-image:linear-gradient(transparent 62%,rgba(245,132,43,.32) 62%)}
   .doc-sig{margin-top:15px;text-align:right;font-family:var(--serif);font-weight:600;font-size:.84rem;letter-spacing:.08em;color:var(--ink-soft)}
 
+  /* ===== 予約ボタンの出し分け（直予約版／LINE経由版） =====
+     <html data-cta="direct|line"> は <head> の集客設定で決まる。
+     .only-direct は直予約版だけ、.only-line はLINE経由版だけに表示（JSが動かない環境ではLINE経由版） */
+  html[data-cta="direct"]{--cta:#23201C;--cta-d:#000;--cta-rgb:35,32,28}
+  html[data-cta="direct"] .only-line,
+  html:not([data-cta="direct"]) .only-direct{display:none!important}
+
+  /* 店舗写真の「イメージ写真」表記 */
+  .img-note{position:absolute;right:8px;bottom:8px;z-index:4;font-size:.62rem;font-weight:500;letter-spacing:.04em;line-height:1.5;
+    color:#fff;background:rgba(35,32,28,.58);padding:2px 8px;border-radius:2px;pointer-events:none}
+  .media img[style*="none"]~.img-note{display:none}
+
   /* picture要素はimgのレイアウトを邪魔しないよう素通しにする */
   picture{display:contents}
 
@@ -806,9 +843,9 @@ window.LP_CONFIG = {
       <span class="brand-mk"><picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="" width="560" height="446" decoding="async"></picture></span>
       <span class="brand-tx"><small>痛くない巻き爪ケア</small><b>巻き爪フットラボ</b></span>
     </a>
-    <a class="hd-cta" href="https://lin.ee/ug1o1Ih" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg>
-      LINE予約
+    <a class="hd-cta" href="https://lin.ee/ug1o1Ih" data-cta-link target="_blank" rel="noopener">
+      <svg class="only-line" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg><svg class="only-direct" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16.5" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4M8.8 15.2l2.2 2.2 4.3-4.4"/></svg>
+      <span class="only-line">LINE予約</span><span class="only-direct">Web予約</span>
     </a>
   </div>
   <div class="hd-bar" id="hdBar"></div>
@@ -853,7 +890,7 @@ window.LP_CONFIG = {
       <p>「病院に行くほどじゃない」——そんな方へ。<br><b>痛みのない巻き爪ケア</b>という選択を。</p>
     </div>
     <div class="hero-offer v2">
-      <div class="ho-cap">はじめての方限定｜初回体験セット<small>フットラボAIカウンセリング＋ALL FOOT CARE＋セルフケア指導</small></div>
+      <div class="ho-cap">はじめての方限定｜初回体験セット<small><span class="nw">フットラボAIカウンセリング3,300円</span><wbr><span class="nw">＋巻き爪専門ケア13,200円</span></small></div>
       <span class="ho-tag">巻き爪<b>1指</b></span>
       <div class="ho-price">
         <span class="was"><small>通常合計</small><s>¥16,500</s></span>
@@ -871,19 +908,19 @@ window.LP_CONFIG = {
       </div>
     </div>
     <div class="slots-badge" data-slots hidden><span class="sl-dot" aria-hidden="true"></span><span class="sl-txt"><span data-slots-month>今月</span>の初回体験枠　残り<b data-slots-n>–</b>名</span><span class="sl-few" data-slots-few hidden>まもなく終了</span></div>
-    <a href="https://lin.ee/ug1o1Ih" target="_blank" rel="noopener" class="cta" style="margin-top:14px">
-      <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg>
-      LINEで予約する
+    <a href="https://lin.ee/ug1o1Ih" data-cta-link target="_blank" rel="noopener" class="cta" style="margin-top:14px">
+      <svg class="ico only-line" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg><svg class="ico only-direct" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16.5" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4M8.8 15.2l2.2 2.2 4.3-4.4"/></svg>
+      <span class="only-line">LINEで予約する</span><span class="only-direct">Webで予約する</span>
     </a>
-    <div class="cta-note">予約は30秒で完了。写真を送るだけの無料相談もOK。</div>
+    <div class="cta-note"><span class="only-line"><span class="nw">予約は30秒で完了。</span><wbr><span class="nw">お電話は不要です。</span></span><span class="only-direct"><span class="nw">空いている日時を選ぶだけ。</span><wbr><span class="nw">24時間いつでも予約できます。</span></span></div>
   </div>
 </section>
 
 <!-- TICKER -->
 <div class="ticker" aria-hidden="true">
   <div class="tk">
-    <span>はじめての方限定 巻き爪1指 ¥3,980</span><span>左右両方（2指）も ¥7,960</span><span>フットラボAIカウンセリング 無料</span><span>LINE予約は30秒</span><span>痛みのないケア</span><span>土日祝も20時まで営業</span>
-    <span>はじめての方限定 巻き爪1指 ¥3,980</span><span>左右両方（2指）も ¥7,960</span><span>フットラボAIカウンセリング 無料</span><span>LINE予約は30秒</span><span>痛みのないケア</span><span>土日祝も20時まで営業</span>
+    <span>はじめての方限定 巻き爪1指 ¥3,980</span><span>左右両方（2指）も ¥7,960</span><span>フットラボAIカウンセリング 無料</span><span class="only-line">LINE予約は30秒</span><span class="only-direct">Web予約は24時間OK</span><span>痛みのないケア</span><span>土日祝も21時まで営業</span>
+    <span>はじめての方限定 巻き爪1指 ¥3,980</span><span>左右両方（2指）も ¥7,960</span><span>フットラボAIカウンセリング 無料</span><span class="only-line">LINE予約は30秒</span><span class="only-direct">Web予約は24時間OK</span><span>痛みのないケア</span><span>土日祝も21時まで営業</span>
   </div>
 </div>
 
@@ -893,8 +930,8 @@ window.LP_CONFIG = {
     <div class="grid">
       <div class="st"><div class="sv"><b>痛くない</b><br>施術</div><div class="sk">Method</div></div>
       <div class="st"><div class="sv">駅から<br><b>徒歩5分</b></div><div class="sk">Kameido</div></div>
-      <div class="st"><div class="sv">土日祝も<br><b>20時</b>まで</div><div class="sk">Open</div></div>
-      <div class="st"><div class="sv">LINE相談<br><b>無料</b></div><div class="sk">Support</div></div>
+      <div class="st"><div class="sv">土日祝も<br><b>21時</b>まで</div><div class="sk">Open</div></div>
+      <div class="st"><div class="sv"><span class="only-line">LINE予約<br><b>30秒</b></span><span class="only-direct">Web予約<br><b>24時間</b>OK</span></div><div class="sk">Reserve</div></div>
     </div>
   </div>
 </div>
@@ -938,7 +975,7 @@ window.LP_CONFIG = {
           <button class="opt-btn" onclick="finish()"><span class="mk">✓</span>痛くないケアがいい</button>
           <button class="opt-btn" onclick="finish()"><span class="mk">✓</span>駅近で、仕事帰りに通える</button>
           <button class="opt-btn" onclick="finish()"><span class="mk">✓</span>軽いうちに、少ない回数で</button>
-          <button class="opt-btn" onclick="finish()"><span class="mk">✓</span>まずは相談だけでもOK</button>
+          <button class="opt-btn" onclick="finish()"><span class="mk">✓</span>追加料金なしの明朗会計</button>
         </div>
       </div>
 
@@ -957,17 +994,16 @@ window.LP_CONFIG = {
   <div class="funnel">
     <div class="offer-box rv">
       <span class="label">First Visit Campaign</span>
-      <div class="tagline">はじめての方限定<br><span class="accent">3つの特典</span>をご用意しました</div>
+      <div class="tagline">はじめての方限定<br><span class="accent">2つの特典</span>をご用意しました</div>
       <div class="limit">Web予約限定 特典</div>
       <div class="deadline" data-deadline hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span>特典期限　<b data-deadline-text></b></span><span class="dl-left" data-deadline-left hidden></span></div>
       <div class="slots-badge" data-slots hidden><span class="sl-dot" aria-hidden="true"></span><span class="sl-txt"><span data-slots-month>今月</span>の初回体験枠　残り<b data-slots-n>–</b>名</span><span class="sl-few" data-slots-few hidden>まもなく終了</span></div>
       <div class="gifts stag">
         <div class="gift"><span class="gn">特典 1</span><div class="gt">フットラボAIカウンセリングが無料<small>通常 税込3,300円 → 0円。今の状態と回数の目安がわかります。</small></div></div>
-        <div class="gift"><span class="gn">特典 2</span><div class="gt">ALL FOOT CAREが¥3,980〜<small>巻き爪1指 13,200円→3,980円、2指 26,400円→7,960円（税込）。初回からしっかり施術します。</small></div></div>
-        <div class="gift"><span class="gn">特典 3</span><div class="gt">LINEでの写真相談が無料<small>来店前に「ケアできる状態か」お答えします。相談だけでもOK。</small></div></div>
+        <div class="gift"><span class="gn">特典 2</span><div class="gt">巻き爪専門ケアが¥3,980〜<small>巻き爪1指 13,200円→3,980円、2指 26,400円→7,960円（税込）。初回からしっかり施術します。</small></div></div>
       </div>
       <div class="allin">
-        <div class="al-t">ALL FOOT CARE に含まれるケア<small>すべて追加料金なし</small></div>
+        <div class="al-t">巻き爪専門ケアに含まれるケア<small>すべて追加料金なし</small></div>
         <div class="al-tags"><span>巻き爪</span><span>分厚い爪</span><span>変形爪</span><span>副爪</span><span>たこケア</span><span>魚の目</span><span>角質</span><span>爪きり</span></div>
       </div>
       <div class="deal" style="margin-top:18px">
@@ -979,7 +1015,7 @@ window.LP_CONFIG = {
           <div class="dr"><span class="dnow">無料</span></div>
         </div>
       </div>
-      <div class="plans-h">ALL FOOT CARE は<br>巻き爪の本数で2パターン<small>左右両方にある方は「2指」の料金です</small></div>
+      <div class="plans-h">巻き爪専門ケアは<br>巻き爪の本数で2パターン<small>左右両方にある方は「2指」の料金です</small></div>
       <div class="plans">
         <div class="plan">
           <div class="pl-k">巻き爪<b>1指</b></div>
@@ -999,13 +1035,13 @@ window.LP_CONFIG = {
         </div>
       </div>
       <p class="plans-note">どちらもAIカウンセリングは無料。<br><b>お支払いは上の金額だけ</b>の全部込みです。</p>
-      <span class="cta-fast">＼ 予約は30秒で完了 ／</span>
-      <a href="https://lin.ee/ug1o1Ih" target="_blank" rel="noopener" class="cta" style="margin-top:0">
-        <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg>
-        LINEで予約する
+      <span class="cta-fast"><span class="only-line">＼ 予約は30秒で完了 ／</span><span class="only-direct">＼ 24時間いつでも予約OK ／</span></span>
+      <a href="https://lin.ee/ug1o1Ih" data-cta-link target="_blank" rel="noopener" class="cta" style="margin-top:0">
+        <svg class="ico only-line" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg><svg class="ico only-direct" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16.5" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4M8.8 15.2l2.2 2.2 4.3-4.4"/></svg>
+        <span class="only-line">LINEで予約する</span><span class="only-direct">Webで予約する</span>
       </a>
-      <div class="cta-note">写真を送るだけでもOK。ご相談だけでも歓迎です。</div>
-      <p class="fineprint">※価格は税込表示です（税抜価格は、フットラボAIカウンセリング通常3,000円、巻き爪1指 通常12,000円・初回3,618円、巻き爪2指 通常24,000円・初回7,236円）。取り消し線の価格は当店の通常価格です。「12,520円お得」は巻き爪1指の通常価格合計（フットラボAIカウンセリング3,300円＋ALL FOOT CARE 13,200円＝税込16,500円）と初回体験価格（税込3,980円）の差額、「21,740円お得」は巻き爪2指の通常価格合計（3,300円＋26,400円＝税込29,700円）と初回体験価格（税込7,960円）の差額です。ALL FOOT CAREは巻き爪・分厚い爪・変形爪・副爪・たこケア・魚の目・角質・爪きりをすべて含み、料金は補正する巻き爪の本数（1指・2指）で決まります。それ以外の追加料金はかかりません。ケアの内容・回数は状態により異なる場合があります。キャンペーンは予告なく終了する場合があります。</p>
+      <div class="cta-note"><span class="only-line"><span class="nw">ご希望の日時を</span><wbr><span class="nw">メッセージするだけでOKです。</span></span><span class="only-direct"><span class="nw">お電話は不要。</span><wbr><span class="nw">空き状況をその場で確認できます。</span></span></div>
+      <p class="fineprint">※価格は税込表示です（税抜価格は、フットラボAIカウンセリング通常3,000円、巻き爪1指 通常12,000円・初回3,618円、巻き爪2指 通常24,000円・初回7,236円）。取り消し線の価格は当店の通常価格です。「12,520円お得」は巻き爪1指の通常価格合計（フットラボAIカウンセリング3,300円＋巻き爪専門ケア13,200円＝税込16,500円）と初回体験価格（税込3,980円）の差額、「21,740円お得」は巻き爪2指の通常価格合計（3,300円＋26,400円＝税込29,700円）と初回体験価格（税込7,960円）の差額です。巻き爪専門ケアは巻き爪・分厚い爪・変形爪・副爪・たこケア・魚の目・角質・爪きりをすべて含み、料金は補正する巻き爪の本数（1指・2指）で決まります。それ以外の追加料金はかかりません。ケアの内容・回数は状態により異なる場合があります。キャンペーンは予告なく終了する場合があります。</p>
     </div>
   </div>
 </section>
@@ -1060,8 +1096,8 @@ window.LP_CONFIG = {
     <div class="trust stag">
       <div class="tp"><div class="no">01</div><div><h4>巻き爪専門のケア技術</h4><p>巻き爪に特化した専門店です。分厚い爪・変形爪・たこ・魚の目まで、状態に合わせて器具と力加減を選び、一人ひとりに合わせて施術します。</p></div></div>
       <div class="tp"><div class="no">02</div><div><h4>痛みのないケア</h4><p>痛みの出ない施術方法で爪のカーブを整えます。麻酔も出血もなく、施術後はそのまま歩いてお帰りいただけます。</p></div></div>
-      <div class="tp"><div class="no">03</div><div><h4>AIカウンセリング無料・ALL込みの明朗会計</h4><p>初回のALL FOOT CAREは、巻き爪1指なら税込3,980円、右と左の両方など2指なら税込7,960円。料金は巻き爪の本数で決まり、追加料金はありません。全て含まれているので、後から追加コースを勧めることはありません。</p></div></div>
-      <div class="tp"><div class="no">04</div><div><h4>亀戸駅5分×20時まで、通いやすい</h4><p>JR中央・総武線「亀戸駅」から徒歩5分。東武亀戸線「亀戸水神駅」からも徒歩約6分で、お仕事帰りや買い物ついでに寄れます。土日祝も営業しています。</p></div></div>
+      <div class="tp"><div class="no">03</div><div><h4>AIカウンセリング無料・全部込みの明朗会計</h4><p>初回の巻き爪専門ケアは、巻き爪1指なら税込3,980円、右と左の両方など2指なら税込7,960円。料金は巻き爪の本数で決まり、追加料金はありません。全て含まれているので、後から追加コースを勧めることはありません。</p></div></div>
+      <div class="tp"><div class="no">04</div><div><h4>亀戸駅5分×21時まで、通いやすい</h4><p>JR中央・総武線「亀戸駅」から徒歩5分。東武亀戸線「亀戸水神駅」からも徒歩約6分で、お仕事帰りや買い物ついでに寄れます。土日祝も営業しています。</p></div></div>
       <div class="tp"><div class="no">05</div><div><h4>再発予防のセルフケアまで</h4><p>整えて終わりではなく、爪の切り方・靴選びなど、繰り返さないためのコツまでお伝えします。</p></div></div>
     </div>
   </div>
@@ -1087,7 +1123,7 @@ window.LP_CONFIG = {
           <tr><th>切開・抜爪</th><td class="me"><span class="mk-a">なし</span><small>爪を残して整える</small></td><td><span class="mk-b">あり</span><small>方法による</small></td><td><span class="mk-b">—</span></td></tr>
           <tr><th>当日の歩行</th><td class="me"><span class="mk-a">◎</span><small>そのまま帰れる</small></td><td><span class="mk-b">△</span><small>安静が必要なことも</small></td><td><span class="mk-b">○</span></td></tr>
           <tr><th>見た目の自然さ</th><td class="me"><span class="mk-a">◎</span><small>爪を残して整える</small></td><td><span class="mk-b">△</span><small>爪幅が変わることも</small></td><td><span class="mk-b">△</span><small>変形が進みやすい</small></td></tr>
-          <tr><th>始めやすさ</th><td class="me"><span class="mk-a">◎</span><small>予約30秒・当日OK</small></td><td><span class="mk-b">△</span><small>受診・通院が必要</small></td><td><span class="mk-b">○</span><small>ただし根本は変わらず</small></td></tr>
+          <tr><th>始めやすさ</th><td class="me"><span class="mk-a">◎</span><small><span class="only-line">予約30秒</span><span class="only-direct">Web予約</span>・当日OK</small></td><td><span class="mk-b">△</span><small>受診・通院が必要</small></td><td><span class="mk-b">○</span><small>ただし根本は変わらず</small></td></tr>
         </tbody>
       </table>
     </div>
@@ -1175,7 +1211,7 @@ window.LP_CONFIG = {
       <div class="steps" id="stepsRail">
       <div class="stepc">
         <div class="media"><video class="plug-video" poster="images/poster_step1.jpg" preload="none" autoplay muted loop playsinline><source src="step1.mp4" type="video/mp4"></video><span class="st-badge">STEP 01</span><img src="images/step1.jpg" alt="" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg><b>動画/画像 step1</b><span>step1.mp4 または images/step1.jpg</span></div></div>
-        <div class="body"><h4>カウンセリング＆足のチェック</h4><p>まずは状態を確認。不安なことも相談できます。LINEで写真を送っての事前相談もOKです。</p></div>
+        <div class="body"><h4>カウンセリング＆足のチェック</h4><p>まずは状態を確認。不安なことも相談できます。</p></div>
       </div>
       <div class="stepc">
         <div class="media"><video class="plug-video" poster="images/poster_step2.jpg" preload="none" autoplay muted loop playsinline><source src="step2.mp4" type="video/mp4"></video><span class="st-badge">STEP 02</span><img src="images/step2.jpg" alt="" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="5 3 19 12 5 21 5 3"/></svg><b>動画/画像 step2</b><span>step2.mp4 または images/step2.jpg</span></div></div>
@@ -1257,7 +1293,7 @@ window.LP_CONFIG = {
 </section>
 
 <!-- URGENCY + CAMPAIGN (再掲) -->
-<section>
+<section id="campaign">
   <div class="funnel">
     <div class="urgency rv" style="margin-bottom:26px">
       <span class="label">Reservation</span>
@@ -1266,7 +1302,7 @@ window.LP_CONFIG = {
     </div>
     <div class="offer-box rv">
       <div class="tagline"><span class="accent">はじめての方 限定</span></div>
-      <div class="limit">フットラボAIカウンセリングが無料<br>＋ ALL FOOT CAREが¥3,980〜</div>
+      <div class="limit">フットラボAIカウンセリングが無料<br>＋ 巻き爪専門ケアが¥3,980〜</div>
       <div class="deadline" data-deadline hidden style="margin-top:0;margin-bottom:14px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span>特典期限　<b data-deadline-text></b></span><span class="dl-left" data-deadline-left hidden></span></div>
       <div class="deal">
         <div class="deal-row">
@@ -1292,25 +1328,35 @@ window.LP_CONFIG = {
           <div class="pl-sum">初回合計<b>21,740円お得</b></div>
         </div>
       </div>
-      <span class="cta-fast" style="margin-top:20px">＼ 友だち追加だけでもOK ／</span>
-      <a href="https://lin.ee/ug1o1Ih" target="_blank" rel="noopener" class="cta" style="margin-top:0">
-        <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg>
-        LINEで予約する
+      <span class="cta-fast" style="margin-top:20px"><span class="only-line">＼ 友だち追加だけでもOK ／</span><span class="only-direct">＼ 空き状況をすぐ確認 ／</span></span>
+      <a href="https://lin.ee/ug1o1Ih" data-cta-link target="_blank" rel="noopener" class="cta" style="margin-top:0">
+        <svg class="ico only-line" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg><svg class="ico only-direct" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16.5" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4M8.8 15.2l2.2 2.2 4.3-4.4"/></svg>
+        <span class="only-line">LINEで予約する</span><span class="only-direct">Webで予約する</span>
       </a>
-      <div class="cta-note">しつこい連絡はいたしません。</div>
-      <p class="fineprint">※価格は税込表示です。取り消し線の価格は当店の通常価格です。「12,520円お得」「21,740円お得」は、通常価格合計（巻き爪1指 税込16,500円／2指 税込29,700円。いずれもフットラボAIカウンセリング3,300円を含む）と初回体験価格（1指 税込3,980円／2指 税込7,960円）の差額です。ALL FOOT CAREは巻き爪・分厚い爪・変形爪・副爪・たこケア・魚の目・角質・爪きりをすべて含み、料金は補正する巻き爪の本数（1指・2指）で決まります。それ以外の追加料金はかかりません。キャンペーンは予告なく終了する場合があります。</p>
+      <div class="cta-note"><span class="only-line">しつこい連絡はいたしません。</span><span class="only-direct">無理な勧誘はいたしません。</span></div>
+      <p class="fineprint">※価格は税込表示です。取り消し線の価格は当店の通常価格です。「12,520円お得」「21,740円お得」は、通常価格合計（巻き爪1指 税込16,500円／2指 税込29,700円。いずれもフットラボAIカウンセリング3,300円を含む）と初回体験価格（1指 税込3,980円／2指 税込7,960円）の差額です。巻き爪専門ケアは巻き爪・分厚い爪・変形爪・副爪・たこケア・魚の目・角質・爪きりをすべて含み、料金は補正する巻き爪の本数（1指・2指）で決まります。それ以外の追加料金はかかりません。キャンペーンは予告なく終了する場合があります。</p>
     </div>
   </div>
 </section>
 
-<!-- RESERVE FLOW -->
+<!-- RESERVE FLOW（LINE経由版／直予約版で出し分け） -->
 <section style="padding-top:10px">
   <div class="funnel">
-    <div class="sec-head rv"><span class="label">Reservation</span><h2>ご予約は、LINEで3ステップ</h2><p>お電話は不要。すべてLINEで完結します。</p></div>
-    <div class="rsv stag">
-      <div class="rs"><div class="ri"></div><div><h4>友だち追加<small>約30秒</small></h4><p>下のボタンから友だち追加。この時点では通知も勧誘もありません。</p></div></div>
-      <div class="rs"><div class="ri"></div><div><h4>写真を送る or 日時を選ぶ</h4><p>気になる爪の写真を送って相談するか、ご希望の日時をメッセージするだけ。</p></div></div>
-      <div class="rs"><div class="ri"></div><div><h4>当日、手ぶらでご来店</h4><p>持ち物は不要です。足先を出しやすい服装だとスムーズです。</p></div></div>
+    <div class="only-line">
+      <div class="sec-head rv"><span class="label">Reservation</span><h2>ご予約は、LINEで3ステップ</h2><p>お電話は不要。すべてLINEで完結します。</p></div>
+      <div class="rsv stag">
+        <div class="rs"><div class="ri"></div><div><h4>友だち追加<small>約30秒</small></h4><p>下のボタンから友だち追加。この時点では通知も勧誘もありません。</p></div></div>
+        <div class="rs"><div class="ri"></div><div><h4>日時を選ぶ</h4><p>ご希望の日時をメッセージするだけ。</p></div></div>
+        <div class="rs"><div class="ri"></div><div><h4>当日、手ぶらでご来店</h4><p>持ち物は不要です。足先を出しやすい服装だとスムーズです。</p></div></div>
+      </div>
+    </div>
+    <div class="only-direct">
+      <div class="sec-head rv"><span class="label">Reservation</span><h2>ご予約は、Webで3ステップ</h2><p>お電話は不要。24時間いつでも予約できます。</p></div>
+      <div class="rsv stag">
+        <div class="rs"><div class="ri"></div><div><h4>予約ページを開く<small>24時間OK</small></h4><p>下のボタンから予約ページへ。空き状況がすぐにわかります。</p></div></div>
+        <div class="rs"><div class="ri"></div><div><h4>日時を選ぶ</h4><p>ご都合のよい日時を選んで、お名前などを入力するだけ。</p></div></div>
+        <div class="rs"><div class="ri"></div><div><h4>当日、手ぶらでご来店</h4><p>持ち物は不要です。足先を出しやすい服装だとスムーズです。</p></div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1321,16 +1367,16 @@ window.LP_CONFIG = {
     <div class="sec-head rv"><span class="label">Q &amp; A</span><h2>よくある質問</h2></div>
     <div class="faq rv">
       <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>ケア中は痛いですか？<span class="tg">+</span></button><div class="faq-a"><p>痛みの出ない施術方法で補正しますので、施術中に痛みはありません。麻酔も出血もなく、そのまま歩いてお帰りいただけます。</p></div></div>
-      <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>ALL FOOT CAREには何が含まれますか？<span class="tg">+</span></button><div class="faq-a"><p>巻き爪・分厚い爪・変形爪・副爪・たこケア・魚の目・角質・爪きりまで、足元のケアがすべて含まれます。料金は補正する巻き爪の本数（1指・2指）で決まり、それ以外の追加料金は一切かかりません。</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>巻き爪専門ケアには何が含まれますか？<span class="tg">+</span></button><div class="faq-a"><p>巻き爪・分厚い爪・変形爪・副爪・たこケア・魚の目・角質・爪きりまで、足元のケアがすべて含まれます。料金は補正する巻き爪の本数（1指・2指）で決まり、それ以外の追加料金は一切かかりません。</p></div></div>
       <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>巻き爪が右と左の両方にある場合は？<span class="tg">+</span></button><div class="faq-a"><p>巻き爪2指の料金でケアします。初回は税込7,960円（通常26,400円）で、フットラボAIカウンセリング（通常3,300円）も無料です。1本だけの場合は巻き爪1指で、初回は税込3,980円（通常13,200円）です。</p></div></div>
       <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>何回くらい通えばいいですか？<span class="tg">+</span></button><div class="faq-a"><p>状態によって異なります。軽い方ほど少ない回数ですみやすい傾向です。無料のフットラボAIカウンセリングで、回数と費用の目安を先にお伝えします。※個人差があります。</p></div></div>
       <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>1回でも変化はありますか？<span class="tg">+</span></button><div class="faq-a"><p>装着直後にカーブの変化を実感される方が多いです。ただし整った状態を安定させるには継続的なケアが大切です。※効果・感じ方には個人差があります。</p></div></div>
       <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>軽い状態でも見てもらえますか？<span class="tg">+</span></button><div class="faq-a"><p>はい。むしろ軽いうちのほうが、少ない回数・負担で整えやすい傾向です。「これくらいで行っていいのかな」という段階こそご相談ください。</p></div></div>
       <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>所要時間はどのくらいですか？<span class="tg">+</span></button><div class="faq-a"><p>初回はフットラボAIカウンセリングを含めて約30分から40分が目安です（状態により前後します）。お仕事帰りにもお立ち寄りいただけます。</p></div></div>
       <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>男性や年配でも大丈夫ですか？<span class="tg">+</span></button><div class="faq-a"><p>もちろんです。性別・年齢を問わずご利用いただいています。ご家族の付き添いでのご相談も歓迎です。</p></div></div>
-      <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>予約なしでも行けますか？<span class="tg">+</span></button><div class="faq-a"><p>ご案内できる人数に限りがあるため、LINEでの事前予約をおすすめします。空きがあれば当日のご案内も可能ですので、まずはメッセージでお問い合わせください。</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>予約なしでも行けますか？<span class="tg">+</span></button><div class="faq-a"><p>ご案内できる人数に限りがあるため、事前のご予約をおすすめします。空きがあれば当日のご案内も可能です。</p></div></div>
       <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>支払い方法は何が使えますか？<span class="tg">+</span></button><div class="faq-a"><p>現金のほか、クレジットカード、タッチ決済（交通系IC・楽天Edy・WAON）、QRコード決済（楽天ペイ・PayPay・メルペイ・auPAY・d払い）がご利用いただけます。</p></div></div>
-      <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>炎症や強い痛みがある場合は？<span class="tg">+</span></button><div class="faq-a"><p>そうした場合は、まず医療機関（皮膚科・形成外科など）の受診をおすすめします。当店は補正ケア・フットケアを行う場所で、医療行為は行いません。受診の目安についてもLINEでご相談いただけます。</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span class="qi">Q</span>炎症や強い痛みがある場合は？<span class="tg">+</span></button><div class="faq-a"><p>そうした場合は、まず医療機関（皮膚科・形成外科など）の受診をおすすめします。当店は補正ケア・フットケアを行う場所で、医療行為は行いません。ご来店時に炎症などが見られる場合も、医療機関の受診をご案内します。</p></div></div>
     </div>
   </div>
 </section>
@@ -1343,14 +1389,14 @@ window.LP_CONFIG = {
       <dl>
         <div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-5-7-10a7 7 0 1114 0c0 5-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg><div><dt>Address</dt><dd>〒136-0071 東京都江東区亀戸5-29-21 Real WithⅡ 1階</dd></div></div>
         <div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6v12M9 6L3 9v12l6-3 6 3 6-3V6"/></svg><div><dt>Access</dt><dd>JR中央・総武線「亀戸駅」より 徒歩5分<br>東武亀戸線「亀戸水神駅」より 徒歩約6分</dd></div></div>
-        <div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><dt>Open</dt><dd>11:00〜20:00（平日・土日祝とも）</dd></div></div>
+        <div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><dt>Open</dt><dd>11:00〜21:00（平日・土日祝とも）</dd></div></div>
         <div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="1"/><path d="M2 10h20"/></svg><div><dt>Payment</dt><dd>現金／クレジットカード／タッチ決済（交通系IC・楽天Edy・WAON）／QRコード決済（楽天ペイ・PayPay・メルペイ・auPAY・d払い）</dd></div></div>
       </dl>
       <div class="shop acc-shot">
-        <div class="media shot"><img loading="lazy" decoding="async" width="2000" height="1414" src="images/shop_exterior.jpg" alt="" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><b>外観の写真</b><span>images/shop_exterior.jpg</span></div></div>
+        <div class="media shot"><img loading="lazy" decoding="async" width="2000" height="1414" src="images/shop_exterior.jpg" alt="" onerror="this.style.display='none'"><span class="img-note">※イメージ写真です</span><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><b>外観の写真</b><span>images/shop_exterior.jpg</span></div></div>
       </div>
       <div class="shop acc-shot">
-        <div class="media shot"><img loading="lazy" decoding="async" width="2000" height="1400" src="images/shop_interior.jpg" alt="" onerror="this.style.display='none'"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><b>店内の写真</b><span>images/shop_interior.jpg</span></div></div>
+        <div class="media shot"><img loading="lazy" decoding="async" width="2000" height="1400" src="images/shop_interior.jpg" alt="" onerror="this.style.display='none'"><span class="img-note">※イメージ写真です</span><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><b>店内の写真</b><span>images/shop_interior.jpg</span></div></div>
       </div>
       <div class="map-embed"><iframe src="https://www.google.com/maps/embed?origin=mfe&amp;pb=!1m3!2m1!1z5p2x5Lqs6YO95rGf5p2x5Yy65LqA5oi4NS0yOS0yMQ!6i17!3m1!1sja!5m1!1sja" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="巻き爪専門店フットラボ（〒136-0071 東京都江東区亀戸5-29-21 Real WithⅡ1階）の地図"></iframe></div>
     </div>
@@ -1361,20 +1407,20 @@ window.LP_CONFIG = {
 <section class="final">
   <div class="funnel">
     <div class="final-chara rv">
-      <span class="bub">写真1枚送るだけでOKにゃ！</span>
+      <span class="bub">痛くないから安心するにゃ！</span>
       <picture><source srcset="images/character.webp" type="image/webp"><img class="chr bob" loading="lazy" decoding="async" width="340" height="352" src="images/character.png" alt="ツメピカにゃん"></picture>
     </div>
-    <h2>まずは、写真を送るだけ。</h2>
-    <p>「これってケアできる？」「何回くらい必要？」<br>気になることを、LINEで気軽にご相談ください。</p>
-    <a href="https://lin.ee/ug1o1Ih" target="_blank" rel="noopener" class="cta">
-      <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg>
-      LINEで相談・予約する
+    <h2>まずは、初回体験から。</h2>
+    <p>「これってケアできる？」「何回くらい必要？」<br>そんな疑問も、初回無料の<span class="nw">AIカウンセリングでお答えします。</span></p>
+    <a href="https://lin.ee/ug1o1Ih" data-cta-link target="_blank" rel="noopener" class="cta">
+      <svg class="ico only-line" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg><svg class="ico only-direct" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16.5" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4M8.8 15.2l2.2 2.2 4.3-4.4"/></svg>
+      <span class="only-line">LINEで予約する</span><span class="only-direct">Webで予約する</span>
     </a>
-    <div class="cta-note">友だち追加だけでもOK。しつこい連絡はいたしません。</div>
+    <div class="cta-note"><span class="only-line"><span class="nw">友だち追加だけでもOK。</span><wbr><span class="nw">しつこい連絡はいたしません。</span></span><span class="only-direct"><span class="nw">お電話不要・24時間受付。</span><wbr><span class="nw">無理な勧誘はいたしません。</span></span></div>
     <div class="ps rv">
       <div class="ps-t">P.S.</div>
       <p>巻き爪の一番の分かれ道は、「痛くなってから動くか、気になったときに動くか」だと感じています。</p>
-      <p>このページを閉じたあと、また明日から同じ痛みを我慢するのは、少しもったいない。<b>写真を1枚送るだけ</b>で、あなたの爪がケアできる状態か、すぐにお答えします。</p>
+      <p>このページを閉じたあと、また明日から同じ痛みを我慢するのは、少しもったいない。<b>はじめての方は、巻き爪1指 税込3,980円から</b>。痛みのないケアを、まずは一度体験してみてください。</p>
     </div>
   </div>
 </section>
@@ -1397,14 +1443,23 @@ window.LP_CONFIG = {
 <div class="sticky-cta" id="stickyCta">
   <div class="inner">
     <div class="sc-off"><span class="o1" id="scOff1">初回限定 巻き爪1指</span><span class="o2"><s>¥16,500</s>¥3,980</span></div>
-    <a href="https://lin.ee/ug1o1Ih" target="_blank" rel="noopener" class="cta">
-      <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg>
-      LINEで予約
+    <a href="https://lin.ee/ug1o1Ih" data-cta-link target="_blank" rel="noopener" class="cta">
+      <svg class="ico only-line" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.6 7.4 8.5 8 .3.07.8.2.9.5.08.25.05.65.03.9l-.15.9c-.04.27-.2 1.05.92.57s6.06-3.57 8.27-6.11C21.5 13.3 22 11.8 22 10.2 22 5.7 17.5 2 12 2z"/></svg><svg class="ico only-direct" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16.5" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4M8.8 15.2l2.2 2.2 4.3-4.4"/></svg>
+      <span class="only-line">LINEで予約</span><span class="only-direct">Webで予約</span>
     </a>
   </div>
 </div>
 
 <script>
+  // 予約ボタンの行き先（直予約版＝RESERVE_URL／LINE経由版＝LINE_URL）。リンクは data-cta-link の付いたボタンすべて
+  function applyCtaLinks(){
+    var c = window.LP_CONFIG || {};
+    var url = c.ctaMode === 'direct' ? (c.RESERVE_URL || '#') : c.LINE_URL;
+    if(!url) return;
+    document.querySelectorAll('a[data-cta-link]').forEach(function(a){ a.href = url; });
+  }
+  applyCtaLinks();
+
   // quiz
   function setStep(n){
     document.querySelectorAll('.qstep').forEach(function(s){ s.classList.toggle('on', +s.dataset.step === n); });
@@ -1522,7 +1577,7 @@ window.LP_CONFIG = {
   })();
 
   // ===== 管理シート(Googleスプレッドシート)からコンテンツを反映 =====
-  // シートで編集できる項目: line_url / slots_show / slots_month / slots_left /
+  // シートで編集できる項目: line_url（LINE経由版のボタンの行き先） / slots_show / slots_month / slots_left /
   //                        deadline_show / deadline_text / notice_text
   // シート未設定・読込失敗時は何も表示しない(現状のままの)安全設計です。
   (function(){
@@ -1579,7 +1634,8 @@ window.LP_CONFIG = {
     function apply(m){
       try{
         if(m.line_url && /^https:\/\/(lin\.ee|line\.me|liff\.line\.me)\//.test(String(m.line_url).trim())){
-          document.querySelectorAll('a[href*="lin.ee/"],a[href*="line.me/"]').forEach(function(a){ a.href = String(m.line_url).trim(); });
+          window.LP_CONFIG.LINE_URL = String(m.line_url).trim();
+          applyCtaLinks();
         }
         var n = parseInt(m.slots_left, 10);
         if(truthy(m.slots_show) && !isNaN(n) && n >= 0){

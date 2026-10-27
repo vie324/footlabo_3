@@ -74,17 +74,39 @@ LPは **直予約版**（予約ページへ直接）と **LINE経由版**（LINE
 | 設定（`index.html` 上部の `LP_CONFIG`） | 現在の値 | 内容 |
 |---|---|---|
 | `CTA_MODE` | `"direct"` | 通常表示する版。`"direct"`＝直予約版／`"line"`＝LINE経由版 |
-| `RESERVE_URL` | サロン1の予約フォーム<br>`https://form.salonone.net/brands/55545/shops/67566/form/MPxfLdE4qYbr.html` | 直予約ページのURL。**空欄にすると、ボタンが空振りしないよう自動でLINE経由版を表示**します |
+| `RESERVE_URL` | サロン1の予約フォーム（チラシ用）<br>`https://form.salonone.net/brands/55545/shops/67566/form/MPxfLdE4qYbr.html` | 直予約版の通常の予約フォーム。**チラシで配布済みのため変更しないでください**。空欄にすると、ボタンが空振りしないよう自動でLINE経由版を表示します |
+| `RESERVE_URLS.meta` | サロン1の予約フォーム（Meta広告用）<br>`https://form.salonone.net/brands/55545/shops/67566/form/tO5VhJkQHGb8.html` | Meta（Instagram/Facebook）広告から来た人の予約フォーム |
+| `RESERVE_URLS.listing` | サロン1の予約フォーム（リスティング広告用）<br>`https://form.salonone.net/brands/55545/shops/67566/form/eLQTGgln7Yo6.html` | リスティング広告（Google・Yahoo!の検索広告）から来た人の予約フォーム |
 | `LINE_URL` | `https://lin.ee/ug1o1Ih` | LINE経由版の行き先。管理シートの `line_url` でも上書きできます |
 
 ### よく使う操作
 
-- **直予約版（現在の状態）**: `RESERVE_URL` に予約ページのURLが入っているため、予約ボタン6箇所（ヘッダー・ヒーロー・特典BOX・再掲BOX・最後のCTA・画面下の固定バー）がすべてサロン1の予約フォームに飛びます。予約フォームを作り直してURLが変わったときは、ここを書き換えてください
+- **直予約版（現在の状態）**: 予約ボタン6箇所（ヘッダー・ヒーロー・特典BOX・再掲BOX・最後のCTA・画面下の固定バー）がすべてサロン1の予約フォームに飛びます。フォームは流入元ごとに出し分けています（→下の「流入元ごとの予約フォーム」）
 - **LINE経由版に戻す**: `CTA_MODE: "line"` に書き換える（`RESERVE_URL` は消さなくてOK）
 - **URLで版を指定する（ABテスト・確認用）**: ページURLの末尾に `?cta=line` を付けるとLINE経由版、`?cta=direct` を付けると直予約版で表示されます。`CTA_MODE` の設定より優先されます
   - 例: 広告A → `https://公開ドメイン/`（直予約版）、広告B → `https://公開ドメイン/?cta=line`（LINE経由版）
   - UTMなど他のパラメータと併用できます（例 `?utm_source=google&cta=line`）
   - もし `RESERVE_URL` を空欄にした状態で `?cta=direct` で開くと、確認用に直予約版の見た目で表示されますが、ボタンを押すと「予約ページのURLが未設定です」と表示されます。その状態では広告に使わないでください
+
+### 流入元ごとの予約フォーム（チラシ用／Meta広告用／リスティング広告用）
+
+直予約版の予約ボタンは、LPに来た人の流入元によって、サロン1の予約フォームを出し分けます。サロン1側で、どの媒体から予約が入ったかを分けて見られます。
+
+| 流入元 | 広告に設定するLPのURL | 予約ボタンの行き先 |
+|---|---|---|
+| チラシ・検索・直接アクセスなど（下のどれにも当てはまらない） | `https://公開ドメイン/`（今までどおり） | チラシ用フォーム（`RESERVE_URL`） |
+| Meta広告 | `https://公開ドメイン/?src=meta` | Meta広告用フォーム（`RESERVE_URLS.meta`） |
+| リスティング広告 | `https://公開ドメイン/?src=listing` | リスティング広告用フォーム（`RESERVE_URLS.listing`） |
+
+- **広告のリンク先には `?src=meta` / `?src=listing` を付けてください。** いちばん確実です
+- 付け忘れても、次のアクセスは自動で振り分けます
+  - Meta広告用へ: `utm_source` が `facebook` / `instagram` / `meta` / `fb` / `ig` などのとき、Meta広告が自動で付ける `fbclid` があるとき
+  - リスティング広告用へ: `utm_source` が `google` / `yahoo` / `bing` で、`utm_medium` が `cpc` などのとき、Google広告・Yahoo!広告が自動で付ける `gclid` / `gbraid` / `wbraid` / `yclid` があるとき
+  - ※Facebook・Instagramの通常の投稿（広告でないもの）からのリンクにも `fbclid` が付くため、それらもMeta広告用フォームに入ります
+- 振り分けの順番: `?src=` の指定 → `utm_source` → 広告のクリックID → どれも無ければチラシ用
+- `?cta=line`（LINE経由版）と組み合わせられます。例: Meta広告のABテストは `?src=meta`（直予約）と `?src=meta&cta=line`（LINE）。LINE経由版の行き先は流入元に関係なく同じLINEです
+- GA4・Clarity・Meta Pixelには、流入元を `lp_src`（`flyer` / `meta` / `listing`）として一緒に送ります
+- 媒体を増やすとき（例: TikTok広告）は、サロン1で予約フォームを作り、`RESERVE_URLS` に `tiktok: "https://…"` のように追加したうえで、振り分けの条件（`index.html` の「流入元を決めて」の部分）にも追加します
 
 ### 版によって変わるところ
 
@@ -100,7 +122,7 @@ LPは **直予約版**（予約ページへ直接）と **LINE経由版**（LINE
 
 ### ABテストの見方
 
-- GA4: イベント `reserve_click`（直予約版）と `line_click`（LINE経由版）の数を、それぞれの版のセッション数で割って比較します。GA4の管理画面で `cta_mode` をカスタムディメンション（イベントスコープ）に登録すると、版ごとの集計がしやすくなります
+- GA4: イベント `reserve_click`（直予約版）と `line_click`（LINE経由版）の数を、それぞれの版のセッション数で割って比較します。GA4の管理画面で `cta_mode`（版）と `lp_src`（流入元）をカスタムディメンション（イベントスコープ）に登録すると、版ごと・媒体ごとの集計がしやすくなります
 - ボタンのクリックは「予約の手前」の数字です。最終的には、予約システム（直予約）とLINE（LINE経由）それぞれの実際の予約数・来店数で比べてください
 - 比較中は、価格・コピーなど他の部分は変えないでください（どちらの効果か分からなくなります）
 

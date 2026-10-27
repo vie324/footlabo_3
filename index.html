@@ -16,13 +16,15 @@
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
 <link rel="icon" type="image/png" sizes="512x512" href="images/icon-512.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-<!-- ▼ 予約ボタンの行き先は、下の「集客設定」の CTA_MODE / RESERVE_URL / LINE_URL で切り替えます（直予約版⇔LINE経由版） -->
+<!-- ▼ 予約ボタンの行き先は、下の「集客設定」の CTA_MODE / RESERVE_URL / RESERVE_URLS / LINE_URL で切り替えます（直予約版⇔LINE経由版、流入元ごとの予約フォーム） -->
 <!-- ▼ 公式画像: images/logo.png（ロゴ）・images/character.png（公式キャラクター ツメピカにゃん）。差し替えは同名で上書きしてください -->
 
 <!-- ▼▼▼ 集客設定（かんたん設定エリア）▼▼▼
   ・CTA_MODE   : 予約ボタンの行き先。"direct"＝予約ページへ直接（直予約版）／"line"＝LINE公式アカウント（LINE経由版）
                  ページURLの末尾に ?cta=line または ?cta=direct を付けると、この設定に関係なくその版で表示されます（ABテスト・確認用）
-  ・RESERVE_URL: 直予約ページのURL（https://〜）。空欄の間は、ボタンが空振りしないようLINE経由版で表示されます
+  ・RESERVE_URL: 直予約の予約フォームのURL（通常＝チラシ用）。空欄の間は、ボタンが空振りしないようLINE経由版で表示されます
+  ・RESERVE_URLS: 流入元ごとの予約フォーム。ページURLに ?src=meta を付けるとMeta広告用、?src=listing を付けるとリスティング広告用のフォームになります
+                 付け忘れても、Meta広告（fbclid・utm_source=facebook/instagram など）とGoogle/Yahoo!広告（gclid・yclid など）からのアクセスは自動で振り分けます
   ・LINE_URL   : LINE公式アカウントのURL（LINE経由版の予約ボタンの行き先。管理シートの line_url でも上書き可能）
   以下は各IDを "" の中に入れるだけで計測が始まります。空欄のままなら何も読み込まれません。
   ・SHEET_ID   : コンテンツ管理シート（Googleスプレッドシート）。残り枠・締切・お知らせ・LINE URLをシートから変更できます
@@ -32,7 +34,11 @@
 <script>
 window.LP_CONFIG = {
   CTA_MODE: "direct",
-  RESERVE_URL: "https://form.salonone.net/brands/55545/shops/67566/form/MPxfLdE4qYbr.html",
+  RESERVE_URL: "https://form.salonone.net/brands/55545/shops/67566/form/MPxfLdE4qYbr.html", // 通常（チラシ用）
+  RESERVE_URLS: {
+    meta: "https://form.salonone.net/brands/55545/shops/67566/form/tO5VhJkQHGb8.html",   // Meta広告用（?src=meta）
+    listing: "https://form.salonone.net/brands/55545/shops/67566/form/eLQTGgln7Yo6.html" // リスティング広告用（?src=listing）
+  },
   LINE_URL: "https://lin.ee/ug1o1Ih",
   SHEET_ID: "1e27WEgd-wq2EZjdiDswOpj4XMGL2oxVRLrHpOGXPtog",
   GA4_ID: "",
@@ -47,19 +53,35 @@ window.LP_CONFIG = {
   if(mode === 'direct' && !c.RESERVE_URL && !q) mode = 'line';
   c.ctaMode = mode;
   document.documentElement.setAttribute('data-cta', mode);
+  // 流入元を決めて、直予約版の予約フォームを選ぶ（?src= の指定 ＞ utm_source ＞ 広告のクリックID。どれも無ければ通常＝チラシ用）
+  function qp(k){
+    var m = location.search.match(new RegExp('[?&]' + k + '=([^&#]*)'));
+    if(!m) return '';
+    try{ return decodeURIComponent(m[1].replace(/\+/g, ' ')).toLowerCase(); }catch(e){ return m[1].toLowerCase(); }
+  }
+  var src = qp('src'), us = qp('utm_source'), um = qp('utm_medium');
+  if(!/^(meta|listing|flyer)$/.test(src)){
+    if(/^(meta|facebook|instagram|fb|ig|an|msg|threads)$/.test(us)) src = 'meta';
+    else if(/^(google|yahoo|bing)$/.test(us) && /^(cpc|ppc|paid|paidsearch|paid_search|search|listing|sem)$/.test(um)) src = 'listing';
+    else if(qp('fbclid')) src = 'meta';
+    else if(qp('gclid') || qp('gbraid') || qp('wbraid') || qp('yclid') || qp('msclkid')) src = 'listing';
+    else src = 'flyer';
+  }
+  c.lpSrc = src;
+  c.reserveUrl = (c.RESERVE_URLS && c.RESERVE_URLS[src]) || c.RESERVE_URL;
   if(c.GA4_ID){
     var s = document.createElement('script'); s.async = true;
     s.src = 'https://www.googletagmanager.com/gtag/js?id=' + c.GA4_ID;
     document.head.appendChild(s);
     window.dataLayer = window.dataLayer || [];
     window.gtag = function(){ dataLayer.push(arguments); };
-    gtag('js', new Date()); gtag('config', c.GA4_ID, {cta_mode: mode});
+    gtag('js', new Date()); gtag('config', c.GA4_ID, {cta_mode: mode, lp_src: src});
   }
   if(c.CLARITY_ID){
     (function(w,d,t,u,i){ w[t]=w[t]||function(){(w[t].q=w[t].q||[]).push(arguments)};
       var s=d.createElement('script'); s.async=1; s.src=u+i; d.head.appendChild(s);
     })(window,document,'clarity','https://www.clarity.ms/tag/',c.CLARITY_ID);
-    clarity('set', 'cta_mode', mode);
+    clarity('set', 'cta_mode', mode); clarity('set', 'lp_src', src);
   }
   if(c.META_PIXEL_ID){
     !function(f,b,e,v,n,t,z){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;z=b.getElementsByTagName(e)[0];z.parentNode.insertBefore(t,z)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
@@ -75,8 +97,8 @@ window.LP_CONFIG = {
     }
     var sec = a.closest('section,header,.sticky-cta');
     var place = (sec && (sec.id || (sec.className && String(sec.className).split(' ')[0]))) || 'page';
-    if(window.gtag) gtag('event', mode === 'direct' ? 'reserve_click' : 'line_click', {placement: place, cta_mode: mode});
-    if(window.fbq) fbq('track', 'Lead', {cta_mode: mode});
+    if(window.gtag) gtag('event', mode === 'direct' ? 'reserve_click' : 'line_click', {placement: place, cta_mode: mode, lp_src: src});
+    if(window.fbq) fbq('track', 'Lead', {cta_mode: mode, lp_src: src});
   }, true);
 })();
 </script>
@@ -1451,10 +1473,10 @@ window.LP_CONFIG = {
 </div>
 
 <script>
-  // 予約ボタンの行き先（直予約版＝RESERVE_URL／LINE経由版＝LINE_URL）。リンクは data-cta-link の付いたボタンすべて
+  // 予約ボタンの行き先（直予約版＝流入元ごとの予約フォーム／LINE経由版＝LINE_URL）。リンクは data-cta-link の付いたボタンすべて
   function applyCtaLinks(){
     var c = window.LP_CONFIG || {};
-    var url = c.ctaMode === 'direct' ? (c.RESERVE_URL || '#') : c.LINE_URL;
+    var url = c.ctaMode === 'direct' ? (c.reserveUrl || c.RESERVE_URL || '#') : c.LINE_URL;
     if(!url) return;
     document.querySelectorAll('a[data-cta-link]').forEach(function(a){ a.href = url; });
   }
